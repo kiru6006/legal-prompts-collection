@@ -42,7 +42,7 @@ py-typecheck:
 py-test:
 	@echo -e "$(COLOR_BLUE)==> Executing pytest test suite...$(COLOR_RESET)"
 	@if [ -x "$(PYTEST)" ]; then \
-		$(PYTEST) -v $(SCRIPTS_DIR)/tests; \
+		PYTHONPATH=$(SCRIPTS_DIR) $(PYTEST) -v $(SCRIPTS_DIR)/tests; \
 	else \
-		python3 -m pytest -v $(SCRIPTS_DIR)/tests; \
+		PYTHONPATH=$(SCRIPTS_DIR) python3 -m pytest -v $(SCRIPTS_DIR)/tests; \
 	fi
