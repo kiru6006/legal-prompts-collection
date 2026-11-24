@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Claude Legal Skills Workbench</title>
+    <script type="text/javascript">
+      // GitHub Pages SPA redirect
+      var l = window.location;
+      var repo = '/legal-prompts-collection/';
+      if (l.pathname.startsWith(repo)) {
+        var sub = l.pathname.slice(repo.length);
+        if (sub && !sub.startsWith('#')) {
+          l.replace(repo + '#' + sub);
+        } else {
+          l.replace(repo);
+        }
+      } else {
+        l.replace('./');
+      }
+    </script>
+  </head>
+  <body>
+    Redirecting to Claude Legal Skills Workbench...
+  </body>
+</html>
