@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ExternalLink, ShieldAlert } from 'lucide-react';
 import { CopyButton } from '../../components/common/CopyButton';
 import { VariableSchema } from '../../types/skills';
+import { interpolatePromptTemplate } from '../../utils/promptInterpolator';
 
 interface PromptBlockProps {
   template: string;
@@ -20,14 +21,8 @@ export const PromptBlock: React.FC<PromptBlockProps> = ({
 }) => {
   const [showWarning, setShowWarning] = useState(false);
 
-  // Deterministic interpolation of {{VAR}} variables
-  let interpolatedPrompt = template;
-  for (const v of variables) {
-    const rawVal = values[v.key] !== undefined ? values[v.key] : v.default;
-    const replacement = typeof rawVal === 'boolean' ? (rawVal ? 'Yes' : 'No') : String(rawVal);
-    const regex = new RegExp(`\\{\\{${v.key}\\}\\}`, 'g');
-    interpolatedPrompt = interpolatedPrompt.replace(regex, replacement);
-  }
+  // Robust deterministic interpolation with zero null/undefined leaks
+  const interpolatedPrompt = interpolatePromptTemplate(template, variables, values);
 
   const handleCopyPromptAttempt = () => {
     if (!confidentialityAccepted) {

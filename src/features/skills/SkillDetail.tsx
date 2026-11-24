@@ -8,6 +8,7 @@ import { useBookmarkStore } from '../../stores/bookmarkStore';
 import { DynamicVariableForm } from '../prompt-builder/DynamicVariableForm';
 import { ResponsePreviewPane } from '../response-preview/ResponsePreviewPane';
 import { SkillInfoModal } from './SkillInfoModal';
+import { interpolatePromptTemplate } from '../../utils/promptInterpolator';
 import { CopyButton } from '../../components/common/CopyButton';
 import {
   Bookmark,
@@ -65,8 +66,35 @@ export const SkillDetail: React.FC<SkillDetailProps> = ({ skillId }) => {
   const handleResetDefaults = () => resetSkillVariables(skill.id);
   const handleLoadSample = () => {
     if (overlay?.variables) {
+      // Scenario-aligned fictional matter overrides
+      const scenarioOverrides: Record<string, Record<string, any>> = {
+        'commercial-legal:nda-review': {
+          CLIENT_ROLE: 'Receiving Party',
+          GOVERNING_LAW: 'Laws of India, courts at New Delhi',
+          TERM_YEARS: 5,
+          NON_COMPETE_FLAG: true
+        },
+        'corporate-legal:tabular-review': {
+          MATERIALITY_THRESHOLD: 'Rs. 50,00,000/- annual',
+          EXTRACT_FIELDS: 'Change of Control, Exclusivity, Assignment, Non-Compete, Governing Law'
+        },
+        'employment-legal:termination-review': {
+          WORKER_STATUS: 'Workman / Non-Supervisory',
+          GROUND_FOR_EXIT: 'Underperformance (PIP)',
+          TENURE_YEARS: 4
+        },
+        'litigation-legal:demand-draft': {
+          CLAIMANT_NAME: 'Sunrise Logistics Pvt Ltd',
+          DEFAULTING_PARTY: 'Vanguard Manufacturing Ltd',
+          AMOUNT_DUE: 'Rs. 18,50,000/- plus 18% p.a. interest',
+          CURE_PERIOD_DAYS: 15
+        }
+      };
+
+      const overrides = scenarioOverrides[skill.id] || {};
       for (const v of overlay.variables) {
-        setVariableValue(skill.id, v.key, v.default);
+        const sampleVal = overrides[v.key] !== undefined ? overrides[v.key] : v.default;
+        setVariableValue(skill.id, v.key, sampleVal);
       }
     }
   };
@@ -75,16 +103,12 @@ export const SkillDetail: React.FC<SkillDetailProps> = ({ skillId }) => {
     ? `${skill.official_command} ${skill.argument_hint || ''}`.trim()
     : `/${skill.category_id}:${skill.official_name}`;
 
-  // Interpolate variables into prompt template if template exists
-  let interpolatedPrompt = overlay?.prompt_template || '';
-  if (overlay?.variables && overlay.prompt_template) {
-    for (const v of overlay.variables) {
-      const rawVal = currentValues[v.key] !== undefined ? currentValues[v.key] : v.default;
-      const replacement = typeof rawVal === 'boolean' ? (rawVal ? 'Yes' : 'No') : String(rawVal);
-      const regex = new RegExp(`\\{\\{${v.key}\\}\\}`, 'g');
-      interpolatedPrompt = interpolatedPrompt.replace(regex, replacement);
-    }
-  }
+  // Deterministic interpolation with zero null/undefined leaks and no raw curly braces
+  const interpolatedPrompt = interpolatePromptTemplate(
+    overlay?.prompt_template,
+    overlay?.variables,
+    currentValues
+  );
 
   return (
     <div className="flex-1 flex flex-col min-h-0 overflow-hidden bg-slate-50 text-slate-900">
@@ -224,6 +248,7 @@ export const SkillDetail: React.FC<SkillDetailProps> = ({ skillId }) => {
                     onChange={(k, v) => setVariableValue(skill.id, k, v)}
                     onResetDefaults={handleResetDefaults}
                     onLoadSample={handleLoadSample}
+                    fictionalScenario={overlay.fictional_scenario}
                   />
                 </div>
               )}
