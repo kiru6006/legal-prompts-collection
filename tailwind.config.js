@@ -9,18 +9,42 @@ export default {
       colors: {
         legal: {
           bg: "#FFFFFF",
-          bgSubtle: "#F8FAFC",
-          panel: "#F1F5F9",
+          sidebar: "#F8FAFC",
           text: "#0F172A",
-          textSubtle: "#475569",
-          accent: "#0F5C6B",
-          accentSubtle: "#E6F1F3",
+          muted: "#475569",
+          primary: "#1D4ED8",
+          primaryHover: "#1E40AF",
+          selected: "#DBEAFE",
+          selectedText: "#1E40AF",
           border: "#E2E8F0",
-          critical: "#B91C1C",
+          borderDark: "#CBD5E1",
+          danger: "#B91C1C",
           warning: "#B45309",
           success: "#047857",
-          info: "#1D4ED8",
         }
+      },
+      fontFamily: {
+        sans: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          '"Helvetica Neue"',
+          "Arial",
+          "sans-serif",
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"'
+        ],
+        mono: [
+          '"SFMono-Regular"',
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          '"Liberation Mono"',
+          '"Courier New"',
+          "monospace"
+        ]
       }
     },
   },

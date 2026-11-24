@@ -1,43 +1,22 @@
 import { create } from 'zustand';
 
-export interface FilterState {
+export interface SearchFilterState {
   searchQuery: string;
-  selectedCategory: string | null;
-  selectedPersona: string | null;
+  isSearchOpen: boolean;
   selectedJurisdiction: string;
-  riskPosture: 'standard' | 'conservative' | 'high-risk';
-  readinessFilter: 'all' | 'ready' | 'catalogue-only';
-  
-  setSearchQuery: (query: string) => void;
-  setSelectedCategory: (category: string | null) => void;
-  setSelectedPersona: (persona: string | null) => void;
-  setSelectedJurisdiction: (jurisdiction: string) => void;
-  setRiskPosture: (posture: 'standard' | 'conservative' | 'high-risk') => void;
-  setReadinessFilter: (filter: 'all' | 'ready' | 'catalogue-only') => void;
-  resetFilters: () => void;
+  setSearchQuery: (q: string) => void;
+  setIsSearchOpen: (open: boolean) => void;
+  setSelectedJurisdiction: (j: string) => void;
+  clearSearch: () => void;
 }
 
-export const useSearchFilterStore = create<FilterState>((set) => ({
+export const useSearchFilterStore = create<SearchFilterState>((set) => ({
   searchQuery: '',
-  selectedCategory: null,
-  selectedPersona: null,
+  isSearchOpen: false,
   selectedJurisdiction: 'India',
-  riskPosture: 'standard',
-  readinessFilter: 'all',
 
   setSearchQuery: (searchQuery) => set({ searchQuery }),
-  setSelectedCategory: (selectedCategory) => set({ selectedCategory }),
-  setSelectedPersona: (selectedPersona) => set({ selectedPersona }),
+  setIsSearchOpen: (isSearchOpen) => set({ isSearchOpen }),
   setSelectedJurisdiction: (selectedJurisdiction) => set({ selectedJurisdiction }),
-  setRiskPosture: (riskPosture) => set({ riskPosture }),
-  setReadinessFilter: (readinessFilter) => set({ readinessFilter }),
-  
-  resetFilters: () => set({
-    searchQuery: '',
-    selectedCategory: null,
-    selectedPersona: null,
-    selectedJurisdiction: 'India',
-    riskPosture: 'standard',
-    readinessFilter: 'all'
-  })
+  clearSearch: () => set({ searchQuery: '', isSearchOpen: false })
 }));
