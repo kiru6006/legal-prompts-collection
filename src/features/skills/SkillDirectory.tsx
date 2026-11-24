@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useCatalogueStore } from '../../stores/catalogueStore';
 import { useNavigationStore } from '../../stores/navigationStore';
 import { useSearchFilterStore } from '../../stores/searchFilterStore';
+import { getCategoryTheme } from '../../utils/categoryTheme';
 import {
   Search,
   ChevronRight,
@@ -248,18 +249,24 @@ export const SkillDirectory: React.FC = () => {
           {filtered.map((skill) => {
             const commandStr = skill.official_command || `/${skill.category_id}:${skill.official_name}`;
             const isCopied = copiedId === skill.id;
+            const theme = getCategoryTheme(skill.category_id);
 
             return (
               <div
                 key={skill.id}
                 onClick={() => navigateToSkill(skill.id)}
-                className="h-full bg-white border border-slate-200 hover:border-[#1E3A8A] rounded-xl p-4 sm:p-5 shadow-2xs hover:shadow-md active:scale-[0.99] active:bg-slate-50/50 transition-all duration-150 cursor-pointer flex flex-col justify-between group min-w-0"
+                style={{
+                  '--cat-shadow': theme.shadowBase,
+                  '--cat-shadow-hover': theme.shadowHover,
+                  borderLeftColor: theme.borderLeftColor,
+                } as React.CSSProperties}
+                className="card-left-shadow h-full bg-white border border-slate-200 hover:border-slate-300 border-l-4 rounded-xl p-4 sm:p-5 active:scale-[0.99] active:bg-slate-50/50 transition-all duration-150 cursor-pointer flex flex-col justify-between group min-w-0"
               >
                 {/* Top Section: Badges & Info */}
                 <div className="space-y-2">
                   {/* Category & Status Badges Row */}
                   <div className="flex items-center justify-between gap-1.5 h-6">
-                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200 truncate shrink-0 max-w-[60%]">
+                    <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder} border truncate shrink-0 max-w-[60%]`}>
                       {CATEGORY_NAMES[skill.category_id] || skill.category_name}
                     </span>
 

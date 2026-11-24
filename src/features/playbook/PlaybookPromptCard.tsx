@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { LawyerPrompt } from '../../types/lawyerPrompts';
+import { getCategoryTheme } from '../../utils/categoryTheme';
 import {
   ChevronRight,
   Copy,
@@ -25,18 +26,24 @@ export const PlaybookPromptCard: React.FC<PlaybookPromptCardProps> = ({ prompt, 
 
   const hasHindi = Boolean(prompt.language_variants.hindi);
   const hasTamil = Boolean(prompt.language_variants.tamil);
+  const theme = getCategoryTheme(prompt.category_id || prompt.category_name);
 
   return (
     <div
       onClick={() => onOpen(prompt)}
-      className="h-full bg-white border border-slate-200 hover:border-[#1E3A8A] rounded-xl p-4 sm:p-5 shadow-2xs hover:shadow-md active:scale-[0.99] active:bg-slate-50/50 transition-all duration-150 cursor-pointer flex flex-col justify-between group min-w-0"
+      style={{
+        '--cat-shadow': theme.shadowBase,
+        '--cat-shadow-hover': theme.shadowHover,
+        borderLeftColor: theme.borderLeftColor,
+      } as React.CSSProperties}
+      className="card-left-shadow h-full bg-white border border-slate-200 hover:border-slate-300 border-l-4 rounded-xl p-4 sm:p-5 active:scale-[0.99] active:bg-slate-50/50 transition-all duration-150 cursor-pointer flex flex-col justify-between group min-w-0"
     >
       {/* Top Section */}
       <div className="space-y-2">
         {/* Category & Time Savings Badges: exactly 24px */}
         <div className="flex items-center justify-between gap-1.5 h-6">
           <div className="flex items-center gap-1.5 min-w-0 flex-1 truncate">
-            <span className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200 truncate shrink-0 max-w-[65%]">
+            <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider ${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder} border truncate shrink-0 max-w-[65%]`}>
               {prompt.category_name}
             </span>
             <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold text-slate-600 bg-slate-50 border border-slate-200 truncate hidden sm:inline">
