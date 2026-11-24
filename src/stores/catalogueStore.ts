@@ -20,23 +20,44 @@ export const useCatalogueStore = create<CatalogueStore>((set, get) => ({
   loadCatalogue: async () => {
     if (get().catalogue) return;
     set({ isLoading: true, error: null });
-    try {
-      // Relative path works correctly in both local Vite dev and GitHub Pages base URL
-      const res = await fetch('./data/skills.json');
-      if (!res.ok) {
-        throw new Error(`Failed to load skills catalogue (HTTP ${res.status})`);
+
+    // Robust multi-path resolution for both localhost and GitHub Pages (with/without subpath)
+    const baseUrl = import.meta.env.BASE_URL || './';
+    const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+    
+    const candidatePaths = [
+      `${cleanBase}data/skills.json`,
+      './data/skills.json',
+      'data/skills.json',
+      '/legal-prompts-collection/data/skills.json',
+      '/data/skills.json'
+    ];
+
+    let lastError = null;
+    for (const path of candidatePaths) {
+      try {
+        const res = await fetch(path);
+        if (res.ok) {
+          const data: SkillsCatalogue = await res.json();
+          if (data && Array.isArray(data.skills)) {
+            set({ catalogue: data, isLoading: false, error: null });
+            return;
+          }
+        }
+      } catch (e: any) {
+        lastError = e;
       }
-      const data: SkillsCatalogue = await res.json();
-      set({ catalogue: data, isLoading: false });
-    } catch (err: any) {
-      console.error('Failed to load catalogue:', err);
-      set({ error: err.message || 'Unknown network error', isLoading: false });
     }
+
+    console.error('Failed to load catalogue from candidate paths', lastError);
+    set({
+      error: 'Failed to load skills catalogue. Please refresh or check connection.',
+      isLoading: false
+    });
   },
 
   getSkillById: (id: string) => {
     const skills = get().catalogue?.skills || [];
-    // Normalise ID search to match colon or slash notation
     const cleanId = id.replace('/', ':');
     return skills.find((s) => s.id === cleanId || s.slug === cleanId || s.id.endsWith(`:${cleanId}`));
   },
