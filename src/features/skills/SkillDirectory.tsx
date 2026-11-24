@@ -11,9 +11,25 @@ import {
   Scale,
   Terminal,
   Filter,
-  X
+  X,
+  Check
 } from 'lucide-react';
 import { SkillRecord } from '../../types/skills';
+
+const CATEGORY_NAMES: Record<string, string> = {
+  'ai-governance-legal': 'AI Governance',
+  'commercial-legal': 'Commercial',
+  'corporate-legal': 'Corporate',
+  'employment-legal': 'Employment',
+  'ip-legal': 'Intellectual Property',
+  'law-student': 'Law Student',
+  'legal-builder-hub': 'Builder Hub',
+  'legal-clinic': 'Legal Clinic',
+  'litigation-legal': 'Litigation',
+  'privacy-legal': 'Privacy',
+  'product-legal': 'Product',
+  'regulatory-legal': 'Regulatory'
+};
 
 export const SkillDirectory: React.FC = () => {
   const { catalogue } = useCatalogueStore();
@@ -24,11 +40,16 @@ export const SkillDirectory: React.FC = () => {
   const [filterCategory, setFilterCategory] = useState<string>('all');
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [localQuery, setLocalQuery] = useState<string>('');
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const skills: SkillRecord[] = catalogue?.skills || [];
 
-  // Extract unique categories
-  const categories = Array.from(new Set(skills.map((s) => s.category_id)));
+  // Extract unique categories preserving canonical order
+  const rawCategories = Array.from(new Set(skills.map((s) => s.category_id)));
+  const categories = Object.keys(CATEGORY_NAMES).filter((c) => rawCategories.includes(c));
+  for (const c of rawCategories) {
+    if (!categories.includes(c)) categories.push(c);
+  }
 
   // Filter skills
   const filtered = skills.filter((s) => {
@@ -49,11 +70,18 @@ export const SkillDirectory: React.FC = () => {
     setLocalQuery('');
   };
 
+  const handleCopyCommand = (e: React.MouseEvent, skillId: string, cmd: string) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(cmd);
+    setCopiedId(skillId);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
   return (
-    <div className="flex-1 overflow-y-auto overflow-x-hidden p-3.5 sm:p-5 lg:p-6 space-y-4 max-w-7xl mx-auto w-full min-w-0">
+    <div className="flex-1 overflow-y-auto overflow-x-hidden p-3.5 sm:p-5 lg:p-6 pb-24 sm:pb-32 space-y-4 max-w-7xl mx-auto w-full min-w-0">
       
-      {/* 1. Indian Court Header & Sovereign Emblem Accent */}
-      <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-2xs space-y-3">
+      {/* 1. Indian Court Header & Controls */}
+      <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-2xs space-y-3.5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -67,12 +95,12 @@ export const SkillDirectory: React.FC = () => {
 
             <h1 className="text-base sm:text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
               <span>Legal Skills Directory</span>
-              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 text-[#1E3A8A] border border-blue-200 font-mono">
+              <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-[#1E3A8A] border border-blue-200 font-mono">
                 {filtered.length} of {skills.length} Skills
               </span>
             </h1>
             <p className="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              Explore 151 official Claude legal skills across 12 practice suites with Indian statutory adaptations, structured prompts, and verified deliverable blueprints.
+              Explore official Claude legal skills across 12 practice suites with Indian statutory adaptations, structured prompts, and verified deliverable blueprints.
             </p>
           </div>
 
@@ -82,10 +110,10 @@ export const SkillDirectory: React.FC = () => {
             <div className="inline-flex items-center p-0.5 rounded-lg border border-slate-300 bg-slate-100">
               <button
                 onClick={() => setViewMode('cards')}
-                className={`p-1.5 rounded-md text-xs font-medium transition-colors flex items-center gap-1 ${
+                className={`p-1.5 rounded-md text-xs transition-all flex items-center gap-1 active:scale-95 ${
                   viewMode === 'cards'
                     ? 'bg-[#1E3A8A] text-white font-bold shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
+                    : 'text-slate-600 hover:text-slate-900 font-medium'
                 }`}
                 title="Grid / Cards View"
                 aria-label="Grid Cards View"
@@ -95,10 +123,10 @@ export const SkillDirectory: React.FC = () => {
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-1.5 rounded-md text-xs font-medium transition-colors flex items-center gap-1 ${
+                className={`p-1.5 rounded-md text-xs transition-all flex items-center gap-1 active:scale-95 ${
                   viewMode === 'list'
                     ? 'bg-[#1E3A8A] text-white font-bold shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
+                    : 'text-slate-600 hover:text-slate-900 font-medium'
                 }`}
                 title="Compact List View"
                 aria-label="Compact List View"
@@ -108,10 +136,10 @@ export const SkillDirectory: React.FC = () => {
               </button>
             </div>
 
-            {/* Quick ⌘K Search Button (Judicial Navy) */}
+            {/* Quick ⌘K Search Button */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-[#1E3A8A] hover:bg-[#172554] rounded-lg transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-[#1E3A8A] hover:bg-[#172554] active:scale-95 active:bg-[#0f172a] rounded-lg transition-all shadow-xs"
             >
               <Search className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Search</span>
@@ -121,7 +149,7 @@ export const SkillDirectory: React.FC = () => {
         </div>
 
         {/* 2. Interactive Search & Filter Controls */}
-        <div className="flex flex-col md:flex-row gap-2.5 items-stretch md:items-center justify-between pt-1">
+        <div className="flex flex-col md:flex-row gap-2.5 items-stretch md:items-center justify-between">
           {/* Keyword Search Input */}
           <div className="relative flex-1 min-w-[200px]">
             <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -130,12 +158,12 @@ export const SkillDirectory: React.FC = () => {
               value={localQuery}
               onChange={(e) => setLocalQuery(e.target.value)}
               placeholder="Search by skill name, official command, or statute..."
-              className="w-full pl-8 pr-8 py-1.5 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1E3A8A] focus:border-[#1E3A8A]"
+              className="w-full h-9 pl-9 pr-8 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1E3A8A]/20 focus:border-[#1E3A8A] transition-all"
             />
             {localQuery && (
               <button
                 onClick={() => setLocalQuery('')}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5 rounded transition-colors"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -148,12 +176,12 @@ export const SkillDirectory: React.FC = () => {
             <select
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
-              className="text-xs bg-slate-50 px-2.5 py-1.5 border border-slate-300 rounded-lg text-slate-800 font-medium focus:bg-white focus:outline-hidden focus:ring-1 focus:ring-[#1E3A8A]"
+              className="h-9 text-xs bg-slate-50 px-2.5 border border-slate-300 rounded-lg text-slate-800 font-medium focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1E3A8A]/20 focus:border-[#1E3A8A] transition-all cursor-pointer"
             >
               <option value="all">All Categories ({categories.length})</option>
               {categories.map((c) => (
                 <option key={c} value={c}>
-                  {c.replace(/-/g, ' ').toUpperCase()}
+                  {CATEGORY_NAMES[c] || c.replace(/-/g, ' ').toUpperCase()}
                 </option>
               ))}
             </select>
@@ -162,18 +190,18 @@ export const SkillDirectory: React.FC = () => {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="text-xs bg-slate-50 px-2.5 py-1.5 border border-slate-300 rounded-lg text-slate-800 font-medium focus:bg-white focus:outline-hidden focus:ring-1 focus:ring-[#1E3A8A]"
+              className="h-9 text-xs bg-slate-50 px-2.5 border border-slate-300 rounded-lg text-slate-800 font-medium focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1E3A8A]/20 focus:border-[#1E3A8A] transition-all cursor-pointer"
             >
               <option value="all">All Skills ({skills.length})</option>
               <option value="ready">Validated Walkthroughs</option>
               <option value="india">Indian Law Overlays (18)</option>
             </select>
 
-            {/* Reset Filters Button (Court Crimson Red) */}
+            {/* Reset Filters Button */}
             {(filterCategory !== 'all' || filterStatus !== 'all' || localQuery) && (
               <button
                 onClick={clearFilters}
-                className="text-[11px] font-semibold text-[#B91C1C] bg-red-50 hover:bg-red-100 border border-red-200 rounded-lg px-2.5 py-1 whitespace-nowrap transition-colors"
+                className="h-9 text-[11px] font-bold text-[#B91C1C] bg-red-50 hover:bg-red-100 active:scale-95 border border-red-200 rounded-lg px-3 whitespace-nowrap transition-all shadow-2xs"
               >
                 Reset
               </button>
@@ -181,29 +209,29 @@ export const SkillDirectory: React.FC = () => {
           </div>
         </div>
 
-        {/* Category Quick Chips with Court Colors */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pt-1 pb-1 scrollbar-none text-[11px]">
+        {/* Category Quick Chips with Active Highlights */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pt-1 pb-1 text-[11px] scrollbar-thin">
           <button
             onClick={() => setFilterCategory('all')}
-            className={`px-3 py-1 rounded-full whitespace-nowrap transition-colors font-medium ${
+            className={`px-3 py-1 rounded-full whitespace-nowrap transition-all font-semibold active:scale-95 ${
               filterCategory === 'all'
-                ? 'bg-slate-950 text-white font-bold shadow-xs'
+                ? 'bg-slate-950 text-white shadow-xs'
                 : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
-            All
+            All Skills ({skills.length})
           </button>
           {categories.map((cat) => {
             const isSelected = filterCategory === cat;
-            const displayName = cat.replace(/-legal$/, '').replace(/-/g, ' ');
+            const displayName = CATEGORY_NAMES[cat] || cat.replace(/-legal$/, '').replace(/-/g, ' ');
             return (
               <button
                 key={cat}
                 onClick={() => setFilterCategory(isSelected ? 'all' : cat)}
-                className={`px-3 py-1 rounded-full whitespace-nowrap transition-colors capitalize ${
+                className={`px-3 py-1 rounded-full whitespace-nowrap transition-all active:scale-95 ${
                   isSelected
                     ? 'bg-[#1E3A8A] text-white font-bold shadow-xs'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium'
                 }`}
               >
                 {displayName}
@@ -216,34 +244,37 @@ export const SkillDirectory: React.FC = () => {
       {/* 3. Content Display: Cards vs List */}
       {viewMode === 'cards' ? (
         /* CARDS GRID STRUCTURE (Responsive 1-col mobile, 2-col tablet, 3-col web) */
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 min-w-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4.5 min-w-0">
           {filtered.map((skill) => {
             const commandStr = skill.official_command || `/${skill.category_id}:${skill.official_name}`;
+            const isCopied = copiedId === skill.id;
+
             return (
               <div
                 key={skill.id}
                 onClick={() => navigateToSkill(skill.id)}
-                className="bg-white border border-slate-200 hover:border-[#1E3A8A] rounded-xl p-4.5 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between group space-y-3 min-w-0"
+                className="bg-white border border-slate-200 hover:border-[#1E3A8A] rounded-xl p-4.5 shadow-2xs hover:shadow-md active:scale-[0.99] active:bg-slate-50/50 transition-all duration-150 cursor-pointer flex flex-col justify-between group min-w-0 space-y-3"
               >
-                {/* Top Badges & Category */}
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between gap-1.5">
-                    <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-300 truncate">
-                      {skill.category_name}
+                {/* Top Section: Badges & Info */}
+                <div className="space-y-2">
+                  {/* Category & Status Badges Row */}
+                  <div className="flex items-center justify-between gap-1.5 h-6">
+                    <span className="px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200 truncate shrink-0 max-w-[60%]">
+                      {CATEGORY_NAMES[skill.category_id] || skill.category_name}
                     </span>
 
                     <div className="flex items-center gap-1.5 shrink-0">
-                      {/* Indian Law Badge: Ashoka Gold / Court Yellow */}
+                      {/* Indian Law Badge */}
                       {skill.india_context && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold text-amber-950 bg-amber-100 border border-amber-300 shadow-2xs" title="Indian Substantive Law Grounding">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold text-amber-950 bg-amber-100 border border-amber-300 shadow-2xs" title="Indian Substantive Law Grounding">
                           <Scale className="w-3 h-3 text-amber-700" />
                           <span>India</span>
                         </span>
                       )}
 
-                      {/* Ready Badge: Supreme Court Navy */}
+                      {/* Ready Badge */}
                       {skill.educational_status === 'ready' && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold text-blue-900 bg-blue-50 border border-blue-200 shadow-2xs" title="Verified Walkthrough Ready">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold text-blue-900 bg-blue-50 border border-blue-200 shadow-2xs" title="Verified Walkthrough Ready">
                           <CheckCircle2 className="w-3 h-3 text-[#1E3A8A]" />
                           <span>Ready</span>
                         </span>
@@ -251,46 +282,54 @@ export const SkillDirectory: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Title: Advocate Black typography */}
-                  <h2 className="text-sm font-bold text-slate-900 group-hover:text-[#1E3A8A] transition-colors line-clamp-1 tracking-tight">
+                  {/* Title */}
+                  <h2 className="text-sm font-bold text-slate-900 group-hover:text-[#1E3A8A] transition-colors truncate tracking-tight h-5 flex items-center">
                     {skill.display_name}
                   </h2>
 
-                  {/* Description */}
-                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                  {/* Description: Uniform 2-line height */}
+                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed h-10 overflow-hidden text-ellipsis">
                     {skill.description}
                   </p>
                 </div>
 
-                {/* Bottom Card Footer: Command Chip + Open Action */}
-                <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2 text-xs">
-                  <div className="flex items-center gap-1.5 min-w-0 flex-1">
-                    <code className="text-[11px] font-mono text-slate-700 bg-slate-50 px-2 py-0.5 rounded border border-slate-200 truncate block select-all">
+                {/* Bottom Section: Command Bar + Action */}
+                <div className="space-y-2 pt-2 border-t border-slate-100">
+                  {/* Full-width Official Command Bar */}
+                  <div className="bg-slate-50 group-hover:bg-slate-100/70 border border-slate-200 rounded-lg px-2.5 py-1.5 flex items-center justify-between gap-2 transition-colors">
+                    <code className="text-[11px] font-mono text-slate-700 truncate block select-all flex-1" title={commandStr}>
                       {commandStr}
                     </code>
+                    <button
+                      onClick={(e) => handleCopyCommand(e, skill.id, commandStr)}
+                      className="p-1 text-slate-400 hover:text-[#1E3A8A] hover:bg-slate-200/70 active:scale-90 rounded transition-all shrink-0"
+                      title={isCopied ? 'Command Copied!' : 'Copy command to clipboard'}
+                      aria-label="Copy command"
+                    >
+                      {isCopied ? (
+                        <Check className="w-3.5 h-3.5 text-emerald-600" />
+                      ) : (
+                        <Terminal className="w-3.5 h-3.5" />
+                      )}
+                    </button>
                   </div>
 
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        navigator.clipboard.writeText(commandStr);
-                      }}
-                      className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-md transition-colors"
-                      title="Copy official command"
-                    >
-                      <Terminal className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#1E3A8A]" />
-                    </button>
-                    {/* Open Button: Indian Court Navy */}
+                  {/* Action Bar */}
+                  <div className="flex items-center justify-between text-xs pt-1">
+                    <span className="text-[10px] text-slate-400 font-medium flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
+                      <span>Workbench Ready</span>
+                    </span>
+
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         navigateToSkill(skill.id);
                       }}
-                      className="inline-flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#1E3A8A] hover:bg-[#172554] rounded-lg transition-colors shadow-2xs"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-[#1E3A8A] hover:bg-[#172554] active:scale-95 active:bg-[#0f172a] focus-visible:ring-2 focus-visible:ring-[#1E3A8A] focus-visible:outline-none rounded-lg transition-all shadow-xs group-hover:shadow-sm"
                     >
-                      <span>Open</span>
-                      <ChevronRight className="w-3 h-3 text-amber-300" />
+                      <span>Open Skill</span>
+                      <ChevronRight className="w-3.5 h-3.5 text-amber-300 group-hover:translate-x-0.5 transition-transform" />
                     </button>
                   </div>
                 </div>
@@ -315,53 +354,62 @@ export const SkillDirectory: React.FC = () => {
               <tbody className="divide-y divide-slate-100">
                 {filtered.map((skill) => {
                   const commandStr = skill.official_command || `/${skill.category_id}:${skill.official_name}`;
+                  const isCopied = copiedId === skill.id;
+
                   return (
                     <tr
                       key={skill.id}
                       onClick={() => navigateToSkill(skill.id)}
-                      className="hover:bg-blue-50/50 cursor-pointer transition-colors group"
+                      className="hover:bg-blue-50/60 active:bg-blue-100/50 cursor-pointer transition-colors group"
                     >
-                      <td className="py-3 px-4">
-                        <div className="font-bold text-slate-900 group-hover:text-[#1E3A8A] text-xs">
+                      <td className="py-3.5 px-4">
+                        <div className="font-bold text-slate-900 group-hover:text-[#1E3A8A] text-xs transition-colors">
                           {skill.display_name}
                         </div>
                         <div className="text-[11px] text-slate-500 line-clamp-1 max-w-md mt-0.5">
                           {skill.description}
                         </div>
                       </td>
-                      <td className="py-3 px-3 whitespace-nowrap">
-                        <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-800 uppercase tracking-wide border border-slate-200">
-                          {skill.category_name}
+                      <td className="py-3.5 px-3 whitespace-nowrap">
+                        <span className="inline-block px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-800 uppercase tracking-wide border border-slate-200">
+                          {CATEGORY_NAMES[skill.category_id] || skill.category_name}
                         </span>
                       </td>
-                      <td className="py-3 px-3 font-mono text-[11px] text-slate-700 whitespace-nowrap hidden sm:table-cell">
-                        <span className="bg-slate-50 px-2 py-0.5 rounded border border-slate-200">
-                          {commandStr}
-                        </span>
+                      <td className="py-3.5 px-3 font-mono text-[11px] text-slate-700 whitespace-nowrap hidden sm:table-cell">
+                        <div className="inline-flex items-center gap-1.5 bg-slate-50 hover:bg-slate-100 px-2 py-0.5 rounded border border-slate-200 transition-colors">
+                          <span>{commandStr}</span>
+                          <button
+                            onClick={(e) => handleCopyCommand(e, skill.id, commandStr)}
+                            className="text-slate-400 hover:text-[#1E3A8A] p-0.5 rounded transition-colors"
+                            title="Copy command"
+                          >
+                            {isCopied ? <Check className="w-3 h-3 text-emerald-600" /> : <Terminal className="w-3 h-3" />}
+                          </button>
+                        </div>
                       </td>
-                      <td className="py-3 px-3 whitespace-nowrap hidden md:table-cell">
+                      <td className="py-3.5 px-3 whitespace-nowrap hidden md:table-cell">
                         <div className="flex items-center gap-1.5">
                           {skill.india_context && (
-                            <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded text-[10px] font-bold text-amber-950 bg-amber-100 border border-amber-300">
+                            <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-md text-[10px] font-bold text-amber-950 bg-amber-100 border border-amber-300 shadow-2xs">
                               <Scale className="w-3 h-3 text-amber-700" />
                               <span>India</span>
                             </span>
                           )}
                           {skill.educational_status === 'ready' && (
-                            <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded text-[10px] font-bold text-blue-900 bg-blue-50 border border-blue-200">
+                            <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-md text-[10px] font-bold text-blue-900 bg-blue-50 border border-blue-200 shadow-2xs">
                               <CheckCircle2 className="w-3 h-3 text-[#1E3A8A]" />
                               <span>Ready</span>
                             </span>
                           )}
                         </div>
                       </td>
-                      <td className="py-3 px-4 text-right whitespace-nowrap">
+                      <td className="py-3.5 px-4 text-right whitespace-nowrap">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             navigateToSkill(skill.id);
                           }}
-                          className="inline-flex items-center gap-1 px-3 py-1 text-xs font-bold text-white bg-[#1E3A8A] hover:bg-[#172554] rounded-lg transition-colors shadow-2xs"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-bold text-white bg-[#1E3A8A] hover:bg-[#172554] active:scale-95 active:bg-[#0f172a] focus-visible:ring-2 focus-visible:ring-[#1E3A8A] focus-visible:outline-none rounded-lg transition-all shadow-xs"
                         >
                           <span>Open</span>
                           <ChevronRight className="w-3.5 h-3.5 text-amber-300" />
@@ -378,7 +426,7 @@ export const SkillDirectory: React.FC = () => {
 
       {/* Empty State when no results match filters */}
       {filtered.length === 0 && (
-        <div className="bg-white border border-slate-200 rounded-xl p-8 text-center space-y-3">
+        <div className="bg-white border border-slate-200 rounded-xl p-8 text-center space-y-3 shadow-2xs">
           <Filter className="w-8 h-8 text-slate-300 mx-auto" />
           <h2 className="text-sm font-bold text-slate-900">No matching skills found</h2>
           <p className="text-xs text-slate-500 max-w-sm mx-auto">
@@ -386,7 +434,7 @@ export const SkillDirectory: React.FC = () => {
           </p>
           <button
             onClick={clearFilters}
-            className="px-4 py-1.5 text-xs font-bold text-white bg-[#1E3A8A] hover:bg-[#172554] rounded-lg transition-colors shadow-xs"
+            className="px-4 py-2 text-xs font-bold text-white bg-[#1E3A8A] hover:bg-[#172554] active:scale-95 rounded-lg transition-all shadow-xs"
           >
             Clear All Filters
           </button>

@@ -68,9 +68,9 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ onItemClick }) =
               <button
                 type="button"
                 onClick={() => toggleCategory(cat.id)}
-                className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-left transition-colors font-medium text-xs ${
+                className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-left transition-all font-medium text-xs active:scale-[0.98] ${
                   isCategoryActive && !isExpanded
-                    ? 'bg-blue-100/70 text-blue-950 font-bold border border-blue-200'
+                    ? 'bg-blue-100/70 text-blue-950 font-bold border border-blue-200 shadow-2xs'
                     : 'text-slate-800 hover:bg-slate-200/60'
                 }`}
                 aria-expanded={isExpanded}
@@ -99,7 +99,7 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ onItemClick }) =
                         key={skill.id}
                         type="button"
                         onClick={() => handleSkillSelect(skill.id)}
-                        className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-left text-[11px] transition-all leading-snug ${
+                        className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-left text-[11px] transition-all leading-snug active:scale-[0.98] ${
                           isActive
                             ? 'bg-[#1E3A8A] text-white font-bold shadow-xs'
                             : 'text-slate-700 hover:bg-slate-200/60 hover:text-slate-900'
@@ -225,7 +225,7 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ onItemClick }) =
 export const DesktopSkillSidebar: React.FC = () => {
   return (
     <aside
-      className="hidden md:flex flex-col w-60 lg:w-64 border-r border-legal-border bg-slate-50 h-[calc(100vh-3rem)] shrink-0 overflow-hidden"
+      className="hidden md:flex flex-col w-64 lg:w-72 border-r border-slate-200 bg-slate-50 h-[calc(100vh-3rem)] shrink-0 overflow-hidden"
       aria-label="Legal Skill Categories"
     >
       <SidebarContent />
