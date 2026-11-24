@@ -1,0 +1,2515 @@
+{
+  "metadata": {
+    "title": "Indian Legal AI Prompt Playbook",
+    "version": "1.0.0",
+    "total_prompts": 100,
+    "jurisdiction": "India (Supreme Court, High Courts, District Courts, Tribunals)",
+    "statutory_coverage": [
+      "BNS 2023",
+      "BNSS 2023",
+      "BSA 2023",
+      "DPDP Act 2023",
+      "Companies Act 2013",
+      "Arbitration Act 1996"
+    ],
+    "supported_languages": [
+      "English",
+      "Hindi",
+      "Tamil"
+    ]
+  },
+  "categories": [
+    {
+      "id": "legal-research",
+      "name": "Legal Research",
+      "prompt_count": 7,
+      "target_personas": [
+        "all",
+        "researcher",
+        "student",
+        "advocate"
+      ]
+    },
+    {
+      "id": "case-analysis",
+      "name": "Case Analysis",
+      "prompt_count": 7,
+      "target_personas": [
+        "advocate",
+        "senior-counsel",
+        "student"
+      ]
+    },
+    {
+      "id": "case-law-summarization",
+      "name": "Case Law Summarization",
+      "prompt_count": 7,
+      "target_personas": [
+        "senior-counsel",
+        "advocate",
+        "researcher"
+      ]
+    },
+    {
+      "id": "drafting",
+      "name": "Drafting",
+      "prompt_count": 7,
+      "target_personas": [
+        "corporate",
+        "in-house",
+        "advocate"
+      ]
+    },
+    {
+      "id": "litigation",
+      "name": "Litigation",
+      "prompt_count": 7,
+      "target_personas": [
+        "advocate",
+        "senior-counsel"
+      ]
+    },
+    {
+      "id": "contracts",
+      "name": "Contracts",
+      "prompt_count": 7,
+      "target_personas": [
+        "corporate",
+        "in-house"
+      ]
+    },
+    {
+      "id": "compliance",
+      "name": "Compliance",
+      "prompt_count": 7,
+      "target_personas": [
+        "compliance",
+        "in-house"
+      ]
+    },
+    {
+      "id": "due-diligence",
+      "name": "Due Diligence",
+      "prompt_count": 7,
+      "target_personas": [
+        "corporate",
+        "legal-ops"
+      ]
+    },
+    {
+      "id": "arbitration",
+      "name": "Arbitration",
+      "prompt_count": 7,
+      "target_personas": [
+        "senior-counsel",
+        "corporate",
+        "advocate"
+      ]
+    },
+    {
+      "id": "client-communication",
+      "name": "Client Communication",
+      "prompt_count": 6,
+      "target_personas": [
+        "in-house",
+        "advocate"
+      ]
+    },
+    {
+      "id": "court-preparation",
+      "name": "Court Preparation",
+      "prompt_count": 7,
+      "target_personas": [
+        "advocate",
+        "student"
+      ]
+    },
+    {
+      "id": "evidence-analysis",
+      "name": "Evidence Analysis",
+      "prompt_count": 6,
+      "target_personas": [
+        "advocate",
+        "researcher"
+      ]
+    },
+    {
+      "id": "legal-marketing",
+      "name": "Legal Marketing",
+      "prompt_count": 5,
+      "target_personas": [
+        "senior-counsel",
+        "legal-ops"
+      ]
+    },
+    {
+      "id": "law-firm-operations",
+      "name": "Law Firm Operations",
+      "prompt_count": 7,
+      "target_personas": [
+        "legal-ops",
+        "corporate"
+      ]
+    },
+    {
+      "id": "ai-agents",
+      "name": "AI Agents for Lawyers",
+      "prompt_count": 6,
+      "target_personas": [
+        "legal-ops",
+        "in-house",
+        "advocate"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "lp-001",
+      "number": 1,
+      "title": "BNS Section Mapper",
+      "category_name": "Legal Research",
+      "category_id": "legal-research",
+      "practice_area": "Criminal Law (BNS)",
+      "target_personas": [
+        "all",
+        "researcher",
+        "student",
+        "advocate"
+      ],
+      "use_case": "Finding the exact equivalent of an old IPC section in the new BNS.",
+      "prompt_template": "Act as a Senior Criminal Lawyer. I am looking for the BNS equivalent of IPC Section \\[Input Section\\]. Provide the BNS section number, the exact textual change in the essential ingredients, and any change in punishment. Format as a comparison table.",
+      "example_input": "IPC Section 420",
+      "example_output_structure": "Table with columns: Parameter \\| IPC 420 \\| BNS Equivalent \\| Key Differences.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "30 mins",
+      "language_variants": {
+        "english": "Act as a Senior Criminal Lawyer. I am looking for the BNS equivalent of IPC Section \\[Input Section\\]. Provide the BNS section number, the exact textual change in the essential ingredients, and any change in punishment. Format as a comparison table.",
+        "hindi": "एक वरिष्ठ आपराधिक वकील के रूप में कार्य करें। मैं भारतीय न्याय संहिता की धारा \\[इनपुट\\] के समकक्ष BNS धारा की तलाश कर रहा हूँ...",
+        "tamil": "ஒரு மூத்த குற்றவியல் வழக்கறிஞராக செயல்படுங்கள். ஐபிசி பிரிவு \\[உள்ளீடு\\]-க்கு சமமான BNS பிரிவினை நான் தேடுகிறேன்..."
+      }
+    },
+    {
+      "id": "lp-002",
+      "number": 2,
+      "title": "Constitutional PIL Viability Checker",
+      "category_name": "Legal Research",
+      "category_id": "legal-research",
+      "practice_area": "Constitutional Law",
+      "target_personas": [
+        "all",
+        "researcher",
+        "student",
+        "advocate"
+      ],
+      "use_case": "Assessing if a public interest issue qualifies for a Writ Petition under Art 32/226.",
+      "prompt_template": "As a Constitutional law expert, evaluate whether the following issue qualifies for a PIL in the High Court/Supreme Court. Assess Locus Standi, justiciability, and existing jurisprudence. Output a viability score out of 10 and a brief reasoning.",
+      "example_input": "City municipal corporation failing to clean stray dog shelters leading to rabies outbreaks.",
+      "example_output_structure": "Viability Score \\| Locus Standi Analysis \\| Justiciability \\| Precedents \\| Recommended Relief.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "As a Constitutional law expert, evaluate whether the following issue qualifies for a PIL in the High Court/Supreme Court. Assess Locus Standi, justiciability, and existing jurisprudence. Output a viability score out of 10 and a brief reasoning.",
+        "hindi": "संवैधानिक कानून विशेषज्ञ के रूप में, मूल्यांकन करें कि क्या यह मुद्दा उच्च न्यायालय/सर्वोच्च न्यायालय में PIL के लिए योग्य है...",
+        "tamil": "அரசியலமைப்பு சட்ட நிபுணராக, இந்த பிரச்சினை உயர்நீதிமன்றம்/உச்ச நீதிமன்றத்தில் PIL தாக்கல் செய்ய தகுதியானதா என மதிப்பிடுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-003",
+      "number": 3,
+      "title": "DPDPA Compliance Gap Analyzer",
+      "category_name": "Legal Research",
+      "category_id": "legal-research",
+      "practice_area": "Data Protection",
+      "target_personas": [
+        "all",
+        "researcher",
+        "student",
+        "advocate"
+      ],
+      "use_case": "Identifying gaps in a company's privacy policy under the Digital Personal Data Protection Act, 2023\\.",
+      "prompt_template": "Act as a Data Privacy Counsel. Review the following privacy policy text. Identify gaps specifically concerning the DPDPA 2023 (Consent, Legitimate Use, Data Principals' Rights, Grievance Redressal). List the gaps and suggest specific clauses to add.",
+      "example_input": "\\[Pasted Privacy Policy Text\\]",
+      "example_output_structure": "DPDPA Requirement \\| Current Policy Status \\| Gap Identified \\| Suggested Clause Wording.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Data Privacy Counsel. Review the following privacy policy text. Identify gaps specifically concerning the DPDPA 2023 (Consent, Legitimate Use, Data Principals' Rights, Grievance Redressal). List the gaps and suggest specific clauses to add.",
+        "hindi": "डेटा गोपनीयता परामर्शदाता के रूप में कार्य करें। इस गोपनीयता नीति की समीक्षा करें और DPDPA 2023 के संबंध में अंतराल की पहचान करें...",
+        "tamil": "தரவு தனியுரிமை ஆலோசகராக செயல்படுங்கள். இந்த தனியுரிமைக் கொள்கையை மதிப்பாய்வு செய்து DPDPA 2023 இடைவெளிகளை கண்டறியவும்..."
+      }
+    },
+    {
+      "id": "lp-004",
+      "number": 4,
+      "title": "SEBI Regulatory Tracker",
+      "category_name": "Legal Research",
+      "category_id": "legal-research",
+      "practice_area": "Corporate/Securities",
+      "target_personas": [
+        "all",
+        "researcher",
+        "student",
+        "advocate"
+      ],
+      "use_case": "Summarizing recent SEBI circulars affecting mutual funds or AIFs.",
+      "prompt_template": "As a SEBI compliance expert, summarize the key changes in the latest SEBI circular on \\[Topic\\]. Highlight compliance deadlines, modified definitions, and action items for an Alternative Investment Fund (AIF).",
+      "example_input": "SEBI circular on AIF audit requirements",
+      "example_output_structure": "Circular Date \\| Key Changes \\| Modified Definitions \\| Action Items for AIF \\| Compliance Deadline.",
+      "best_ai_model": "GPT-4o (with web browsing)",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "As a SEBI compliance expert, summarize the key changes in the latest SEBI circular on \\[Topic\\]. Highlight compliance deadlines, modified definitions, and action items for an Alternative Investment Fund (AIF).",
+        "hindi": "SEBI अनुपालन विशेषज्ञ के रूप में, \\[विषय\\] पर SEBI के नवीनतम परिपत्र में प्रमुख बदलावों का सारांश दें...",
+        "tamil": "SEBI இணக்க நிபுணராக, \\[தலைப்பு\\] தொடர்பான அண்மைக் கால SEBI விதிமுறைகளின் முக்கிய மாற்றங்களை சுருக்கமாகக் கூறுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-005",
+      "number": 5,
+      "title": "Labor Law Jurisprudence Synthesizer",
+      "category_name": "Legal Research",
+      "category_id": "legal-research",
+      "practice_area": "Labour & Employment",
+      "target_personas": [
+        "all",
+        "researcher",
+        "student",
+        "advocate"
+      ],
+      "use_case": "Finding Supreme Court precedents on specific industrial dispute issues.",
+      "prompt_template": "Act as an Industrial Law Jurist. Synthesize the last 10 years of Supreme Court judgments on \\[Topic, e.g., 'retrenchment under Section 2(oo) of the ID Act'\\]. What are the 3 foundational principles established? Cite case names and years.",
+      "example_input": "Valid termination of probationer",
+      "example_output_structure": "Principle 1 \\[Case Cites\\] \\| Principle 2 \\[Case Cites\\] \\| Principle 3 \\[Case Cites\\] \\| Current Judicial Trend.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "4 hours",
+      "language_variants": {
+        "english": "Act as an Industrial Law Jurist. Synthesize the last 10 years of Supreme Court judgments on \\[Topic, e.g., 'retrenchment under Section 2(oo) of the ID Act'\\]. What are the 3 foundational principles established? Cite case names and years.",
+        "hindi": "औद्योगिक कानून विशेषज्ञ के रूप में, \\[विषय\\] पर सुप्रीम कोर्ट के फैसलों का संश्लेषण करें और 3 सिद्धांत बताएं...",
+        "tamil": "தொழிலதிபர் சட்ட நிபுணராக, \\[தலைப்பு\\] தொடர்பான உச்ச நீதிமன்ற தீர்ப்புகளை ஒருங்கிணைத்து 3 கொள்கைகளைக் கூறுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-006",
+      "number": 6,
+      "title": "Taxation Double Taxation Avoidance Agreement (DTAA) Extractor",
+      "category_name": "Legal Research",
+      "category_id": "legal-research",
+      "practice_area": "Taxation",
+      "target_personas": [
+        "all",
+        "researcher",
+        "student",
+        "advocate"
+      ],
+      "use_case": "Extracting specific article benefits from India's DTAA with a specific country.",
+      "prompt_template": "As an International Tax Counsel, extract the text and conditions of Article \\[X\\] (e.g., Royalties/Fees for Technical Services) from the India-\\[Country\\] DTAA. Explain how it interacts with Section 90 of the Income Tax Act.",
+      "example_input": "India-USA DTAA, Article 12",
+      "example_output_structure": "DTAA Article Text \\| Key Conditions \\| IT Act Section 90 Interaction \\| Tax Rate Cap.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1 hour",
+      "language_variants": {
+        "english": "As an International Tax Counsel, extract the text and conditions of Article \\[X\\] (e.g., Royalties/Fees for Technical Services) from the India-\\[Country\\] DTAA. Explain how it interacts with Section 90 of the Income Tax Act.",
+        "hindi": "अंतर्राष्ट्रीय कर परामर्शदाता के रूप में, भारत-\\[देश\\] DTAA के अनुच्छेद \\[X\\] को निकालें और आयकर अधिनियम की धारा 90 के साथ इसके संबंध की व्याख्या करें...",
+        "tamil": "சர்வதேச வரி ஆலோசகராக, இந்தியா-\\[நாடு\\] DTAA இன் பிரிவு \\[X\\]-ஐ எடுத்துக்கொண்டு வருமான வரிச் சட்டம் பிரிவு 90-உடன் அதன் தொடர்பை விளக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-007",
+      "number": 7,
+      "title": "Real Estate RERA Compliance Checker",
+      "category_name": "Legal Research",
+      "category_id": "legal-research",
+      "practice_area": "Real Estate",
+      "target_personas": [
+        "all",
+        "researcher",
+        "student",
+        "advocate"
+      ],
+      "use_case": "Checking project details against RERA requirements.",
+      "prompt_template": "Act as a RERA Compliance Officer. Based on the following project details, list the mandatory RERA compliances required under the state RERA rules and the Central Act, focusing on registration, quarterly updates, and advertising rules.",
+      "example_input": "50-unit residential project in Pune, Maharashtra, currently in excavation phase.",
+      "example_output_structure": "Registration Req \\| Quarterly Update Req \\| MahaRERA Advertising Rules \\| Penalty for Non-Compliance.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Act as a RERA Compliance Officer. Based on the following project details, list the mandatory RERA compliances required under the state RERA rules and the Central Act, focusing on registration, quarterly updates, and advertising rules.",
+        "hindi": "RERA अनुपालन अधिकारी के रूप में, इस प्रोजेक्ट के विवरण के आधार पर अनिवार्य RERA अनुपालन सूचीबद्ध करें...",
+        "tamil": "RERA இணக்க அதிகாரியாக, இந்த திட்ட விவரங்களின் அடிப்படையில் கட்டாய RERA இணக்கங்களை பட்டியலிடுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-008",
+      "number": 8,
+      "title": "BNSS Anticipatory Bail Strategy Builder",
+      "category_name": "Case Analysis",
+      "category_id": "case-analysis",
+      "practice_area": "Criminal Litigation",
+      "target_personas": [
+        "advocate",
+        "senior-counsel",
+        "student"
+      ],
+      "use_case": "Formulating arguments for anticipatory bail under BNSS.",
+      "prompt_template": "Act as a Senior Defense Counsel. Based on the FIR details and client facts, draft a strategic outline for an Anticipatory Bail Application under BNSS. Highlight key judgments to rely upon and anticipate prosecution objections.",
+      "example_input": "FIR under BNS 318(2) (Cheating). Client has no prior criminal record. Dispute is purely civil/contractual.",
+      "example_output_structure": "Procedural Compliance \\| Primary Arguments \\| Supporting Precedents \\| Anticipated Prosecution Objections & Rebuttals.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Senior Defense Counsel. Based on the FIR details and client facts, draft a strategic outline for an Anticipatory Bail Application under BNSS. Highlight key judgments to rely upon and anticipate prosecution objections.",
+        "hindi": "वरिष्ठ बचाव वकील के रूप में, BNSS के तहत अग्रिम जमानत आवेदन के लिए एक रणनीतिक रूपरेखा तैयार करें...",
+        "tamil": "மூத்த தற்காப்பு வழக்கறிஞராக, BNSS கீழ் முன்கூட்டியே ஜாமீன் விண்ணப்பத்திற்கான உத்தி அரங்கை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-009",
+      "number": 9,
+      "title": "NCLT Insolvency Resolution Plan Critic",
+      "category_name": "Case Analysis",
+      "category_id": "case-analysis",
+      "practice_area": "Corporate/IBC",
+      "target_personas": [
+        "advocate",
+        "senior-counsel",
+        "student"
+      ],
+      "use_case": "Analyzing the feasibility of a Resolution Plan under IBC.",
+      "prompt_template": "Act as an NCLT Insolvency Professional. Review the summary of this Resolution Plan. Evaluate it against Section 30(2) of the IBC, focusing on feasibility, operational creditor treatment, and compliance with CIRP regulations.",
+      "example_input": "\\[Plan summary detailing 20% payment to Ops Creditors, 100% to Secured, 5-year timeline\\]",
+      "example_output_structure": "Sec 30(2) Compliance Check \\| Feasibility Analysis \\| Creditor Distribution Waterfall Check \\| Potential NCLT Objections.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "4 hours",
+      "language_variants": {
+        "english": "Act as an NCLT Insolvency Professional. Review the summary of this Resolution Plan. Evaluate it against Section 30(2) of the IBC, focusing on feasibility, operational creditor treatment, and compliance with CIRP regulations.",
+        "hindi": "NCLT इंसॉल्वेंसी प्रोफेशनल के रूप में, इस रिज़ॉल्यूशन प्लान की समीक्षा करें और IBC की धारा 30(2) के खिलाफ इसका मूल्यांकन करें...",
+        "tamil": "NCLT திவாலா நிபுணராக, இந்த தீர்வுத் திட்டத்தை மதிப்பாய்வு செய்து IBC பிரிவு 30(2)-க்கு எதிராக மதிப்பிடுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-010",
+      "number": 10,
+      "title": "Consumer Dispute Forum Assessor",
+      "category_name": "Case Analysis",
+      "category_id": "case-analysis",
+      "practice_area": "Consumer Protection",
+      "target_personas": [
+        "advocate",
+        "senior-counsel",
+        "student"
+      ],
+      "use_case": "Determining jurisdiction and valuation under the Consumer Protection Act 2019\\.",
+      "prompt_template": "As a Consumer Law Expert, analyze this grievance. Determine if it constitutes a 'deficiency' or 'unfair trade practice', advise on the correct forum (District/State/National), and estimate the valuation and jurisdiction.",
+      "example_input": "Bought a defective laptop worth ₹1,50,000. Company refusing repair despite warranty. Seeking refund and compensation for mental agony.",
+      "example_output_structure": "Cause of Action Classification \\| Appropriate Forum \\| Pecuniary Jurisdiction \\| Estimated Valuation \\| Relief Sought Draft.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "As a Consumer Law Expert, analyze this grievance. Determine if it constitutes a 'deficiency' or 'unfair trade practice', advise on the correct forum (District/State/National), and estimate the valuation and jurisdiction.",
+        "hindi": "उपभोक्ता कानून विशेषज्ञ के रूप में, इस शिकायत का विश्लेषण करें। न्यायालय और मूल्यांकन का निर्धारण करें...",
+        "tamil": "நுகர்வோர் சட்ட நிபுணராக, இந்த புகாரை பகுப்பாய்வு செய்யுங்கள். சரியான நீதிமன்றம் மற்றும் மதிப்பீட்டை தீர்மானியுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-011",
+      "number": 11,
+      "title": "Matrimonial Dispute Strategy Matrix",
+      "category_name": "Case Analysis",
+      "category_id": "case-analysis",
+      "practice_area": "Family Law",
+      "target_personas": [
+        "advocate",
+        "senior-counsel",
+        "student"
+      ],
+      "use_case": "Structuring arguments for custody and maintenance under HMA/CrPC 125\\.",
+      "prompt_template": "As a Family Law Specialist, based on the provided facts of a matrimonial dispute, draft a litigation strategy covering grounds for divorce, interim maintenance arguments, and child custody positioning under the relevant personal laws.",
+      "example_input": "Hindu couple married 5 years, 1 child (age 3). Husband earning ₹2L/month, wife not working. Allegations of mental cruelty.",
+      "example_output_structure": "Divorce Grounds Matrix \\| Maintenance Calculation Logic \\| Custody Strategy (Welfare of Child) \\| Interim Relief Draft.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "As a Family Law Specialist, based on the provided facts of a matrimonial dispute, draft a litigation strategy covering grounds for divorce, interim maintenance arguments, and child custody positioning under the relevant personal laws.",
+        "hindi": "पारिवारिक कानून विशेषज्ञ के रूप में, वैवाहिक विवाद के तथ्यों के आधार पर रणनीति तैयार करें जिसमें तलाक, भरण-पोषण और संरक्षण शामिल हो...",
+        "tamil": "குடும்பச் சட்ட நிபுணராக, திருமண வழக்கு உண்மைகளின் அடிப்படையில் விவாகரத்து, உதவித்தொகை மற்றும் காப்புரிமைக்கான உத்தியை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-012",
+      "number": 12,
+      "title": "CCI Anti-Competitive Behavior Analyzer",
+      "category_name": "Case Analysis",
+      "category_id": "case-analysis",
+      "practice_area": "Competition Law",
+      "target_personas": [
+        "advocate",
+        "senior-counsel",
+        "student"
+      ],
+      "use_case": "Assessing if business conduct violates the Competition Act.",
+      "prompt_template": "Act as a Competition Law Counsel. Analyze the following business scenario. Does it constitute an abuse of dominant position or anti-competitive agreement under Sections 3 or 4 of the Competition Act? Define the Relevant Market and assess dominance.",
+      "example_input": "E-commerce platform mandates sellers to buy logistics only from their sister concern, otherwise delists them.",
+      "example_output_structure": "Relevant Market Definition \\| Dominance Assessment \\| Section 3 Analysis \\| Section 4 Analysis \\| CCI Precedents \\| Risk Rating.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "4 hours",
+      "language_variants": {
+        "english": "Act as a Competition Law Counsel. Analyze the following business scenario. Does it constitute an abuse of dominant position or anti-competitive agreement under Sections 3 or 4 of the Competition Act? Define the Relevant Market and assess dominance.",
+        "hindi": "प्रतिस्पर्धा कानून परामर्शदाता के रूप में, क्या यह व्यवहार प्रतिस्पर्धा अधिनियम की धारा 3 या 4 का उल्लंघन है? प्रासंगिक बाजार की परिभाषा दें...",
+        "tamil": "போட்டிச் சட்ட ஆலோசகராக, இந்த நடத்தை போட்டிச் சட்டம் பிரிவு 3 அல்லது 4-ஐ மீறுகிறதா என பகுப்பாய்வு செய்யுங்கள். பொருத்தமான சந்தையை வரையறுக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-013",
+      "number": 13,
+      "title": "IP Infringement Evaluator",
+      "category_name": "Case Analysis",
+      "category_id": "case-analysis",
+      "practice_area": "Intellectual Property",
+      "target_personas": [
+        "advocate",
+        "senior-counsel",
+        "student"
+      ],
+      "use_case": "Evaluating trademark or copyright infringement chances.",
+      "prompt_template": "As an IP Litigator, compare the plaintiff's mark/work with the defendant's. Apply the Likelihood of Confusion test (for trademarks) or Substantial Similarity test (for copyright). Cite relevant Indian IP precedents.",
+      "example_input": "Plaintiff mark: 'TECHNOVIEW' (Software). Defendant mark: 'TECHNOVIZ' (Software).",
+      "example_output_structure": "Visual/Phonetic/Conceptual Comparison \\| Likelihood of Confusion Analysis \\| Precedent Analysis \\| Infringement Probability Score.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2.5 hours",
+      "language_variants": {
+        "english": "As an IP Litigator, compare the plaintiff's mark/work with the defendant's. Apply the Likelihood of Confusion test (for trademarks) or Substantial Similarity test (for copyright). Cite relevant Indian IP precedents.",
+        "hindi": "IP विवाद वकील के रूप में, वादी और प्रतिवादी के चिह्नों की तुलना करें। भ्रम की संभावना का परीक्षण लागू करें...",
+        "tamil": "IP வழக்கறிஞராக, வழக்குதாரர் மற்றும் பிரதிவாதியின் முத்திரைகளை ஒப்பிடுங்கள். குழப்பம் ஏற்படும் வாய்ப்பு சோதனையைப் பயன்படுத்துங்கள்..."
+      }
+    },
+    {
+      "id": "lp-014",
+      "number": 14,
+      "title": "Cybercrime FIR Drafter (IT Act)",
+      "category_name": "Case Analysis",
+      "category_id": "case-analysis",
+      "practice_area": "Cyber Law",
+      "target_personas": [
+        "advocate",
+        "senior-counsel",
+        "student"
+      ],
+      "use_case": "Drafting an FIR for a cyber fraud incident.",
+      "prompt_template": "Act as a Cyber Law Specialist. Based on the incident details, draft an FIR under the relevant sections of the Bharatiya Nyaya Sanhita (BNS) and the IT Act 2000\\. Ensure technical terms are accurately translated to legal provisions.",
+      "example_input": "Victim received WhatsApp call impersonating RBI officer, asked to transfer ₹50,000 to 'secure account'. UPI transaction completed.",
+      "example_output_structure": "Jurisdiction Police Station \\| BNS Sections \\| IT Act Sections \\| Chronology of Events \\| Technical Evidence List (Device/IP details).",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Act as a Cyber Law Specialist. Based on the incident details, draft an FIR under the relevant sections of the Bharatiya Nyaya Sanhita (BNS) and the IT Act 2000\\. Ensure technical terms are accurately translated to legal provisions.",
+        "hindi": "साइबर कानून विशेषज्ञ के रूप में, घटना के आधार पर BNS और IT अधिनियम के तहत एक FIR ड्राफ्ट करें...",
+        "tamil": "சைபர் சட்ட நிபுணராக, சம்பவ விவரங்களின் அடிப்படையில் BNS மற்றும் IT சட்டத்தின் கீழ் FIR வரைவு செய்யுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-015",
+      "number": 15,
+      "title": "Supreme Court Ratio Decidendi Extractor",
+      "category_name": "Case Law Summarization",
+      "category_id": "case-law-summarization",
+      "practice_area": "General Litigation",
+      "target_personas": [
+        "senior-counsel",
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Extracting the binding principle from a long SC judgment.",
+      "prompt_template": "Act as an Appellate Law Researcher. From the provided text of the Supreme Court judgment, extract the Ratio Decidendi in exactly 3 sentences. List any Obiter Dicta separately. Ignore procedural history.",
+      "example_input": "\\[Paste text of a 50-page SC judgment\\]",
+      "example_output_structure": "Case Name & Citation \\| Ratio Decidendi (3 sentences) \\| Obiter Dicta \\| Key Precedents Discussed.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Act as an Appellate Law Researcher. From the provided text of the Supreme Court judgment, extract the Ratio Decidendi in exactly 3 sentences. List any Obiter Dicta separately. Ignore procedural history.",
+        "hindi": "अपीलीय कानून शोधकर्ता के रूप में, सुप्रीम कोर्ट के फैसले से Ratio Decidendi को ठीक 3 वाक्यों में निकालें...",
+        "tamil": "அப்பிலியட் சட்ட ஆராய்ச்சியாளராக, உச்ச நீதிமன்ற தீர்ப்பிலிருந்து Ratio Decidendi-ஐ சரியாக 3 வாக்கியங்களில் எடுத்துக்கொள்ளுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-016",
+      "number": 16,
+      "title": "Multi-Bench Conflict Spotter",
+      "category_name": "Case Law Summarization",
+      "category_id": "case-law-summarization",
+      "practice_area": "Constitutional Law",
+      "target_personas": [
+        "senior-counsel",
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Finding conflicting views between different High Courts.",
+      "prompt_template": "Act as a Legal Researcher. Compare the following two High Court judgments on the same statutory provision. Identify the exact legal point of conflict and summarize the differing interpretations.",
+      "example_input": "\\[Summary of Bombay HC vs. Delhi HC judgment on GST input tax credit\\]",
+      "example_output_structure": "Issue in Question \\| Bombay HC Interpretation \\| Delhi HC Interpretation \\| Point of Conflict \\| Recommendation for SC Appeal.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Legal Researcher. Compare the following two High Court judgments on the same statutory provision. Identify the exact legal point of conflict and summarize the differing interpretations.",
+        "hindi": "कानूनी शोधकर्ता के रूप में, एक ही कानूनी प्रावधान पर दो उच्च न्यायालयों के फैसलों की तुलना करें और विरोधाभास की पहचान करें...",
+        "tamil": "சட்ட ஆராய்ச்சியாளராக, ஒரே சட்ட விதிக்கான இரண்டு உயர்நீதிமன்ற தீர்ப்புகளை ஒப்பிட்டு முரண்பாட்டை கண்டறியவும்..."
+      }
+    },
+    {
+      "id": "lp-017",
+      "number": 17,
+      "title": "Tribunal Order Briefing",
+      "category_name": "Case Law Summarization",
+      "category_id": "case-law-summarization",
+      "practice_area": "Taxation/Corporate",
+      "target_personas": [
+        "senior-counsel",
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Summarizing ITAT or NCLAT orders.",
+      "prompt_template": "Summarize this ITAT order. Focus on the factual matrix, the specific tax addition disputed, the tribunal's findings, and the relief granted. Format for an in-house tax team update.",
+      "example_input": "\\[Paste ITAT order text\\]",
+      "example_output_structure": "Assessee Name \\| AY in Dispute \\| Addition Disputed \\| ITAT Finding \\| Relief Granted \\| Actionable Takeaway.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1 hour",
+      "language_variants": {
+        "english": "Summarize this ITAT order. Focus on the factual matrix, the specific tax addition disputed, the tribunal's findings, and the relief granted. Format for an in-house tax team update.",
+        "hindi": "इस ITAT आदेश का सारांश दें। विवादित कर जोड़, अधिकरण के निष्कर्ष और दी गई राहत पर ध्यान केंद्रित करें...",
+        "tamil": "இந்த ITAT உத்தரவை சுருக்கமாகக் கூறுங்கள். தகராறுள்ள வரி சேர்ப்பு, தீர்ப்பு மற்றும் வழங்கப்பட்ட நிவாரணம் ஆகியவற்றில் கவனம் செலுத்துங்கள்..."
+      }
+    },
+    {
+      "id": "lp-018",
+      "number": 18,
+      "title": "Land Acquisition Case Tracker",
+      "category_name": "Case Law Summarization",
+      "category_id": "case-law-summarization",
+      "practice_area": "Real Estate/Constitutional",
+      "target_personas": [
+        "senior-counsel",
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Summarizing rights under the RFCTLARR Act.",
+      "prompt_template": "Analyze this land acquisition dispute. Summarize the claims of the landowners vs. the government under the RFCTLARR Act, 2013\\. Focus on compensation determination and solace.",
+      "example_input": "\\[Case brief where Govt acquired land in 2018, paying 2013 circle rates\\]",
+      "example_output_structure": "Acquisition Details \\| Govt Position \\| Landowner Claim \\| RFCTLARR Provision Applied \\| Market Value Calculation.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Analyze this land acquisition dispute. Summarize the claims of the landowners vs. the government under the RFCTLARR Act, 2013\\. Focus on compensation determination and solace.",
+        "hindi": "इस भूमि अधिग्रहण विवाद का विश्लेषण करें। RFCTLARR अधिनियम, 2013 के तहत भू-स्वामियों बनाम सरकार के दावों का सारांश दें...",
+        "tamil": "இந்த நிலம் கையகப்படுத்தல் தகராறை பகுப்பாய்வு செய்யுங்கள். RFCTLARR சட்டம், 2013-ன் கீழ் நில உரிமையாளர் மற்றும் அரசாங்கத்தின் கோரிக்கைகளை சுருக்கமாகக் கூறுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-019",
+      "number": 19,
+      "title": "Arbitration Award Digest",
+      "category_name": "Case Law Summarization",
+      "category_id": "case-law-summarization",
+      "practice_area": "Arbitration",
+      "target_personas": [
+        "senior-counsel",
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Summarizing a commercial arbitral award.",
+      "prompt_template": "Summarize this arbitral award. Identify the key claims, the tribunal's findings on liability and quantum, and any specific findings on the interpretation of the arbitration clause.",
+      "example_input": "\\[Text of a SIAC/ICC/DIAC award\\]",
+      "example_output_structure": "Parties \\| Arbitration Clause Summary \\| Claimant's Prayers \\| Tribunal Findings (Liability) \\| Quantum Awarded \\| Reasoning on Clause.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Summarize this arbitral award. Identify the key claims, the tribunal's findings on liability and quantum, and any specific findings on the interpretation of the arbitration clause.",
+        "hindi": "इस मध्यस्थ पुरस्कार का सारांश दें। दावों, अधिकरण के निष्कर्षों और मध्यस्थता खंड की व्याख्या पर विशेष निष्कर्षों की पहचान करें...",
+        "tamil": "இந்த நடுவர் தீர்ப்பை சுருக்கமாகக் கூறுங்கள். கோரிக்கைகள், நடுவர் குழுவின் கண்டுபிடிப்புகள் மற்றும் நடுவர் உடன்படிக்கை விளக்கம் ஆகியவற்றை அடையாளம் காணுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-020",
+      "number": 20,
+      "title": "Service Law Precedent Finder",
+      "category_name": "Case Law Summarization",
+      "category_id": "case-law-summarization",
+      "practice_area": "Labour & Employment",
+      "target_personas": [
+        "senior-counsel",
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Finding rules on government employee disciplinary proceedings.",
+      "prompt_template": "Act as a Service Law Expert. Summarize the Supreme Court's position on the requirement of a departmental inquiry before dismissing a government servant under CCS Rules based on recent 5-year precedents.",
+      "example_input": "Suspension and dismissal without inquiry for a Central Govt employee.",
+      "example_output_structure": "CCS Rule Provision \\| Principle of Natural Justice \\| Exception to Rule (Rule 19\\) \\| Key 5-Year SC Precedents.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2.5 hours",
+      "language_variants": {
+        "english": "Act as a Service Law Expert. Summarize the Supreme Court's position on the requirement of a departmental inquiry before dismissing a government servant under CCS Rules based on recent 5-year precedents.",
+        "hindi": "सेवा कानून विशेषज्ञ के रूप में, CCS नियमों के तहत एक सरकारी कर्मचारी को बर्खास्त करने से पहले विभागीय जांच की आवश्यकता पर सुप्रीम कोर्ट की स्थिति का सारांश दें...",
+        "tamil": "சேவைச் சட்ட நிபுணராக, CCS விதிகளின் கீழ் அரசு ஊழியரை நீக்குவதற்கு முன் துறை விசாரணை தேவை குறித்த உச்ச நீதிமன்றத்தின் நிலைப்பாட்டை சுருக்கமாகக் கூறுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-021",
+      "number": 21,
+      "title": "Corporate Fraud Case Matrix",
+      "category_name": "Case Law Summarization",
+      "category_id": "case-law-summarization",
+      "practice_area": "Corporate/White Collar",
+      "target_personas": [
+        "senior-counsel",
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Summarizing the timeline and charges in a corporate fraud case.",
+      "prompt_template": "Create a chronological matrix of the corporate fraud case described. Map the BNS/POCA charges to the specific alleged acts. Identify the paper trail relied upon by the prosecution.",
+      "example_input": "\\[Details of a corporate siphoning of funds case involving fake invoices\\]",
+      "example_output_structure": "Chronology of Acts \\| BNS/POCA Sections \\| Alleged Act Description \\| Key Documentary Evidence \\| Status of Accused.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Create a chronological matrix of the corporate fraud case described. Map the BNS/POCA charges to the specific alleged acts. Identify the paper trail relied upon by the prosecution.",
+        "hindi": "वर्णित कॉर्पोरेट धोखाधड़ी मामले का एक कालानुक्रमिक मैट्रिक्स बनाएं। विशिष्ट आरोपित कृत्यों के लिए BNS/POCA आरोप मैप करें...",
+        "tamil": "விவரிக்கப்பட்ட நிறுவன மோசடி வழக்கின் காலவரிசை அணிவகையை உருவாக்குங்கள். குறிப்பிட்ட குற்றச்செயல்களுக்கு BNS/POCA குற்றச்சாட்டுகளை இணைக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-022",
+      "number": 22,
+      "title": "Section 9 Arbitration Petition Drafter",
+      "category_name": "Drafting",
+      "category_id": "drafting",
+      "practice_area": "Arbitration",
+      "target_personas": [
+        "corporate",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Drafting an application for interim relief under the ACA.",
+      "prompt_template": "Act as an Arbitration Litigator. Draft a Section 9 Application under the Arbitration and Conciliation Act, 1996 based on the following facts. Include the Urgency, Prima Facie case, and Balance of Convenience sections.",
+      "example_input": "Dispute over a supply contract. Respondent is moving assets offshore. Need injunction to restrain asset transfer.",
+      "example_output_structure": "Cause Title \\| Facts \\| Prima Facie Case \\| Balance of Convenience \\| Irreparable Injury \\| Prayer Clause.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "4 hours",
+      "language_variants": {
+        "english": "Act as an Arbitration Litigator. Draft a Section 9 Application under the Arbitration and Conciliation Act, 1996 based on the following facts. Include the Urgency, Prima Facie case, and Balance of Convenience sections.",
+        "hindi": "मध्यस्थता विवाद वकील के रूप में, इन तथ्यों के आधार पर मध्यस्थता एवं सुलह अधिनियम, 1996 की धारा 9 के तहत आवेदन तैयार करें...",
+        "tamil": "நடுவர் வழக்கறிஞராக, இந்த உண்மைகளின் அடிப்படையில் நடுவர் மற்றும் இணக்கச் சட்டம், 1996-ன் பிரிவு 9-ன் கீழ் விண்ணப்பத்தை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-023",
+      "number": 23,
+      "title": "BNS Quashing Petition Outline (482 CrPC equivalent)",
+      "category_name": "Drafting",
+      "category_id": "drafting",
+      "practice_area": "Criminal Law",
+      "target_personas": [
+        "corporate",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Drafting the grounds for quashing an FIR under BNS/BNSS inherent powers.",
+      "prompt_template": "As a Senior Criminal Advocate, draft the grounds for quashing the following FIR under the inherent jurisdiction of the High Court. Argue absence of prima facie mens rea under the specific BNS section.",
+      "example_input": "FIR under BNS 296 (Obscene acts) for a social media meme.",
+      "example_output_structure": "Brief Facts \\| Ground 1: Absence of Mens Rea \\| Ground 2: Abuse of Process \\| Ground 3: Civil Dispute Criminalized \\| Reliance on State of Haryana v. Bhajan Lal.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "As a Senior Criminal Advocate, draft the grounds for quashing the following FIR under the inherent jurisdiction of the High Court. Argue absence of prima facie mens rea under the specific BNS section.",
+        "hindi": "वरिष्ठ आपराधिक अधिवक्ता के रूप में, उच्च न्यायालय की अंतर्निहित अधिकरण के तहत इस FIR को रद्द करने के आधार तैयार करें...",
+        "tamil": "மூத்த குற்றவியல் வழக்கறிஞராக, உயர் நீதிமன்றத்தின் உள்ளாட்சி அதிகாரத்தின் கீழ் இந்த FIR-ஐ நீக்குவதற்கான காரணங்களை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-024",
+      "number": 24,
+      "title": "DPDPA Data Breach Notification Drafter",
+      "category_name": "Drafting",
+      "category_id": "drafting",
+      "practice_area": "Data Protection",
+      "target_personas": [
+        "corporate",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Drafting the mandatory notice to the Data Protection Board.",
+      "prompt_template": "As a Data Protection Officer, draft a Data Breach Notification to the Data Protection Board of India under Section 8(6) of the DPDPA 2023 based on the following incident details. Include the nature of breach, affected data principals, and remedial actions.",
+      "example_input": "AWS S3 bucket misconfiguration exposed 50,000 user PII (names, Aadhaar numbers) for 48 hours.",
+      "example_output_structure": "Reporting Entity Details \\| Date & Nature of Breach \\| Data Principals Affected \\| Remedial Action Taken \\| Point of Contact.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "As a Data Protection Officer, draft a Data Breach Notification to the Data Protection Board of India under Section 8(6) of the DPDPA 2023 based on the following incident details. Include the nature of breach, affected data principals, and remedial actions.",
+        "hindi": "डेटा संरक्षण अधिकारी के रूप में, DPDPA 2023 की धारा 8(6) के तहत डेटा सुरक्षा बोर्ड को डेटा उल्लंघन अधिसूचना तैयार करें...",
+        "tamil": "தரவு பாதுகாப்பு அதிகாரியாக, DPDPA 2023 பிரிவு 8(6)-ன் கீழ் தரவு மீறல் அறிவிப்பை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-025",
+      "number": 25,
+      "title": "In-House Employment Policy Drafter (PoSH)",
+      "category_name": "Drafting",
+      "category_id": "drafting",
+      "practice_area": "Labour & Employment",
+      "target_personas": [
+        "corporate",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Drafting or updating a PoSH policy.",
+      "prompt_template": "Draft an Internal Complaints Committee (ICC) policy for an IT company in Bengaluru compliant with the Sexual Harassment of Women at Workplace Act, 2013\\. Include sections on definition, complaint mechanism, and inquiry process.",
+      "example_input": "IT company, 500 employees, hybrid work model.",
+      "example_output_structure": "Policy Objective \\| Scope & Definitions \\| ICC Composition \\| Complaint Filing Process \\| Inquiry Procedure \\| Penalty Guidelines.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "5 hours",
+      "language_variants": {
+        "english": "Draft an Internal Complaints Committee (ICC) policy for an IT company in Bengaluru compliant with the Sexual Harassment of Women at Workplace Act, 2013\\. Include sections on definition, complaint mechanism, and inquiry process.",
+        "hindi": "कार्यस्थल पर महिलाओं की यौन उत्पीड़न अधिनियम, 2013 के अनुपालन में एक आईटी कंपनी के लिए ICC नीति तैयार करें...",
+        "tamil": "பணியிடத்தில் பெண்களுக்கு பாலியல் துன்புறுத்தல் தடுப்புச் சட்டம், 2013-உடன் இணக்கமாக ஒரு IT நிறுவனத்திற்கான ICC கொள்கையை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-026",
+      "number": 26,
+      "title": "SHA with Tag-Along & Drag-Along",
+      "category_name": "Drafting",
+      "category_id": "drafting",
+      "practice_area": "Corporate/M\\&A",
+      "target_personas": [
+        "corporate",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Drafting specific clauses for a Shareholders Agreement.",
+      "prompt_template": "Act as a Corporate Lawyer. Draft Tag-Along and Drag-Along clauses for an SHA under Indian Contract Act and Companies Act. Ensure provisions for the calculation of price, notice periods, and obligations of the majority.",
+      "example_input": "Founders hold 60%, Investors hold 40%. Founder wants to drag investors in a sale of \\>75% shares.",
+      "example_output_structure": "Tag-Along Clause Text \\| Drag-Along Clause Text \\| Valuation Mechanism \\| Notice Requirement \\| Exemptions (e.g., ESOP).",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Corporate Lawyer. Draft Tag-Along and Drag-Along clauses for an SHA under Indian Contract Act and Companies Act. Ensure provisions for the calculation of price, notice periods, and obligations of the majority.",
+        "hindi": "कॉर्पोरेट वकील के रूप में, एक SHA के लिए टैग-अलॉन्ग और ड्रैग-अलॉन्ग खंड तैयार करें...",
+        "tamil": "நிறுவன வழக்கறிஞராக, ஒரு SHA-க்கான Tag-Along மற்றும் Drag-Along பிரிவுகளை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-027",
+      "number": 27,
+      "title": "Section 138 NI Act Legal Notice",
+      "category_name": "Drafting",
+      "category_id": "drafting",
+      "practice_area": "Banking/Commercial",
+      "target_personas": [
+        "corporate",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Drafting a statutory notice for cheque bounce.",
+      "prompt_template": "Act as a Banking Lawyer. Draft a Section 138 NI Act notice for a cheque bounce. Include the statutory timeline, demand for payment within 15 days, and reservation of rights to initiate prosecution.",
+      "example_input": "Cheque amount: ₹5,00,000. Date of bounce: 10-Oct-2023. Reason: Insufficient Funds. Drawer: ABC Pvt Ltd.",
+      "example_output_structure": "Sender/Receiver Details \\| Cheque Details \\| Bank Memo Reference \\| Demand Notice \\| 15-Day Ultimatum \\| Legal Threat.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1 hour",
+      "language_variants": {
+        "english": "Act as a Banking Lawyer. Draft a Section 138 NI Act notice for a cheque bounce. Include the statutory timeline, demand for payment within 15 days, and reservation of rights to initiate prosecution.",
+        "hindi": "बैंकिंग वकील के रूप में, चेक बाउंस के लिए धारा 138 NI अधिनियम का नोटिस तैयार करें...",
+        "tamil": "வங்கி வழக்கறிஞராக, காசோலை குறுக்கிடுதலுக்கு பிரிவு 138 NI சட்டம் அறிவிப்பை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-028",
+      "number": 28,
+      "title": "Writ of Mandamus Drafter",
+      "category_name": "Drafting",
+      "category_id": "drafting",
+      "practice_area": "Constitutional Law",
+      "target_personas": [
+        "corporate",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Drafting a Writ Petition against a government authority for inaction.",
+      "prompt_template": "Act as a Constitutional Lawyer. Draft the outline of a Writ of Mandamus under Article 226 against a state government authority for failing to perform a statutory duty. Include the locus standi and legal duty owed.",
+      "example_input": "Municipal corporation refusing to issue birth certificate for 2 years despite complete application.",
+      "example_output_structure": "Cause Title \\| Locus Standi \\| Brief Facts \\| Statutory Duty Owed \\| Inaction/Unreasonableness \\| Prayer for Writ.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Constitutional Lawyer. Draft the outline of a Writ of Mandamus under Article 226 against a state government authority for failing to perform a statutory duty. Include the locus standi and legal duty owed.",
+        "hindi": "संवैधानिक वकील के रूप में, एक सरकारी प्राधिकरण की गैर-कार्रवाई के लिए अनुच्छेद 226 के तहत परमादेश का रिट तैयार करें...",
+        "tamil": "அரசியலமைப்பு வழக்கறிஞராக, அரசு அதிகாரியின் செயல்பாடின்மைக்கு பிரிவு 226-ன் கீழ் கட்டளை உத்தரவாத ரிட் மனுவை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-029",
+      "number": 29,
+      "title": "BNSS Remand Application Opposer",
+      "category_name": "Litigation",
+      "category_id": "litigation",
+      "practice_area": "Criminal Litigation",
+      "target_personas": [
+        "advocate",
+        "senior-counsel"
+      ],
+      "use_case": "Arguing against police custody remand.",
+      "prompt_template": "Act as a Defense Advocate. Draft arguments opposing the Police Custody Remand (PCR) application under BNSS. Emphasize the lack of necessity, tampering risks, and compliance with BNSS safeguards.",
+      "example_input": "Accused in a white-collar BNS 318(2) case. Police claim need to recover laptops.",
+      "example_output_structure": "Factual Background \\| BNSS Safeguard Arguments \\| Lack of Necessity Argument \\| Precedents opposing PCR in economic offenses \\| Alternative (Judicial Custody) Prayer.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Act as a Defense Advocate. Draft arguments opposing the Police Custody Remand (PCR) application under BNSS. Emphasize the lack of necessity, tampering risks, and compliance with BNSS safeguards.",
+        "hindi": "बचाव अधिवक्ता के रूप में, BNSS के तहत पुलिस हिरासत रिमांड आवेदन का विरोध करने के लिए तर्क तैयार करें...",
+        "tamil": "தற்காப்பு வழக்கறிஞராக, BNSS கீழ் காவல்துறை காவல் ரிமாண்ட் விண்ணப்பத்திற்கு எதிராக வாதிடுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-030",
+      "number": 30,
+      "title": "Commercial Court Plaint Formatter",
+      "category_name": "Litigation",
+      "category_id": "litigation",
+      "practice_area": "Commercial Litigation",
+      "target_personas": [
+        "advocate",
+        "senior-counsel"
+      ],
+      "use_case": "Structuring a Commercial Suit under the Commercial Courts Act.",
+      "prompt_template": "Draft the structure of a Plaint under the Commercial Courts Act, 2015 for the following dispute. Ensure it includes mandatory pre-institution mediation exhaustion, specific valuation, and jurisdictional facts.",
+      "example_input": "Breach of software licensing agreement. Damages claimed: ₹2 Crores. Jurisdiction: Delhi.",
+      "example_output_structure": "Cause Title \\| Jurisdiction & Valuation \\| Pre-Institution Mediation Statement \\| Facts \\| Cause of Action \\| Relief Sought.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Draft the structure of a Plaint under the Commercial Courts Act, 2015 for the following dispute. Ensure it includes mandatory pre-institution mediation exhaustion, specific valuation, and jurisdictional facts.",
+        "hindi": "वाणिज्यिक न्यायालय अधिनियम, 2015 के तहत इस विवाद के लिए वाद पत्र की संरचना तैयार करें...",
+        "tamil": "வணிக நீதிமன்றச் சட்டம், 2015-ன் கீழ் இந்த தகராறுக்கான வழக்கு மனு அமைப்பை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-031",
+      "number": 31,
+      "title": "Injunction Hearing Brief",
+      "category_name": "Litigation",
+      "category_id": "litigation",
+      "practice_area": "Civil Litigation",
+      "target_personas": [
+        "advocate",
+        "senior-counsel"
+      ],
+      "use_case": "Preparing a quick brief for a temporary injunction hearing.",
+      "prompt_template": "Prepare a concise hearing brief for a Temporary Injunction. Focus solely on the tripartite test: Prima Facie Case, Balance of Convenience, and Irreparable Injury based on the facts provided.",
+      "example_input": "Infringement of patented pharma formulation. Generic launch imminent.",
+      "example_output_structure": "Prima Facie Case Points \\| Balance of Convenience Analysis \\| Irreparable Injury Arguments \\| Case Law Support.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Prepare a concise hearing brief for a Temporary Injunction. Focus solely on the tripartite test: Prima Facie Case, Balance of Convenience, and Irreparable Injury based on the facts provided.",
+        "hindi": "अस्थायी निषेधाज्ञा सुनवाई के लिए एक संक्षिप्त ब्रीफ तैयार करें। केवल Prima Facie, Balance of Convenience और Irreparable Injury पर ध्यान केंद्रित करें...",
+        "tamil": "தற்காலிக தடையுத்தரவு விசாரணைக்கான சுருக்கமான விளக்கக் குறிப்பைத் தயாரிக்கவும். மூன்று அடிப்படை சோதனைகளில் மட்டும் கவனம் செலுத்தவும்..."
+      }
+    },
+    {
+      "id": "lp-032",
+      "number": 32,
+      "title": "Depositary Affidavit Builder",
+      "category_name": "Litigation",
+      "category_id": "litigation",
+      "practice_area": "Civil/Family",
+      "target_personas": [
+        "advocate",
+        "senior-counsel"
+      ],
+      "use_case": "Drafting an affidavit for submission in court.",
+      "prompt_template": "Convert the following facts into a formal Affidavit for the High Court. Ensure it uses 'I state that' formatting, numbers paragraphs, and includes the verification section. Ignore legal arguments, only state facts.",
+      "example_input": "Chronology of events regarding a property dispute.",
+      "example_output_structure": "Court Heading \\| Deponent Details \\| Numbered Facts (I state that...) \\| Verification & Jurat.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Convert the following facts into a formal Affidavit for the High Court. Ensure it uses 'I state that' formatting, numbers paragraphs, and includes the verification section. Ignore legal arguments, only state facts.",
+        "hindi": "निम्नलिखित तथ्यों को उच्च न्यायालय के लिए एक औपचारिक शपथ पत्र में बदलें...",
+        "tamil": "பின்வரும் உண்மைகளை உயர் நீதிமன்றத்திற்கான முறையான சாட்சியமாக மாற்றவும்..."
+      }
+    },
+    {
+      "id": "lp-033",
+      "number": 33,
+      "title": "SLP Admit/Dismiss Probability Predictor",
+      "category_name": "Litigation",
+      "category_id": "litigation",
+      "practice_area": "Supreme Court",
+      "target_personas": [
+        "advocate",
+        "senior-counsel"
+      ],
+      "use_case": "Assessing if an SLP will be admitted.",
+      "prompt_template": "Act as an SC Registry Expert. Based on the High Court judgment and the proposed SLP grounds, assess the probability of admission. Flag any procedural bars (e.g., alternative remedies, delay).",
+      "example_input": "Single bench dismissal. No appeal to division bench filed.",
+      "example_output_structure": "Procedural Bar Check \\| Strength of Grounds \\| Probability Score \\| Recommended SLP Drafting Strategy.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Act as an SC Registry Expert. Based on the High Court judgment and the proposed SLP grounds, assess the probability of admission. Flag any procedural bars (e.g., alternative remedies, delay).",
+        "hindi": "SC रजिस्ट्री विशेषज्ञ के रूप में, एसएलपी के स्वीकृत होने की संभावना का आकलन करें। किसी भी प्रक्रियात्मक बाधा की जांच करें...",
+        "tamil": "SC பதிவேட்டு நிபுணராக, SLP ஏற்கப்படுவதற்கான சாத்தியக்கூறுகளை மதிப்பிடுங்கள். செயல்முறை தடைகளை சரிபார்க்கவும்..."
+      }
+    },
+    {
+      "id": "lp-034",
+      "number": 34,
+      "title": "Consumer Forum Complaint Drafter",
+      "category_name": "Litigation",
+      "category_id": "litigation",
+      "practice_area": "Consumer Protection",
+      "target_personas": [
+        "advocate",
+        "senior-counsel"
+      ],
+      "use_case": "Drafting a consumer complaint.",
+      "prompt_template": "Draft a Consumer Complaint under Section 35 of the Consumer Protection Act 2019\\. Detail the deficiency in service, the consumer's locus, and the quantification of relief.",
+      "example_input": "Flight cancelled without notice, forced to buy expensive last-minute ticket.",
+      "example_output_structure": "Complainant Details \\| Opposite Party Details \\| Facts \\| Deficiency in Service \\| Relief Sought (Refund \\+ Compensation).",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Draft a Consumer Complaint under Section 35 of the Consumer Protection Act 2019\\. Detail the deficiency in service, the consumer's locus, and the quantification of relief.",
+        "hindi": "उपभोक्ता सुरक्षा अधिनियम 2019 की धारा 35 के तहत एक उपभोक्ता शिकायत तैयार करें...",
+        "tamil": "நுகர்வோர் பாதுகாப்புச் சட்டம் 2019 பிரிவு 35-ன் கீழ் நுகர்வோர் புகாரை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-035",
+      "number": 35,
+      "title": "Execution Petition Drafter",
+      "category_name": "Litigation",
+      "category_id": "litigation",
+      "practice_area": "Civil Litigation",
+      "target_personas": [
+        "advocate",
+        "senior-counsel"
+      ],
+      "use_case": "Drafting a petition to execute a decree.",
+      "prompt_template": "Draft an Execution Petition under the CPC for the enforcement of the following decree. Detail the decree holder, judgment debtor, the decree amount, and the mode of execution sought (attachment/sale).",
+      "example_input": "Money decree of ₹20 Lakhs passed in 2021\\. Debtor has bank accounts in HDFC.",
+      "example_output_structure": "Cause Title \\| Decree Details \\| Amount Due \\| Mode of Execution (Attachment of Bank Account) \\| Prayer.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Draft an Execution Petition under the CPC for the enforcement of the following decree. Detail the decree holder, judgment debtor, the decree amount, and the mode of execution sought (attachment/sale).",
+        "hindi": "निम्नलिखित डिक्री के निष्पादन के लिए CPC के तहत एक निष्पादन याचिका तैयार करें...",
+        "tamil": "பின்வரும் தீர்ப்பை நிறைவேற்றுவதற்கு CPC-ன் கீழ் நிறைவேற்று மனுவை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-036",
+      "number": 36,
+      "title": "Indian SPA Indemnity Clause Risk Scorer",
+      "category_name": "Contracts",
+      "category_id": "contracts",
+      "practice_area": "Corporate/M\\&A",
+      "target_personas": [
+        "corporate",
+        "in-house"
+      ],
+      "use_case": "Analyzing an indemnity clause under Indian law.",
+      "prompt_template": "Act as an M\\&A Counsel. Review this Indemnity clause from an Indian SPA. Identify risks related to quantification, time-barring under the Limitation Act, and enforcement. Suggest drafting improvements favoring the Buyer.",
+      "example_input": "\\[Pasted Indemnity Clause Text\\]",
+      "example_output_structure": "Risk Factor 1 \\| Risk Factor 2 \\| Limitation Act Issue \\| Buyer-Friendly Suggested Redline.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Act as an M\\&A Counsel. Review this Indemnity clause from an Indian SPA. Identify risks related to quantification, time-barring under the Limitation Act, and enforcement. Suggest drafting improvements favoring the Buyer.",
+        "hindi": "M\\&A परामर्शदाता के रूप में, भारतीय SPA से इस हानिपूर्ति खंड की समीक्षा करें। सीमा अधिनियम के तहत जोखिम और प्रवर्तन की पहचान करें...",
+        "tamil": "M\\&A ஆலோசகராக, இந்திய SPA-இலிருந்து இந்த இழப்பீட்டு பிரிவை மதிப்பாய்வு செய்யுங்கள். வரையறைச் சட்டம் மற்றும் அமலாக்க ஆபத்துகளை அடையாளம் காணவும்..."
+      }
+    },
+    {
+      "id": "lp-037",
+      "number": 37,
+      "title": "IT Master Services Agreement Builder",
+      "category_name": "Contracts",
+      "category_id": "contracts",
+      "practice_area": "Technology/Contracts",
+      "target_personas": [
+        "corporate",
+        "in-house"
+      ],
+      "use_case": "Drafting an MSA for IT services.",
+      "prompt_template": "Draft an MSA for an Indian IT services company providing software development to a US client. Include standard clauses compliant with Indian Contract Act: IP ownership, limitation of liability, force majeure (including pandemic), and governing law (India).",
+      "example_input": "Fixed price project, 12 months.",
+      "example_output_structure": "Scope & Change Control \\| Payment Terms \\| IP Ownership \\| Limitation of Liability \\| Termination \\| Governing Law.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "5 hours",
+      "language_variants": {
+        "english": "Draft an MSA for an Indian IT services company providing software development to a US client. Include standard clauses compliant with Indian Contract Act: IP ownership, limitation of liability, force majeure (including pandemic), and governing law (India).",
+        "hindi": "एक भारतीय आईटी कंपनी के लिए MSA तैयार करें। भारतीय अनुबंध अधिनियम के अनुपालन में IP स्वामित्व, देयता की सीमा और नियंत्रण कानून शामिल करें...",
+        "tamil": "ஒரு இந்திய IT நிறுவனத்திற்கான MSA வரைவு செய்யுங்கள். இந்திய ஒப்பந்தச் சட்டத்திற்கு இணக்கமான IP உரிமை, பொறுப்புக்கட்டுப்பாடு மற்றும் ஆளுமைச் சட்டத்தைச் சேர்க்கவும்..."
+      }
+    },
+    {
+      "id": "lp-038",
+      "number": 38,
+      "title": "Vendor NDA Optimizer",
+      "category_name": "Contracts",
+      "category_id": "contracts",
+      "practice_area": "General Corporate",
+      "target_personas": [
+        "corporate",
+        "in-house"
+      ],
+      "use_case": "Redlining a vendor NDA.",
+      "prompt_template": "Act as In-House Counsel. Review this Mutual NDA. Identify clauses overly favorable to the vendor, specifically focusing on non-compete restrictions (void under Section 27 of the Indian Contract Act) and definition of Confidential Information.",
+      "example_input": "\\[Pasted NDA\\]",
+      "example_output_structure": "Section 27 Issue Flag \\| Overbroad Definition \\| Remedy Clause Imbalance \\| Suggested Redlines.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Act as In-House Counsel. Review this Mutual NDA. Identify clauses overly favorable to the vendor, specifically focusing on non-compete restrictions (void under Section 27 of the Indian Contract Act) and definition of Confidential Information.",
+        "hindi": "इन-हाउस परामर्शदाता के रूप में, इस पारस्परिक NDA की समीक्षा करें। भारतीय अनुबंध अधिनियम की धारा 27 के तहत गैर-प्रतिस्पर्धा प्रतिबंधों पर ध्यान दें...",
+        "tamil": "இன்ஹவுஸ் ஆலோசகராக, இந்த பரஸ்பர NDA-ஐ மதிப்பாய்வு செய்யுங்கள். இந்திய ஒப்பந்தச் சட்டம் பிரிவு 27-ன் கீழ் போட்டியின்மை கட்டுப்பாடுகளில் கவனம் செலுத்துங்கள்..."
+      }
+    },
+    {
+      "id": "lp-039",
+      "number": 39,
+      "title": "Leave & License Agreement Drafting",
+      "category_name": "Contracts",
+      "category_id": "contracts",
+      "practice_area": "Real Estate",
+      "target_personas": [
+        "corporate",
+        "in-house"
+      ],
+      "use_case": "Drafting a commercial lease/license.",
+      "prompt_template": "Draft a Leave and License Agreement for a co-working space in Mumbai under the Maharashtra Rent Control Act. Ensure it is structured as a license, not a lease, to avoid eviction issues. Include lock-in, notice period, and security deposit clauses.",
+      "example_input": "Licensee: Startup. 10 seats. Term: 11 months.",
+      "example_output_structure": "Grant of License \\| License Fee & Deposit \\| Term & Lock-in \\| Termination \\| No Tenancy Rights Covenant.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Draft a Leave and License Agreement for a co-working space in Mumbai under the Maharashtra Rent Control Act. Ensure it is structured as a license, not a lease, to avoid eviction issues. Include lock-in, notice period, and security deposit clauses.",
+        "hindi": "महाराष्ट्र किराया नियंत्रण अधिनियम के तहत एक कॉमर्शियल लीज और लाइसेंस अनुबंध तैयार करें। सुनिश्चित करें कि यह पट्टे के बजाय लाइसेंस है...",
+        "tamil": "மகாராஷ்டிரா வாடகைக் கட்டுப்பாட்டுச் சட்டத்தின் கீழ் வணிக வாடகை/உரிம ஒப்பந்தத்தை உருவாக்குங்கள். இது குத்தகை அல்லாமல் உரிமம் என்பதை உறுதி செய்யவும்..."
+      }
+    },
+    {
+      "id": "lp-040",
+      "number": 40,
+      "title": "Compliance Clause Library Generator",
+      "category_name": "Contracts",
+      "category_id": "contracts",
+      "practice_area": "In-House/Compliance",
+      "target_personas": [
+        "corporate",
+        "in-house"
+      ],
+      "use_case": "Creating standard anti-corruption and data protection clauses.",
+      "prompt_template": "Generate a standard 'Anti-Corruption and Compliance' clause and a 'Data Protection' clause for insertion in vendor contracts, ensuring compliance with the Prevention of Corruption Act and DPDPA 2023.",
+      "example_input": "Vendor handling employee PII.",
+      "example_output_structure": "Anti-Corruption Clause Text \\| DPDPA Compliance Clause Text \\| Audit Rights \\| Breach Notification Obligation.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Generate a standard 'Anti-Corruption and Compliance' clause and a 'Data Protection' clause for insertion in vendor contracts, ensuring compliance with the Prevention of Corruption Act and DPDPA 2023.",
+        "hindi": "भ्रष्टाचार निवारण अधिनियम और DPDPA 2023 के अनुपालन को सुनिश्चित करते हुए, विक्रेता अनुबंधों में सम्मिलन के लिए मानक भ्रष्टाचार विरोधी और डेटा संरक्षण खंड उत्पन्न करें...",
+        "tamil": "ஊழல் தடுப்புச் சட்டம் மற்றும் DPDPA 2023 இணக்கத்தை உறுதிசெய்து, விற்பனையாளர் ஒப்பந்தங்களில் சேர்ப்பதற்கான வழக்கமான ஊழல் எதிர்ப்பு மற்றும் தரவு பாதுகாப்பு பிரிவுகளை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-041",
+      "number": 41,
+      "title": "Force Majeure Adaptation (Post-COVID)",
+      "category_name": "Contracts",
+      "category_id": "contracts",
+      "practice_area": "Contracts/Litigation",
+      "target_personas": [
+        "corporate",
+        "in-house"
+      ],
+      "use_case": "Drafting an updated Force Majeure clause.",
+      "prompt_template": "Draft a Force Majeure clause for a construction contract in India. Incorporate learnings from the Supreme Court's interpretation of FM during COVID-19 (e.g., *M/s Hall & Associates*). Include epidemics, government lockdowns, and a notice mechanism.",
+      "example_input": "Construction of a residential tower in Bengaluru.",
+      "example_output_structure": "FM Event Definition \\| Exclusions \\| Notice Requirement (Days) \\| Mitigation Obligation \\| Termination Right (Prolonged FM).",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Draft a Force Majeure clause for a construction contract in India. Incorporate learnings from the Supreme Court's interpretation of FM during COVID-19 (e.g., *M/s Hall & Associates*). Include epidemics, government lockdowns, and a notice mechanism.",
+        "hindi": "भारत में एक निर्माण अनुबंध के लिए अपरिहार्य शक्ति (Force Majeure) खंड तैयार करें। COVID-19 के दौरान SC की व्याख्या को शामिल करें...",
+        "tamil": "இந்தியாவில் ஒரு கட்டுமான ஒப்பந்தத்திற்கான கட்டாயமற்ற சக்தி (Force Majeure) பிரிவை உருவாக்குங்கள். COVID-19 போது SC விளக்கங்களைச் சேர்க்கவும்..."
+      }
+    },
+    {
+      "id": "lp-042",
+      "number": 42,
+      "title": "Term Sheet to SHA Converter",
+      "category_name": "Contracts",
+      "category_id": "contracts",
+      "practice_area": "Corporate",
+      "target_personas": [
+        "corporate",
+        "in-house"
+      ],
+      "use_case": "Expanding a term sheet into detailed clauses.",
+      "prompt_template": "Act as a Startup Lawyer. Take the following Term Sheet points and expand them into draft clauses for a Shareholders Agreement, specifically detailing the Board Composition, Veto Rights, and Anti-Dilution provisions under the Companies Act, 2013.",
+      "example_input": "Investor gets 1 Board seat, veto on related party transactions, broad-based weighted average anti-dilution.",
+      "example_output_structure": "Board Composition Clause \\| Veto Rights Clause \\| Anti-Dilution Clause (Math formula included).",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "4 hours",
+      "language_variants": {
+        "english": "Act as a Startup Lawyer. Take the following Term Sheet points and expand them into draft clauses for a Shareholders Agreement, specifically detailing the Board Composition, Veto Rights, and Anti-Dilution provisions under the Companies Act, 2013.",
+        "hindi": "स्टार्टअप वकील के रूप में, इन टर्म शीट बिंदुओं को शेयरधारक अनुबंध के ड्राफ्ट खंडों में विस्तृत करें...",
+        "tamil": "ஸ்டார்ட்அப் வழக்கறிஞராக, இந்த விதிமுறைத் தாள் புள்ளிகளை பங்குதாரர் ஒப்பந்தத்திற்கான வரைவு பிரிவுகளாக விரிவுபடுத்துங்கள்..."
+      }
+    },
+    {
+      "id": "lp-043",
+      "number": 43,
+      "title": "DPDPA Consent Manager Spec",
+      "category_name": "Compliance",
+      "category_id": "compliance",
+      "practice_area": "Data Protection",
+      "target_personas": [
+        "compliance",
+        "in-house"
+      ],
+      "use_case": "Creating specifications for a Consent Manager platform.",
+      "prompt_template": "Act as a DPDPA Compliance Consultant. Define the functional specifications for a 'Consent Manager' platform as defined under DPDPA 2023\\. Detail the user flows for granting, managing, and revoking consent, and the API requirements for Data Fiduciaries.",
+      "example_input": "E-commerce platform collecting data for delivery and marketing.",
+      "example_output_structure": "User Registration Flow \\| Consent Dashboard Spec \\| Revocation API Spec \\| Data Fiduciary Integration Points \\| Audit Log Requirements.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "6 hours",
+      "language_variants": {
+        "english": "Act as a DPDPA Compliance Consultant. Define the functional specifications for a 'Consent Manager' platform as defined under DPDPA 2023\\. Detail the user flows for granting, managing, and revoking consent, and the API requirements for Data Fiduciaries.",
+        "hindi": "DPDPA अनुपालन परामर्शदाता के रूप में, DPDPA 2023 के तहत 'सहमति प्रबंधक' प्लेटफॉर्म के लिए कार्यात्मक विशिष्टताओं को परिभाषित करें...",
+        "tamil": "DPDPA இணக்க ஆலோசகராக, DPDPA 2023 கீழ் 'ஒப்புதல் மேலாளர்' தளத்திற்கான செயல்பாட்டு விவரக்குறிப்புகளை வரையறுக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-044",
+      "number": 44,
+      "title": "RBI Fintech Compliance Matrix",
+      "category_name": "Compliance",
+      "category_id": "compliance",
+      "practice_area": "Banking & Finance",
+      "target_personas": [
+        "compliance",
+        "in-house"
+      ],
+      "use_case": "Checking compliance for a digital lending app.",
+      "prompt_template": "Create a compliance matrix for a Digital Lending App in India. Map the requirements of the RBI Digital Lending Guidelines, including data localization, direct disbursal, and disclosure norms.",
+      "example_input": "App offers personal loans, disburses via partner NBFC.",
+      "example_output_structure": "Regulatory Requirement \\| App Feature Impacted \\| Current Status (Gap) \\| Action Required \\| Priority.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "5 hours",
+      "language_variants": {
+        "english": "Create a compliance matrix for a Digital Lending App in India. Map the requirements of the RBI Digital Lending Guidelines, including data localization, direct disbursal, and disclosure norms.",
+        "hindi": "भारत में एक डिजिटल लेंडिंग ऐप के लिए एक अनुपालन मैट्रिक्स बनाएं। RBI डिजिटल ऋण दिशानिर्देशों की आवश्यकताओं को मैप करें...",
+        "tamil": "இந்தியாவில் ஒரு டிஜிட்டல கடன் வழங்கும் செயலிக்கான இணக்க அணிவகையை உருவாக்குங்கள். RBI டிஜிட்டல கடன் வழிகாட்டுதல்களை இணைக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-045",
+      "number": 45,
+      "title": "ESG Risk Assessment Questionnaire",
+      "category_name": "Compliance",
+      "category_id": "compliance",
+      "practice_area": "Corporate/Compliance",
+      "target_personas": [
+        "compliance",
+        "in-house"
+      ],
+      "use_case": "Conducting ESG due diligence.",
+      "prompt_template": "Act as an ESG Counsel. Generate a 20-point ESG Due Diligence Questionnaire for a manufacturing company in India, covering the Companies Act (CSR), Environmental Clearances, and Labour welfare.",
+      "example_input": "Chemical manufacturing plant in Gujarat.",
+      "example_output_structure": "Environmental Section (5 Qs) \\| Social/Labour Section (5 Qs) \\| Governance/CSR Section (5 Qs) \\| Compliance Evidence Requested.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as an ESG Counsel. Generate a 20-point ESG Due Diligence Questionnaire for a manufacturing company in India, covering the Companies Act (CSR), Environmental Clearances, and Labour welfare.",
+        "hindi": "ESG परामर्शदाता के रूप में, भारत में एक विनिर्माण कंपनी के लिए 20-बिंदु ESG ड्यू डिलिजेंस प्रश्नावली तैयार करें...",
+        "tamil": "ESG ஆலோசகராக, இந்தியாவில் உள்ள ஒரு உற்பத்தி நிறுவனத்திற்கான 20-புள்ளி ESG விசாரணை கேள்வித்தாளை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-046",
+      "number": 46,
+      "title": "Anti-Money Laundering (PMLA) KYC Checker",
+      "category_name": "Compliance",
+      "category_id": "compliance",
+      "practice_area": "Banking/Finance",
+      "target_personas": [
+        "compliance",
+        "in-house"
+      ],
+      "use_case": "Verifying KYC compliance.",
+      "prompt_template": "As a PMLA Compliance Officer, review the following client onboarding details. Flag any high-risk indicators under PMLA/RBI KYC norms that trigger Enhanced Due Diligence (EDD).",
+      "example_input": "Client is a PEP from a neighboring country, opening an account for a shell company.",
+      "example_output_structure": "Risk Flag 1 (PEP Status) \\| Risk Flag 2 (Shell Company) \\| EDD Requirements \\| SAR Filing Recommendation.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "As a PMLA Compliance Officer, review the following client onboarding details. Flag any high-risk indicators under PMLA/RBI KYC norms that trigger Enhanced Due Diligence (EDD).",
+        "hindi": "PMLA अनुपालन अधिकारी के रूप में, इन क्लाइंट ऑनबोर्डिंग विवरणों की समीक्षा करें। PMLA/RBI KYC नियमों के तहत उच्च-जोखिम संकेतों को चिह्नित करें...",
+        "tamil": "PMLA இணக்க அதிகாரியாக, இந்த வாடிக்கையாளர் ஆன்போர்டிங் விவரங்களை மதிப்பாய்வு செய்யுங்கள். PMLA/RBI KYC விதிகளின் கீழ் அதிக ஆபத்து குறிகளைக் குறிக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-047",
+      "number": 47,
+      "title": "Startup Legal Health Checkup",
+      "category_name": "Compliance",
+      "category_id": "compliance",
+      "practice_area": "Corporate/In-House",
+      "target_personas": [
+        "compliance",
+        "in-house"
+      ],
+      "use_case": "Assessing compliance of an early-stage startup.",
+      "prompt_template": "Perform a Legal Health Check for an Indian Startup. Assess compliance for: Companies Act (MCA), ESOP pool creation, Founders' SHA, GST registration, and DPDPA. Provide a compliance score and immediate action items.",
+      "example_input": "Pre-Series A fintech startup, 20 employees.",
+      "example_output_structure": "MCA Compliance \\| ESOP Status \\| GST/PMLA Check \\| DPDPA Status \\| Compliance Score (/100) \\| Immediate Actions.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "4 hours",
+      "language_variants": {
+        "english": "Perform a Legal Health Check for an Indian Startup. Assess compliance for: Companies Act (MCA), ESOP pool creation, Founders' SHA, GST registration, and DPDPA. Provide a compliance score and immediate action items.",
+        "hindi": "एक भारतीय स्टार्टअप के लिए कानूनी स्वास्थ्य जांच करें। कंपनी अधिनियम, ESOP, GST और DPDPA के अनुपालन का आकलन करें...",
+        "tamil": "ஒரு இந்திய ஸ்டார்ட்அப் சட்டம்/இணக்க சோதனையைச் செய்யுங்கள். நிறுவனங்கள் சட்டம், ESOP, GST மற்றும் DPDPA இணக்கத்தை மதிப்பிடுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-048",
+      "number": 48,
+      "title": "Annual Return Pre-Checker (MCA)",
+      "category_name": "Compliance",
+      "category_id": "compliance",
+      "practice_area": "Companies Act",
+      "target_personas": [
+        "compliance",
+        "in-house"
+      ],
+      "use_case": "Pre-filing verification for MCA forms.",
+      "prompt_template": "Act as a Company Secretary. Review the following Board Resolutions and Financial data. Verify compliance with the Companies Act, 2013 for filing MGT-7 (Annual Return) and AOC-4 (Financial Statements). Flag any discrepancies.",
+      "example_input": "\\[Summary of Board meeting minutes and balance sheet figures\\]",
+      "example_output_structure": "Director KYC (DIR-3 KYC) Check \\| Board Meeting Quorum Check \\| Financial Statement Disclosures \\| AOC-4/MGT-7 Filing Readiness.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Company Secretary. Review the following Board Resolutions and Financial data. Verify compliance with the Companies Act, 2013 for filing MGT-7 (Annual Return) and AOC-4 (Financial Statements). Flag any discrepancies.",
+        "hindi": "कंपनी सचिव के रूप में, MGT-7 और AOC-4 दाखिल करने के लिए कंपनी अधिनियम, 2013 के अनुपालन की जांच करें...",
+        "tamil": "நிறுவனச் செயலாளராக, MGT-7 மற்றும் AOC-4 தாக்கல் செய்வதற்கு நிறுவனங்கள் சட்டம், 2013 இணக்கத்தைச் சரிபார்க்கவும்..."
+      }
+    },
+    {
+      "id": "lp-049",
+      "number": 49,
+      "title": "FSSAI License Audit",
+      "category_name": "Compliance",
+      "category_id": "compliance",
+      "practice_area": "Consumer/Food Safety",
+      "target_personas": [
+        "compliance",
+        "in-house"
+      ],
+      "use_case": "Auditing a food business for FSSAI compliance.",
+      "prompt_template": "Act as an FSSAI Compliance Officer. Draft a compliance audit checklist for a cloud kitchen, covering licensing, labeling (veg/non-veg), hygiene standards, and the Food Safety and Standards Act, 2006.",
+      "example_input": "Cloud kitchen operating 3 brands from one location.",
+      "example_output_structure": "Licensing Req \\| Labeling Compliance \\| Hygiene Audit Points \\| Multi-brand Compliance \\| Penalty Risk.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as an FSSAI Compliance Officer. Draft a compliance audit checklist for a cloud kitchen, covering licensing, labeling (veg/non-veg), hygiene standards, and the Food Safety and Standards Act, 2006.",
+        "hindi": "FSSAI अनुपालन अधिकारी के रूप में, क्लाउड किचन के लिए एक अनुपालन ऑडिट चेकलिस्ट तैयार करें...",
+        "tamil": "FSSAI இணக்க அதிகாரியாக, கிளவுட் கிச்சனுக்கான இணக்க தணிக்கை சரிபார்ப்புப் பட்டியலை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-050",
+      "number": 50,
+      "title": "SPA Disclosure Letter Extractor",
+      "category_name": "Due Diligence",
+      "category_id": "due-diligence",
+      "practice_area": "Corporate/M\\&A",
+      "target_personas": [
+        "corporate",
+        "legal-ops"
+      ],
+      "use_case": "Extracting key exceptions from a DD report.",
+      "prompt_template": "Act as an M\\&A Lawyer. Review the following Due Diligence Report on Target Co. Extract the top 5 most material risks that must be disclosed or excluded in the SPA Disclosure Letter, specifically regarding Title to Assets and Litigation.",
+      "example_input": "\\[Summary of 50-page DD report\\]",
+      "example_output_structure": "Risk 1: Description & SPA Impact \\| Risk 2... \\| Risk 3... \\| Risk 4... \\| Risk 5... \\| Recommended Indemnity.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "4 hours",
+      "language_variants": {
+        "english": "Act as an M\\&A Lawyer. Review the following Due Diligence Report on Target Co. Extract the top 5 most material risks that must be disclosed or excluded in the SPA Disclosure Letter, specifically regarding Title to Assets and Litigation.",
+        "hindi": "M\\&A वकील के रूप में, इस ड्यू डिलिजेंस रिपोर्ट की समीक्षा करें। SPA डिस्क्लोज़र लेटर में प्रकट किए जाने वाले शीर्ष 5 भौतिक जोखिमों को निकालें...",
+        "tamil": "M\\&A வழக்கறிஞராக, இந்த ஆய்வு அறிக்கையை மதிப்பாய்வு செய்யுங்கள். SPA வெளிப்படுத்தல் கடிதத்தில் வெளிப்படுத்தப்பட வேண்டிய முதல் 5 முக்கிய ஆபத்துகளை எடுக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-051",
+      "number": 51,
+      "title": "ROC Search Report Analyzer",
+      "category_name": "Due Diligence",
+      "category_id": "due-diligence",
+      "practice_area": "Companies Act",
+      "target_personas": [
+        "corporate",
+        "legal-ops"
+      ],
+      "use_case": "Reviewing MCA records for charge creation.",
+      "prompt_template": "Act as a Company Secretary. Analyze this ROC Search Report summary. Identify any unregistered charges, disqualifications of directors under Section 164, or discrepancies in authorized capital.",
+      "example_input": "\\[Summary of MCA portal data\\]",
+      "example_output_structure": "Charge Registration Status \\| Director Disqualification Check \\| Capital Structure Check \\| Red Flags.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Act as a Company Secretary. Analyze this ROC Search Report summary. Identify any unregistered charges, disqualifications of directors under Section 164, or discrepancies in authorized capital.",
+        "hindi": "कंपनी सचिव के रूप में, इस ROC खोज रिपोर्ट का विश्लेषण करें। धारा 164 के तहत निदेशकों की अयोग्यता या अपंजीकृत चार्ज की पहचान करें...",
+        "tamil": "நிறுவனச் செயலாளராக, இந்த ROC தேடல் அறிக்கையை பகுப்பாய்வு செய்யுங்கள். பதிவுசெய்யப்படாத சார்ஜுகள் அல்லது இயக்குனர் தகுதிநீக்கங்களை அடையாளம் காணவும்..."
+      }
+    },
+    {
+      "id": "lp-052",
+      "number": 52,
+      "title": "Land Title Verification Assistant",
+      "category_name": "Due Diligence",
+      "category_id": "due-diligence",
+      "practice_area": "Real Estate",
+      "target_personas": [
+        "corporate",
+        "legal-ops"
+      ],
+      "use_case": "Structuring a property title search.",
+      "prompt_template": "Act as a Real Estate Due Diligence Lawyer. Create a 30-year title search checklist for agricultural land being converted to commercial use in Karnataka. Include checks for RTC, Mutation Register, and Encumbrance Certificates.",
+      "example_input": "Land in Devanahalli, Karnataka.",
+      "example_output_structure": "Pre-1950 Origin Check \\| RTC (Pahani) Check \\| Encumbrance Certificate (EC) \\| Mutation Check \\| Conversion Order Check \\| BDA/KMC Approvals.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Real Estate Due Diligence Lawyer. Create a 30-year title search checklist for agricultural land being converted to commercial use in Karnataka. Include checks for RTC, Mutation Register, and Encumbrance Certificates.",
+        "hindi": "रियल एस्टेट ड्यू डिलिजेंस वकील के रूप में, कर्नाटक में कृषि भूमि के लिए 30-वर्ष की शीर्षक खोज चेकलिस्ट बनाएं...",
+        "tamil": "ரியல் எஸ்டேட் ஆய்வு வழக்கறிஞராக, கர்நாடகாவில் விவசாய நிலத்திற்கான 30 ஆண்டுகள் தலைப்புத் தேடல் சரிபார்ப்புப் பட்டியலை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-053",
+      "number": 53,
+      "title": "IP Portfolio Auditor",
+      "category_name": "Due Diligence",
+      "category_id": "due-diligence",
+      "practice_area": "Intellectual Property",
+      "target_personas": [
+        "corporate",
+        "legal-ops"
+      ],
+      "use_case": "Checking the status and validity of a company's IP.",
+      "prompt_template": "Act as an IP Counsel. Review this list of the Target Company's IP assets. Flag any gaps in registration, pending oppositions, or lapses in trademark renewal under the Trade Marks Act, 1999.",
+      "example_input": "\\[List of 10 trademarks and 2 patents with filing dates\\]",
+      "example_output_structure": "Asset Name \\| Registration Status \\| Renewal Risk \\| Opposition Threat \\| Chain of Title Check.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as an IP Counsel. Review this list of the Target Company's IP assets. Flag any gaps in registration, pending oppositions, or lapses in trademark renewal under the Trade Marks Act, 1999.",
+        "hindi": "IP परामर्शदाता के रूप में, लक्ष्य कंपनी की IP संपत्तियों की इस सूची की समीक्षा करें। पंजीकरण में किसी भी अंतर या नवीनीकरण जोखिम को चिह्नित करें...",
+        "tamil": "IP ஆலோசகராக, இலக்கு நிறுவனத்தின் IP சொத்துகளின் இந்த பட்டியலை மதிப்பாய்வு செய்யுங்கள். பதிவு இடைவெளிகள் அல்லது புதுப்பிப்பு ஆபத்துகளைக் குறிக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-054",
+      "number": 54,
+      "title": "Employment DD Risk Spotter",
+      "category_name": "Due Diligence",
+      "category_id": "due-diligence",
+      "practice_area": "Labour Law",
+      "target_personas": [
+        "corporate",
+        "legal-ops"
+      ],
+      "use_case": "Identifying labor liabilities in an acquisition.",
+      "prompt_template": "Act as a Labour Law DD Expert. Based on the target company's HR data, identify potential liabilities regarding Contract Labor (R\\&A) Act compliance, PF/ESI deductions, and pending industrial disputes.",
+      "example_input": "Company uses 200 contract workers for core manufacturing. 5 sexual harassment complaints pending.",
+      "example_output_structure": "Contract Labor Risk (Core vs Non-core) \\| PF/ESI Gap \\| PoSH Liabilities \\| Quantified Risk Estimate.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Labour Law DD Expert. Based on the target company's HR data, identify potential liabilities regarding Contract Labor (R\\&A) Act compliance, PF/ESI deductions, and pending industrial disputes.",
+        "hindi": "श्रम कानून ड्यू डिलिजेंस विशेषज्ञ के रूप में, लक्ष्य कंपनी के HR डेटा के आधार पर श्रम देयताओं की पहचान करें...",
+        "tamil": "தொழிலாளர் சட்ட ஆய்வு நிபுணராக, இலக்கு நிறுவனத்தின் HR தரவின் அடிப்படையில் தொழிலாளர் பொறுப்புகளை அடையாளம் காணவும்..."
+      }
+    },
+    {
+      "id": "lp-055",
+      "number": 55,
+      "title": "Tax DD Litigation Extractor",
+      "category_name": "Due Diligence",
+      "category_id": "due-diligence",
+      "practice_area": "Taxation",
+      "target_personas": [
+        "corporate",
+        "legal-ops"
+      ],
+      "use_case": "Extracting pending tax demands from a DD report.",
+      "prompt_template": "As a Tax DD Counsel, extract all pending tax assessments and appeals from the target company's data. Classify them by risk (High/Medium/Low) and estimate the probability of success at the ITAT/High Court level.",
+      "example_input": "\\[List of 10 tax notices and their status\\]",
+      "example_output_structure": "AY in Dispute \\| Demand Amount \\| Forum (CIT(A)/ITAT) \\| Issue \\| Probability of Success \\| Risk Rating.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "As a Tax DD Counsel, extract all pending tax assessments and appeals from the target company's data. Classify them by risk (High/Medium/Low) and estimate the probability of success at the ITAT/High Court level.",
+        "hindi": "टैक्स DD परामर्शदाता के रूप में, लक्ष्य कंपनी के आंकड़ों से सभी लंबित कर निर्धारण और अपील निकालें। उन्हें जोखिम के अनुसार वर्गीकृत करें...",
+        "tamil": "வரி DD ஆலோசகராக, இலக்கு நிறுவனத்தின் தரவிலிருந்து நிலுவையில் உள்ள அனைத்து வரி கோரிக்கைகளையும் எடுக்கவும். அவற்றை ஆபத்து அடிப்படையில் வகைப்படுத்தவும்..."
+      }
+    },
+    {
+      "id": "lp-056",
+      "number": 56,
+      "title": "Red Flag Summary Generator",
+      "category_name": "Due Diligence",
+      "category_id": "due-diligence",
+      "practice_area": "General M\\&A",
+      "target_personas": [
+        "corporate",
+        "legal-ops"
+      ],
+      "use_case": "Creating an executive summary of deal-breakers.",
+      "prompt_template": "Act as a Managing Partner. Review this comprehensive Due Diligence Report. Generate a 1-page Executive Summary of ONLY the 'Deal-Breaker' red flags, ignoring standard low-risk findings. Focus on issues that could crater the valuation.",
+      "example_input": "\\[50-page DD report summary\\]",
+      "example_output_structure": "Executive Summary \\| Red Flag 1 (Implication) \\| Red Flag 2 (Implication) \\| Red Flag 3 (Implication) \\| Go/No-Go Recommendation.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Act as a Managing Partner. Review this comprehensive Due Diligence Report. Generate a 1-page Executive Summary of ONLY the 'Deal-Breaker' red flags, ignoring standard low-risk findings. Focus on issues that could crater the valuation.",
+        "hindi": "मैनेजिंग पार्टनर के रूप में, इस व्यापक ड्यू डिलिजेंस रिपोर्ट की समीक्षा करें। केवल 'डील-ब्रेकर' रेड फ्लैग का 1-पेज कार्यकारी सारांश बनाएं...",
+        "tamil": "நிர்வாகப் பங்குதாரராக, இந்த விரிவான ஆய்வு அறிக்கையை மதிப்பாய்வு செய்யுங்கள். 'ஒப்பந்தத்தை முறித்துவிடும்' சிவப்புக் கொடிகளுக்கான நிர்வாகச் சுருக்கத்தை மட்டும் உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-057",
+      "number": 57,
+      "title": "Section 8 Application Drafter",
+      "category_name": "Arbitration",
+      "category_id": "arbitration",
+      "practice_area": "Arbitration",
+      "target_personas": [
+        "senior-counsel",
+        "corporate",
+        "advocate"
+      ],
+      "use_case": "Applying to refer a matter to arbitration.",
+      "prompt_template": "Draft an application under Section 8 of the Arbitration and Conciliation Act, 1996 to refer the present suit to arbitration. Include the existence of the arbitration clause, the agreement, and the prayer to reject the plaint.",
+      "example_input": "Suit filed in Delhi District Court despite valid SIAC clause.",
+      "example_output_structure": "Application Heading \\| Existence of Arbitration Agreement \\| Statement of Non-Action on Merits \\| Prayer for Referral.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Draft an application under Section 8 of the Arbitration and Conciliation Act, 1996 to refer the present suit to arbitration. Include the existence of the arbitration clause, the agreement, and the prayer to reject the plaint.",
+        "hindi": "मध्यस्थता एवं सुलह अधिनियम, 1996 की धारा 8 के तहत वर्तमान मामले को मध्यस्थता में भेजने के लिए एक आवेदन तैयार करें...",
+        "tamil": "நடுவர் மற்றும் இணக்கச் சட்டம், 1996-ன் பிரிவு 8-ன் கீழ் தற்போதைய வழக்கை நடுவர் மன்றத்திற்கு அனுப்ப விண்ணப்பம் செய்யுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-058",
+      "number": 58,
+      "title": "Section 11 Petition for Appointment",
+      "category_name": "Arbitration",
+      "category_id": "arbitration",
+      "practice_area": "Arbitration",
+      "target_personas": [
+        "senior-counsel",
+        "corporate",
+        "advocate"
+      ],
+      "use_case": "Petitioning the HC for arbitrator appointment.",
+      "prompt_template": "Draft a Section 11 Application for the appointment of a sole arbitrator by the High Court, alleging failure of the respondent to cooperate in the appointment process as per the arbitration clause.",
+      "example_input": "Clause requires 2 named arbitrators; one refuses to act, Respondent fails to nominate a replacement.",
+      "example_output_structure": "Cause Title \\| Arbitration Agreement Details \\| Failure of Mechanism \\| Eligibility of Proposed Arbitrator \\| Prayer.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Draft a Section 11 Application for the appointment of a sole arbitrator by the High Court, alleging failure of the respondent to cooperate in the appointment process as per the arbitration clause.",
+        "hindi": "उच्च न्यायालय द्वारा एकमात्र मध्यस्थ की नियुक्ति के लिए धारा 11 आवेदन तैयार करें, जिसमें प्रतिवादी के सहयोग न करने का आरोप लगाया गया हो...",
+        "tamil": "உயர் நீதிமன்றத்தால் ஒரே ஒரு நடுவரை நியமிப்பதற்கு பிரிவு 11 விண்ணப்பத்தை உருவாக்குங்கள், பிரதிவாதி ஒத்துழைக்கவில்லை என்று குற்றம் சாட்டி..."
+      }
+    },
+    {
+      "id": "lp-059",
+      "number": 59,
+      "title": "Arbitrator Challenge Drafter (Section 12/13)",
+      "category_name": "Arbitration",
+      "category_id": "arbitration",
+      "practice_area": "Arbitration",
+      "target_personas": [
+        "senior-counsel",
+        "corporate",
+        "advocate"
+      ],
+      "use_case": "Drafting a challenge to an arbitrator's independence.",
+      "prompt_template": "Draft a challenge to an arbitrator under Section 12/13 of the ACA based on justifiable doubts as to independence. Cite the specific grounds from the Fifth/Sixth Schedule of the ACA.",
+      "example_input": "Arbitrator is a senior partner in a law firm that regularly advises the Respondent's parent company.",
+      "example_output_structure": "Challenge Notice \\| Grounds under Section 12(3) \\| Fifth/Sixth Schedule Violation \\| Precedent on Independence \\| Prayer for Recusal.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Draft a challenge to an arbitrator under Section 12/13 of the ACA based on justifiable doubts as to independence. Cite the specific grounds from the Fifth/Sixth Schedule of the ACA.",
+        "hindi": "ACA की धारा 12/13 के तहत स्वतंत्रता के संदेह के आधार पर एक मध्यस्थ को चुनौती पत्र तैयार करें...",
+        "tamil": "ACA பிரிவு 12/13-ன் கீழ் சுதந்திரம் குறித்த நியாயமான சந்தேகங்களின் அடிப்படையில் நடுவருக்கு சவால் விடுக்கும் அறிவிப்பை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-060",
+      "number": 60,
+      "title": "Section 34 Annulment Grounds Builder",
+      "category_name": "Arbitration",
+      "category_id": "arbitration",
+      "practice_area": "Arbitration",
+      "target_personas": [
+        "senior-counsel",
+        "corporate",
+        "advocate"
+      ],
+      "use_case": "Preparing grounds to set aside an arbitral award.",
+      "prompt_template": "Act as an Arbitration Litigator. Based on the summary of the arbitral award, construct arguments for setting it aside under Section 34 of the ACA. Focus on public policy of India and contravention of the fundamental policy of Indian Law.",
+      "example_input": "Award grants interest in excess of the contractual cap. No reasons given for computing quantum.",
+      "example_output_structure": "Section 34(2)(b)(ii) Argument (Public Policy) \\| Section 34(2)(a) Argument (Procedural) \\| Patent Illegality Argument \\| Draft Petition Outline.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "4 hours",
+      "language_variants": {
+        "english": "Act as an Arbitration Litigator. Based on the summary of the arbitral award, construct arguments for setting it aside under Section 34 of the ACA. Focus on public policy of India and contravention of the fundamental policy of Indian Law.",
+        "hindi": "मध्यस्थता विवाद वकील के रूप में, ACA की धारा 34 के तहत मध्यस्थ पुरस्कार को रद्द करने के लिए तर्क बनाएं...",
+        "tamil": "நடுவர் வழக்கறிஞராக, ACA பிரிவு 34-ன் கீழ் நடுவர் தீர்ப்பை நிராகரிக்க வாதங்களை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-061",
+      "number": 61,
+      "title": "Statement of Claim Structurer",
+      "category_name": "Arbitration",
+      "category_id": "arbitration",
+      "practice_area": "Arbitration",
+      "target_personas": [
+        "senior-counsel",
+        "corporate",
+        "advocate"
+      ],
+      "use_case": "Outlining a Statement of Claim.",
+      "prompt_template": "Structure a Statement of Claim for a domestic arbitration under the ACA. Include the factual background, the breach of contract, the quantification of damages, and the prayer for relief with interest.",
+      "example_input": "EPC contract breach. Delay in completion. Loss of rent.",
+      "example_output_structure": "Particulars of Parties \\| Arbitration Agreement \\| Facts \\| Breach & Causation \\| Quantum of Damages \\| Prayer.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Structure a Statement of Claim for a domestic arbitration under the ACA. Include the factual background, the breach of contract, the quantification of damages, and the prayer for relief with interest.",
+        "hindi": "ACA के तहत घरेलू मध्यस्थता के लिए दावे का वक्तव्य तैयार करें। तथ्य, अनुबंध का उल्लंघन, हानि की मात्रा और राहत शामिल करें...",
+        "tamil": "ACA கீழ் உள்நாட்டு நடுவர் மன்றத்திற்கான உரிமைகோரல் அறிக்கையை அமைக்கவும். உண்மைகள், ஒப்பந்த மீறல், இழப்பீடு கணக்கீடு மற்றும் நிவாரணம் ஆகியவற்றைச் சேர்க்கவும்..."
+      }
+    },
+    {
+      "id": "lp-062",
+      "number": 62,
+      "title": "Interest Calculation Assistant",
+      "category_name": "Arbitration",
+      "category_id": "arbitration",
+      "practice_area": "Arbitration/Banking",
+      "target_personas": [
+        "senior-counsel",
+        "corporate",
+        "advocate"
+      ],
+      "use_case": "Calculating pre and post-award interest.",
+      "prompt_template": "Act as an Arbitration Accountant. Based on the principal amount, date of breach, and applicable interest rate (SBI MCLR \\+ X%), calculate the pre-award and post-award interest up to today's date. Provide the mathematical breakdown.",
+      "example_input": "Principal: ₹1 Crore. Date of Breach: 01-Jan-2020. Rate: SBI 1-year MCLR \\+ 2%.",
+      "example_output_structure": "Principal \\| Period 1 Calculation \\| Period 2 Calculation \\| Total Pre-Award Interest \\| Post-Award Interest Rate \\| Grand Total.",
+      "best_ai_model": "GPT-4o (Advanced Data Analysis)",
+      "expected_time_savings": "1 hour",
+      "language_variants": {
+        "english": "Act as an Arbitration Accountant. Based on the principal amount, date of breach, and applicable interest rate (SBI MCLR \\+ X%), calculate the pre-award and post-award interest up to today's date. Provide the mathematical breakdown.",
+        "hindi": "मध्यस्थता लेखाकार के रूप में, मूल राशि, उल्लंघन की तिथि और लागू ब्याज दर के आधार पर पुरस्कार पूर्व और पुरस्कार पश्च ब्याज की गणना करें...",
+        "tamil": "நடுவர் கணக்காளராக, அசல், மீறல் தேதி மற்றும் பொருந்தக்கூடிய வட்டி விகிதத்தின் அடிப்படையில் விருதுக்கு முன் மற்றும் விருதுக்குப் பின் வட்டியைக் கணக்கிடுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-063",
+      "number": 63,
+      "title": "Emergency Arbitrator Application",
+      "category_name": "Arbitration",
+      "category_id": "arbitration",
+      "practice_area": "Arbitration",
+      "target_personas": [
+        "senior-counsel",
+        "corporate",
+        "advocate"
+      ],
+      "use_case": "Seeking interim relief before the tribunal is formed.",
+      "prompt_template": "Draft an application for Emergency Interim Measures under the SIAC Rules. Argue the urgency, the irreparable harm, and the prima facie merits of the case to secure a status quo order.",
+      "example_input": "Respondent actively dissipating assets to frustrate a future award.",
+      "example_output_structure": "Introduction & Urgency \\| Prima Facie Merits \\| Irreparable Harm \\| Balance of Convenience \\| Draft Order Sought.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "4 hours",
+      "language_variants": {
+        "english": "Draft an application for Emergency Interim Measures under the SIAC Rules. Argue the urgency, the irreparable harm, and the prima facie merits of the case to secure a status quo order.",
+        "hindi": "SIAC नियमों के तहत आपातकालीन अंतरिम उपायों के लिए एक आवेदन तैयार करें। तात्कालिकता, अपूरणीय क्षति और मामले की प्राथमिक योग्यता का तर्क दें...",
+        "tamil": "SIAC விதிகளின் கீழ் அவசர இடைக்கால நடவடிக்கைகளுக்கான விண்ணப்பத்தை உருவாக்குங்கள். அவசரத் தேவை, ஈடு செய்ய முடியாத சேதம் மற்றும் வழக்கின் ஆரம்பக் கட்ட தகுதிக்கு வாதிடுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-064",
+      "number": 64,
+      "title": "Complex Legal Concept Explainer (Layperson)",
+      "category_name": "Client Communication",
+      "category_id": "client-communication",
+      "practice_area": "General",
+      "target_personas": [
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Explaining legal terms to a client.",
+      "prompt_template": "Explain the legal concept of \\[Concept\\] to a client who has no legal background. Use an analogy relevant to everyday Indian life. Keep it under 150 words. Avoid legal jargon.",
+      "example_input": "Doctrine of Res Judicata",
+      "example_output_structure": "Simple Definition \\| Everyday Analogy \\| What it means for the client's case.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "30 mins",
+      "language_variants": {
+        "english": "Explain the legal concept of \\[Concept\\] to a client who has no legal background. Use an analogy relevant to everyday Indian life. Keep it under 150 words. Avoid legal jargon.",
+        "hindi": "एक गैर-कानूनी ग्राहक को \\[संकल्पना\\] की कानूनी अवधारणा समझाएं। रोजमर्रा के भारतीय जीवन से संबंधित एक उदाहरण का प्रयोग करें...",
+        "tamil": "சட்டப் பின்னணி இல்லாத வாடிக்கையாளருக்கு \\[கருத்தாக்கம்\\] பற்றி விளக்�\n\n...கவனிக்கவும். அன்றாட இந்திய வாழ்க்கையுடன் தொடர்புடைய ஒரு உவமையைப் பயன்படுத்தவும்...\" (Tamil continuation for 64)."
+      }
+    },
+    {
+      "id": "lp-065",
+      "number": 65,
+      "title": "Fee Estimate Justifier",
+      "category_name": "Client Communication",
+      "category_id": "client-communication",
+      "practice_area": "Law Firm Operations",
+      "target_personas": [
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Explaining legal costs to a corporate client.",
+      "prompt_template": "Act as a Law Firm Partner. Draft an email to a corporate client justifying a litigation fee estimate. Break down the complexity of the matter, the court hierarchy, the hours required for drafting and appearances, and the value at stake. Keep the tone professional, transparent, and reassuring.",
+      "example_input": "Commercial suit in Delhi HC. Value 5 Cr. Estimated 80 hours \\+ appearances.",
+      "example_output_structure": "Greeting \\| Complexity & Stakes \\| Breakdown of Phases (Drafting/Appearances/Research) \\| Value Proposition \\| Closing.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "45 mins",
+      "language_variants": {
+        "english": "Act as a Law Firm Partner. Draft an email to a corporate client justifying a litigation fee estimate. Break down the complexity of the matter, the court hierarchy, the hours required for drafting and appearances, and the value at stake. Keep the tone professional, transparent, and reassuring.",
+        "hindi": "लॉ फर्म पार्टनर के रूप में, कॉर्पोरेट क्लाइंट को मुकदमा शुल्क अनुमान का औचित्य साबित करने वाला ईमेल ड्राफ्ट करें...",
+        "tamil": "லா ஃபிர்ம் பங்குதாரராக, வழக்குச் செலவு மதிப்பீட்டை நியாயப்படுத்தி கார்ப்பரேட் வாடிக்கையாளருக்கு மின்னஞ்சல் வரைவு செய்யுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-066",
+      "number": 66,
+      "title": "Bad News Deliverer (Adverse Order)",
+      "category_name": "Client Communication",
+      "category_id": "client-communication",
+      "practice_area": "Litigation",
+      "target_personas": [
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Informing a client about an adverse interim order.",
+      "prompt_template": "Draft an email to a client explaining that the court has dismissed our injunction application. Explain the legal reason briefly, reassure them that the main suit is unaffected, and outline the next steps (e.g., appeal or trial strategy). Tone: Empathetic but strategic.",
+      "example_input": "Injunction dismissed on technical defect of not filing suit simultaneously.",
+      "example_output_structure": "Bad News Statement \\| Legal Reason (Simple Terms) \\| Impact on Main Case \\| Next Steps/Appeal Plan.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "30 mins",
+      "language_variants": {
+        "english": "Draft an email to a client explaining that the court has dismissed our injunction application. Explain the legal reason briefly, reassure them that the main suit is unaffected, and outline the next steps (e.g., appeal or trial strategy). Tone: Empathetic but strategic.",
+        "hindi": "क्लाइंट को ईमेल ड्राफ्ट करें कि अदालत ने हमारा इंजंक्शन आवेदन खारिज कर दिया है। कानूनी कारण समझाएं, मुख्य मुकदमे पर इसका कोई प्रभाव नहीं है, और अगले कदम बताएं...",
+        "tamil": "நீதிமன்றம் நமது தடையுத்தரவு விண்ணப்பத்தை நிராகரித்தது என்று வாடிக்கையாளருக்கு விளக்கும் மின்னஞ்சலை வரைவு செய்யுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-067",
+      "number": 67,
+      "title": "Post-Hearing Update Memo",
+      "category_name": "Client Communication",
+      "category_id": "client-communication",
+      "practice_area": "Litigation",
+      "target_personas": [
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Summarizing what happened in court today.",
+      "prompt_template": "Act as an Associate. Draft a concise post-hearing update memo for the In-House Counsel. State what was argued, the judge's reactions/observations, the next date, and any action items for the client.",
+      "example_input": "Judge questioned delay. Opp. counsel asked for time. Next date: 15th Nov. Need client's affidavit.",
+      "example_output_structure": "Hearing Date & Court \\| Arguments Made \\| Judge's Observations \\| Next Date \\| Client Action Items.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "30 mins",
+      "language_variants": {
+        "english": "Act as an Associate. Draft a concise post-hearing update memo for the In-House Counsel. State what was argued, the judge's reactions/observations, the next date, and any action items for the client.",
+        "hindi": "सहयोगी के रूप में, इन-हाउस परामर्शदाता के लिए सुनवाई के बाद का अपडेट मेमो ड्राफ्ट करें। न्यायालय में क्या हुआ, जज की प्रतिक्रिया और अगली तारीख बताएं...",
+        "tamil": "இன்ஹவுஸ் ஆலோசகருக்கு விசாரணைக்குப் பிந்தைய புதுப்பிப்பு மெமோவை வரைவு செய்யுங்கள். நீதிமன்றத்தில் நடந்தது, நீதிபதியின் எதிர்வினை மற்றும் அடுத்த தேதியைக் கூறுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-068",
+      "number": 68,
+      "title": "Regulatory Risk Communication to Board",
+      "category_name": "Client Communication",
+      "category_id": "client-communication",
+      "practice_area": "In-House/Compliance",
+      "target_personas": [
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Updating the board on a new regulatory threat.",
+      "prompt_template": "Act as General Counsel. Draft a memo to the Board of Directors regarding a new proposed regulation in India. Explain the regulation, the operational risk, and the budget/resources required for compliance.",
+      "example_input": "Proposed Digital Competition Bill impacting our app's default settings.",
+      "example_output_structure": "Regulatory Update \\| Business Impact Assessment \\| Compliance Roadmap \\| Budget/Resource Request.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Act as General Counsel. Draft a memo to the Board of Directors regarding a new proposed regulation in India. Explain the regulation, the operational risk, and the budget/resources required for compliance.",
+        "hindi": "महाप्रबंधक के रूप में, एक नए नियामक खतरे पर बोर्ड ऑफ डायरेक्टर्स को मेमो ड्राफ्ट करें। नियमन, परिचालन जोखिम और अनुपालन के लिए आवश्यक बजट की व्याख्या करें...",
+        "tamil": "பொது ஆலோசகராக, புதிய ஒழுங்குமுறை அச்சுறுத்தல் குறித்து இயக்குநர்கள் குழுவிற்கு மெமோ வரைவு செய்யுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-069",
+      "number": 69,
+      "title": "Matter Closure & Debrief Letter",
+      "category_name": "Client Communication",
+      "category_id": "client-communication",
+      "practice_area": "General",
+      "target_personas": [
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Officially closing a matter with a client.",
+      "prompt_template": "Draft a formal matter closure letter to the client. Summarize the final outcome, confirm that no further bills will be raised, request confirmation on the return of original documents, and offer ongoing support.",
+      "example_input": "Arbitration award in client's favor. Claim allowed. Matter closed.",
+      "example_output_structure": "Outcome Summary \\| Final Billing Confirmation \\| Document Return Protocol \\| Appreciation & Ongoing Support.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "45 mins",
+      "language_variants": {
+        "english": "Draft a formal matter closure letter to the client. Summarize the final outcome, confirm that no further bills will be raised, request confirmation on the return of original documents, and offer ongoing support.",
+        "hindi": "क्लाइंट को औपचारिक मामले के समापन का पत्र ड्राफ्ट करें। अंतिम परिणाम का सारांश दें, दस्तावेज़ वापसी की पुष्टि करें, और निरंतर समर्थन की पेशकश करें...",
+        "tamil": "வாடிக்கையாளருக்கு முறையான வழக்கு மூடுதல் கடிதத்தை வரைவு செய்யுங்கள். இறுதி முடிவைச் சுருக்கமாகக் கூறி, ஆவணங்களைத் திருப்பித் தருவதை உறுதிப்படுத்தவும்..."
+      }
+    },
+    {
+      "id": "lp-070",
+      "number": 70,
+      "title": "Cross-Examination Question Designer (BSA Focus)",
+      "category_name": "Court Preparation",
+      "category_id": "court-preparation",
+      "practice_area": "Evidence/Litigation",
+      "target_personas": [
+        "advocate",
+        "student"
+      ],
+      "use_case": "Drafting questions for a hostile witness.",
+      "prompt_template": "Act as a Trial Advocate. Based on this witness statement, draft 10 leading questions for cross-examination. Ensure the questions adhere to the rules of evidence under the Bharatiya Sakshya Adhiniyam (BSA), aiming to impeach their credibility.",
+      "example_input": "Witness claims to have seen the signing of the contract at 5 PM, but flight records show they were at the airport at 4 PM.",
+      "example_output_structure": "Impeachment Theme \\| Questions 1-5 (Establishing the claim) \\| Questions 6-10 (Introducing the contradiction/flight records) \\| Final Trap Question.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Act as a Trial Advocate. Based on this witness statement, draft 10 leading questions for cross-examination. Ensure the questions adhere to the rules of evidence under the Bharatiya Sakshya Adhiniyam (BSA), aiming to impeach their credibility.",
+        "hindi": "ट्रायल अधिवक्ता के रूप में, इस गवाह के बयान के आधार पर 10 प्रमुख प्रश्न तैयार करें। भारतीय साक्ष्य अधिनियम (BSA) के नियमों का पालन करें और उनकी विश्वसनीयता को चुनौती दें...",
+        "tamil": "விசாரணை வழக்கறிஞராக, இந்த சாட்சி அறிக்கையின் அடிப்படையில் 10 முன்னணி கேள்விகளை உருவாக்குங்கள். BSA சாட்சிய விதிகளைப் பின்பற்றி அவர்களின் நம்பகத்தன்மையை கேள்விக்குள்ளாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-071",
+      "number": 71,
+      "title": "Judge Persona Analyzer",
+      "category_name": "Court Preparation",
+      "category_id": "court-preparation",
+      "practice_area": "Litigation Strategy",
+      "target_personas": [
+        "advocate",
+        "student"
+      ],
+      "use_case": "Tailoring arguments to a specific judge's known preferences.",
+      "prompt_template": "Act as a Litigation Strategist. Based on publicly available information regarding Justice \\[Name\\] of the \\[High Court\\], summarize their judicial temperament, known strictness on procedural compliance, and any notable precedents they have authored on \\[Topic\\].",
+      "example_input": "Justice XYZ, Delhi HC, on interim injunctions in IP cases.",
+      "example_output_structure": "Judicial Temperament \\| Procedural Strictness \\| Precedent Analysis on Topic \\| Recommended Argumentation Style.",
+      "best_ai_model": "GPT-4o (with browsing)",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Litigation Strategist. Based on publicly available information regarding Justice \\[Name\\] of the \\[High Court\\], summarize their judicial temperament, known strictness on procedural compliance, and any notable precedents they have authored on \\[Topic\\].",
+        "hindi": "मुकदमा रणनीतिकार के रूप में, न्यायाधीश \\[नाम\\] के सार्वजनिक रूप से उपलब्ध व्यवहार के आधार पर, उनके न्यायिक स्वभाव और \\[विषय\\] पर मिसालों का सारांश दें...",
+        "tamil": "வழக்கு உத்தி நிபுணராக, நீதிபதி \\[பெயர்\\]-னின் பொதுவாகக் கிடைக்கும் தகவலின் அடிப்படையில், அவர்களின் நீதித்துறை மனநிலை மற்றும் \\[தலைப்பு\\] தொடர்பான முன்னுதாரணங்களை சுருக்கமாகக் கூறுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-072",
+      "number": 72,
+      "title": "Courtroom Pitch Deck Outline",
+      "category_name": "Court Preparation",
+      "category_id": "court-preparation",
+      "practice_area": "Commercial Litigation",
+      "target_personas": [
+        "advocate",
+        "student"
+      ],
+      "use_case": "Preparing a visual aid for complex commercial arguments.",
+      "prompt_template": "Act as a Senior Counsel. Create a 5-slide outline for a courtroom presentation explaining a complex transactional dispute. Focus on the flow of funds, the breach, and the legal relief. Keep text minimal, use visual cues.",
+      "example_input": "Complex derivative transaction involving 4 SPVs and a default.",
+      "example_output_structure": "Slide 1: The Transaction Map \\| Slide 2: The Representations \\| Slide 3: The Breach/Flow of Funds \\| Slide 4: The Notice \\| Slide 5: The Relief Sought.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Act as a Senior Counsel. Create a 5-slide outline for a courtroom presentation explaining a complex transactional dispute. Focus on the flow of funds, the breach, and the legal relief. Keep text minimal, use visual cues.",
+        "hindi": "वरिष्ठ वकील के रूप में, एक जटिल वाणिज्यिक विवाद की व्याख्या करने के लिए 5-स्लाइड न्यायालय प्रस्तुति रूपरेखा बनाएं। न्यूनतम पाठ और दृश्य संकेतों का उपयोग करें...",
+        "tamil": "மூத்த வழக்கறிஞராக, சிக்கலான வணிக தகராறு ஒன்றை விளக்குவதற்கான 5-ஸ்லைடு நீதிமன்ற விளக்கக்காட்சி அரங்கை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-073",
+      "number": 73,
+      "title": "Re-Examination Question Formulator",
+      "category_name": "Court Preparation",
+      "category_id": "court-preparation",
+      "practice_area": "Evidence",
+      "target_personas": [
+        "advocate",
+        "student"
+      ],
+      "use_case": "Repairing damage from cross-examination.",
+      "prompt_template": "Based on the cross-examination transcript, formulate 5 re-examination questions to clarify the ambiguities created by the opposing counsel. Strictly avoid introducing new matters without court permission under BSA.",
+      "example_input": "Witness confused on exact dates during cross, but was sure about the month and the document signed.",
+      "example_output_structure": "Clarification Question 1 (Date ambiguity) \\| Document Refresh Question \\| Explanation Question \\| Concluding Reinforcement.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1 hour",
+      "language_variants": {
+        "english": "Based on the cross-examination transcript, formulate 5 re-examination questions to clarify the ambiguities created by the opposing counsel. Strictly avoid introducing new matters without court permission under BSA.",
+        "hindi": "जिरह की कार्यविधि के आधार पर, विरोधी वकील द्वारा बनाई गई अस्पष्टताओं को स्पष्ट करने के लिए 5 पुनः-परीक्षण प्रश्न तैयार करें...",
+        "tamil": "குறுக்கு விசாரணை நகலை அடிப்படையாகக் கொண்டு, எதிர் வழக்கறிஞர் உருவாக்கிய குழப்பங்களைத் தெளிவுபடுத்த 5 மறு விசாரணை கேள்விகளை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-074",
+      "number": 74,
+      "title": "List of Dates & Events Generator",
+      "category_name": "Court Preparation",
+      "category_id": "court-preparation",
+      "practice_area": "Civil/Criminal Litigation",
+      "target_personas": [
+        "advocate",
+        "student"
+      ],
+      "use_case": "Creating the chronological foundation for pleadings.",
+      "prompt_template": "Convert the following unstructured facts into a formal 'List of Dates and Events' for an SLP/Commercial Suit. Ensure it is strictly chronological, concise, and includes only legally relevant events.",
+      "example_input": "Jan 5: Contract signed. Feb 10: Email amending terms. March 1: Goods delivered but defective. March 15: Notice sent. April 1: No reply.",
+      "example_output_structure": "Date \\| Event (Chronological, 1-2 sentences max per event).",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Convert the following unstructured facts into a formal 'List of Dates and Events' for an SLP/Commercial Suit. Ensure it is strictly chronological, concise, and includes only legally relevant events.",
+        "hindi": "निम्नलिखित असंरचित तथ्यों को एक औपचारिक 'तिथियों और घटनाओं की सूची' में बदलें। सख्ती से कालानुक्रमिक और कानूनी रूप से प्रासंगिक होना चाहिए...",
+        "tamil": "பின்வரும் அமைப்பற்ற உண்மைகளை ஒரு முறையான 'தேதிகள் மற்றும் நிகழ்வுகளின் பட்டியலாக' மாற்றவும். கண்டிப்பாக காலவரிசைப்படி மற்றும் சட்டரீதியாக பொருத்தமானதாக இருக்க வேண்டும்..."
+      }
+    },
+    {
+      "id": "lp-075",
+      "number": 75,
+      "title": "Oral Argument Scripter (Opening 3 Minutes)",
+      "category_name": "Court Preparation",
+      "category_id": "court-preparation",
+      "practice_area": "Appellate/Litigation",
+      "target_personas": [
+        "advocate",
+        "student"
+      ],
+      "use_case": "Scripting the crucial opening minutes of a court hearing.",
+      "prompt_template": "Draft the opening 3 minutes of an oral argument for a Writ Petition. Start with 'May it please the court...', immediately state the core legal issue, the prejudice caused, and the exact relief sought. Capture the judge's attention.",
+      "example_input": "Writ against arbitrary blacklisting by a PSU without hearing.",
+      "example_output_structure": "Salutation \\| The Core Issue (1 sentence) \\| The Arbitrary Action \\| Violation of Natural Justice \\| The Relief Sought.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Draft the opening 3 minutes of an oral argument for a Writ Petition. Start with 'May it please the court...', immediately state the core legal issue, the prejudice caused, and the exact relief sought. Capture the judge's attention.",
+        "hindi": "एक रिट याचिका के लिए मौखिक तर्क के पहले 3 मिनटों का ड्राफ्ट तैयार करें। 'महोदय...' से शुरू करें, मूल कानूनी मुद्दा और मांगी गई राहत तुरंत बताएं...",
+        "tamil": "ஒரு ரிட் மனுக்கான வாய்மொழி வாதத்தின் முதல் 3 நிமிடங்களை வரைவு செய்யுங்கள். 'நீதிமன்றம் அனுமதித்தால்...' என்று தொடங்கி, முக்கிய சட்டப் பிரச்சினை மற்றும் கோரப்படும் நிவாரணத்தை உடனே கூறவும்..."
+      }
+    },
+    {
+      "id": "lp-076",
+      "number": 76,
+      "title": "Case Law Cheat Sheet for Oral Submissions",
+      "category_name": "Court Preparation",
+      "category_id": "court-preparation",
+      "practice_area": "Litigation",
+      "target_personas": [
+        "advocate",
+        "student"
+      ],
+      "use_case": "Quick reference for case law during oral arguments.",
+      "prompt_template": "Create a 1-page cheat sheet for the following 5 case laws to be used during oral submissions. For each case, provide: Citation, Paragraph number of the relevant holding, and exactly 1 sentence summarizing the ratio.",
+      "example_input": "\\[List of 5 SC citations on Section 9 Arbitration\\]",
+      "example_output_structure": "Case 1 Citation \\| Para No. \\| 1-Sentence Ratio \\| Case 2 Citation... (repeat).",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1 hour",
+      "language_variants": {
+        "english": "Create a 1-page cheat sheet for the following 5 case laws to be used during oral submissions. For each case, provide: Citation, Paragraph number of the relevant holding, and exactly 1 sentence summarizing the ratio.",
+        "hindi": "मौखिक तर्कों के दौरान उपयोग के लिए 5 मामलों के लिए 1-पेज की चीट शीट बनाएं। प्रत्येक मामले के लिए: उद्धरण, प्रासंगिक धारणा का पैराग्राफ नंबर, और ठीक 1 वाक्य में सारांश...",
+        "tamil": "வாய்மொழி வாதங்களின் போது பயன்படுத்துவதற்காக 5 வழக்குகளுக்கான 1-பக்க முன்னெச்ச குறிப்பை உருவாக்குங்கள். ஒவ்வொரு வழக்கிற்கும்: மேற்கோள், பத்தி எண், மற்றும் சரியாக 1 வாக்கிய சுருக்கம்..."
+      }
+    },
+    {
+      "id": "lp-077",
+      "number": 77,
+      "title": "BSA Electronic Evidence Certificate Drafter",
+      "category_name": "Evidence Analysis",
+      "category_id": "evidence-analysis",
+      "practice_area": "Cyber/Evidence",
+      "target_personas": [
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Drafting the mandatory certificate for electronic evidence.",
+      "prompt_template": "Act as a Cyber Law Expert. Draft the certificate under Section 63 of the Bharatiya Sakshya Adhiniyam (BSA) for the production of a WhatsApp chat as evidence. Include details of the device, hash value, and chain of custody.",
+      "example_input": "Chat extracted via Cellebrite from an Android phone.",
+      "example_output_structure": "Court Header \\| Case Details \\| Device Details \\| Extraction Details \\| Hash Value \\| Chain of Custody \\| Attestation.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Act as a Cyber Law Expert. Draft the certificate under Section 63 of the Bharatiya Sakshya Adhiniyam (BSA) for the production of a WhatsApp chat as evidence. Include details of the device, hash value, and chain of custody.",
+        "hindi": "साइबर कानून विशेषज्ञ के रूप में, सबूत के रूप में WhatsApp चैट पेश करने के लिए भारतीय साक्ष्य अधिनियम (BSA) की धारा 63 के तहत प्रमाण पत्र तैयार करें...",
+        "tamil": "சைபர் சட்ட நிபுணராக, ஆதாரமாக WhatsApp அரட்டையைச் சமர்ப்பிப்பதற்கு பாரதிய சாட்சிய சட்டம் (BSA) பிரிவு 63-ன் கீழ் சான்றிதழை வரைவு செய்யுங்கள்..."
+      }
+    },
+    {
+      "id": "lp-078",
+      "number": 78,
+      "title": "Document Authenticity Checker",
+      "category_name": "Evidence Analysis",
+      "category_id": "evidence-analysis",
+      "practice_area": "Fraud/Litigation",
+      "target_personas": [
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Spotting signs of document fabrication.",
+      "prompt_template": "As a Forensic Document Analyst, review this description of a physical document. Identify red flags indicating it might be fabricated or altered (e.g., inconsistent fonts, overwrite signs, blank signed paper usage).",
+      "example_input": "Agreement dated 2018, but uses a stamp paper purchased in 2020\\. Signatures don't overlap the text.",
+      "example_output_structure": "Red Flag 1 (Stamp Paper Date) \\| Red Flag 2 (Non-overlapping signature) \\| Red Flag 3 \\| Recommended Forensic Action.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "As a Forensic Document Analyst, review this description of a physical document. Identify red flags indicating it might be fabricated or altered (e.g., inconsistent fonts, overwrite signs, blank signed paper usage).",
+        "hindi": "फोरेंसिक दस्तावेज़ विश्लेषक के रूप में, इस दस्तावेज़ के विवरण की समीक्षा करें। जालसाजी या छेड़छाड़ के संकेत देने वाले चेतावनी संकेतों की पहचान करें...",
+        "tamil": "போரென்சிக் ஆவண பகுப்பாய்வாளராக, இந்த ஆவணத்தின் விளக்கத்தை மதிப்பாய்வு செய்யுங்கள். ஆவணம் போலி செய்யப்பட்டிருப்பதைக் குறிக்கும் எச்சரிக்கைக் குறியீடுகளை அடையாளம் காணவும்..."
+      }
+    },
+    {
+      "id": "lp-079",
+      "number": 79,
+      "title": "Expert Report Critic",
+      "category_name": "Evidence Analysis",
+      "category_id": "evidence-analysis",
+      "practice_area": "Cross-disciplinary Litigation",
+      "target_personas": [
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Finding weaknesses in an opposing expert's report.",
+      "prompt_template": "Act as a Defense Litigator. Critically analyze this summary of the opposing party's forensic audit report. Identify assumptions made, methodology flaws, and conclusions that are not fully supported by the data.",
+      "example_input": "\\[Summary of a financial fraud audit assuming intent based on lost emails\\]",
+      "example_output_structure": "Methodology Flaw 1 \\| Unstated Assumption 2 \\| Gap in Causation \\| Prepared Rebuttal Questions for the Expert.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Act as a Defense Litigator. Critically analyze this summary of the opposing party's forensic audit report. Identify assumptions made, methodology flaws, and conclusions that are not fully supported by the data.",
+        "hindi": "बचाव मुकदमेबाज के रूप में, विरोधी पक्ष की फोरेंसिक ऑडिट रिपोर्ट का आलोचनात्मक विश्लेषण करें। कमियां, धारणाएं और कमजोर निष्कर्ष पहचानें...",
+        "tamil": "தற்காப்பு வழக்கறிஞராக, எதிர் தரப்பின் போரென்சிக் தணிக்கை அறிக்கையின் சுருக்கத்தை விமர்சனப்பூர்வமாக பகுப்பாய்வு செய்யுங்கள். குறைபாடுகள் மற்றும் பலவீனமான முடிவுகளை அடையாளம் காணவும்..."
+      }
+    },
+    {
+      "id": "lp-080",
+      "number": 80,
+      "title": "Chain of Custody Tracer",
+      "category_name": "Evidence Analysis",
+      "category_id": "evidence-analysis",
+      "practice_area": "Criminal Law",
+      "target_personas": [
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Verifying the integrity of physical evidence.",
+      "prompt_template": "Map the chain of custody for the physical evidence described. Identify gaps or breaks in the chain that could render it inadmissible under BNS/BNSS/BSA rules.",
+      "example_input": "Narcotics seized by SI Kumar, handed to Constable Singh, left in station almirah for 3 days, then sent to FSL.",
+      "example_output_structure": "Custodian 1 to 2 Timeline \\| Gap 1 (Unsupervised station almirah) \\| Gap 2 (Lack of seal proof) \\| Legal Argument for Inadmissibility.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Map the chain of custody for the physical evidence described. Identify gaps or breaks in the chain that could render it inadmissible under BNS/BNSS/BSA rules.",
+        "hindi": "वर्णित भौतिक साक्ष्य के अभिरक्षा श्रृंखला को मैप करें। श्रृंखला में अंतर या विच्छेद की पहचान करें जो इसे BNS/BNSS/BSA नियमों के तहत अस्वीकार्य बना सकते हैं...",
+        "tamil": "விவரிக்கப்பட்ட உருப்படி ஆதாரத்திற்கான காவல் சங்கிலியை வரைபடமாக்கவும். BNS/BNSS/BSA விதிகளின்படி அதை ஆதாரமாக ஏற்க முடியாததாக மாற்றக்கூடிய இடைவெளிகளை அடையாளம் காணவும்..."
+      }
+    },
+    {
+      "id": "lp-081",
+      "number": 81,
+      "title": "Hearsay Spotter",
+      "category_name": "Evidence Analysis",
+      "category_id": "evidence-analysis",
+      "practice_area": "Evidence",
+      "target_personas": [
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Identifying inadmissible hearsay in witness statements.",
+      "prompt_template": "Review the following witness statement. Identify every statement that constitutes hearsay under the Bharatiya Sakshya Adhiniyam. Explain why it is inadmissible and note if any exceptions (e.g., Res Gestae, Dying Declaration) apply.",
+      "example_input": "I saw A running. B told me that A had the knife.",
+      "example_output_structure": "Direct Evidence Statement \\| Hearsay Statement Identified \\| Rule Applied \\| Potential Exception Check.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Review the following witness statement. Identify every statement that constitutes hearsay under the Bharatiya Sakshya Adhiniyam. Explain why it is inadmissible and note if any exceptions (e.g., Res Gestae, Dying Declaration) apply.",
+        "hindi": "निम्नलिखित गवाह के बयान की समीक्षा करें। भारतीय साक्ष्य अधिनियम के तहत परोक्ष साक्ष्य (Hearsay) का गठन करने वाले प्रत्येक कथन की पहचान करें...",
+        "tamil": "பின்வரும் சாட்சி அறிக்கையை மதிப்பாய்வு செய்யுங்கள். பாரதிய சாட்சிய சட்டத்தின் கீழ் வதந்தி (Hearsay) ஆக அமையும் ஒவ்வொரு கூற்றையும் அடையாளம் காணவும்..."
+      }
+    },
+    {
+      "id": "lp-082",
+      "number": 82,
+      "title": "Financial Evidence Reconstructor",
+      "category_name": "Evidence Analysis",
+      "category_id": "evidence-analysis",
+      "practice_area": "White Collar Crime",
+      "target_personas": [
+        "advocate",
+        "researcher"
+      ],
+      "use_case": "Making sense of bank statements for a fraud case.",
+      "prompt_template": "Act as a Forensic Accountant. Analyze this summarized bank statement. Trace the flow of funds, identify suspicious round-tripping or layering, and highlight transactions relevant to the alleged misappropriation.",
+      "example_input": "\\[Summary of 10 large transfers between 5 shell companies\\]",
+      "example_output_structure": "Source of Funds \\| Layering Transactions \\| End Beneficiary \\| Suspicious Indicators \\| Court-Ready Summary.",
+      "best_ai_model": "GPT-4o (Advanced Data Analysis)",
+      "expected_time_savings": "5 hours",
+      "language_variants": {
+        "english": "Act as a Forensic Accountant. Analyze this summarized bank statement. Trace the flow of funds, identify suspicious round-tripping or layering, and highlight transactions relevant to the alleged misappropriation.",
+        "hindi": "फोरेंसिक लेखाकार के रूप में, इस बैंक विवरण का विश्लेषण करें। धन के प्रवाह का पता लगाएं, संदिग्ध लेनदेन की पहचान करें और कथित गबन से संबंधित लेनदेन को उजागर करें...",
+        "tamil": "போரென்சிக் கணக்காளராக, இந்த வங்கி அறிக்கையை பகுப்பாய்வு செய்யுங்கள். நிதியின் ஓட்டத்தைக் கண்டறி, சந்தேகத்திற்குரிய பரிவர்த்தனைகளை அடையாளம் காணவும்..."
+      }
+    },
+    {
+      "id": "lp-083",
+      "number": 83,
+      "title": "LinkedIn Legal Post Writer (Thought Leadership)",
+      "category_name": "Legal Marketing",
+      "category_id": "legal-marketing",
+      "practice_area": "General",
+      "target_personas": [
+        "senior-counsel",
+        "legal-ops"
+      ],
+      "use_case": "Posting a thought leadership update on a recent judgment.",
+      "prompt_template": "Draft a LinkedIn post summarizing a recent Supreme Court judgment on \\[Topic\\] for corporate clients. Tone: Professional, insightful. Include a strong hook, a plain-English summary of the impact, and a call to action to contact our firm for a compliance review.",
+      "example_input": "SC judgment holding directors personally liable for GST evasion.",
+      "example_output_structure": "Hook \\| 2-Sentence Summary \\| Business Impact \\| Call to Action \\| Hashtags.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "45 mins",
+      "language_variants": {
+        "english": "Draft a LinkedIn post summarizing a recent Supreme Court judgment on \\[Topic\\] for corporate clients. Tone: Professional, insightful. Include a strong hook, a plain-English summary of the impact, and a call to action to contact our firm for a compliance review.",
+        "hindi": "कॉर्पोरेट क्लाइंट्स के लिए \\[विषय\\] पर हालिया सुप्रीम कोर्ट के फैसले का सारांश देते हुए एक LinkedIn पोस्ट ड्राफ्ट करें। अंदाज: पेशेवर, अंतर्दृष्टिपूर्ण...",
+        "tamil": "கார்ப்பரேட் வாடிக்கையாளர்களுக்கு \\[தலைப்பு\\] தொடர்பான சமீபத்திய உச்ச நீதிமன்ற தீர்ப்பின் சுருக்கத்தை வழங்கி LinkedIn இடுகையை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-084",
+      "number": 84,
+      "title": "Webinar Topic & Outline Generator",
+      "category_name": "Legal Marketing",
+      "category_id": "legal-marketing",
+      "practice_area": "Practice Development",
+      "target_personas": [
+        "senior-counsel",
+        "legal-ops"
+      ],
+      "use_case": "Planning a client-facing webinar.",
+      "prompt_template": "Suggest 3 webinar topics for a \\[Target Audience\\] client base on the theme of \\[Theme\\]. Pick the best one and provide a 1-hour agenda, including time for Q\\&A and a pitch for our legal services.",
+      "example_input": "Tech startups. DPDPA Compliance.",
+      "example_output_structure": "3 Topic Ideas \\| Selected Topic \\| 1-Hour Agenda \\| Target Audience \\| Pitch Placement.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Suggest 3 webinar topics for a \\[Target Audience\\] client base on the theme of \\[Theme\\]. Pick the best one and provide a 1-hour agenda, including time for Q\\&A and a pitch for our legal services.",
+        "hindi": "\\[विषय\\] की थीम पर \\[लक्षित दर्शकों\\] के लिए 3 वेबिनार विषय सुझाएं। सबसे अच्छे का चयन करें और Q\\&A के साथ 1-घंटे का कार्यक्रम प्रदान करें...",
+        "tamil": "\\[தலைப்பு\\] தீமில் \\[இலக்கு பார்வையாளர்களுக்கு\\] 3 வெபினார் தலைப்புகளை பரிந்துரைக்கவும். சிறந்ததைத் தேர்ந்தெடுத்து Q\\&A உடன் 1 மணிநேர அட்டவணையை வழங்கவும்..."
+      }
+    },
+    {
+      "id": "lp-085",
+      "number": 85,
+      "title": "Client Alert Drafting (Urgent Regulatory Change)",
+      "category_name": "Legal Marketing",
+      "category_id": "legal-marketing",
+      "practice_area": "General",
+      "target_personas": [
+        "senior-counsel",
+        "legal-ops"
+      ],
+      "use_case": "Urgent email to clients about a new law/circular.",
+      "prompt_template": "Draft an urgent client alert email regarding a new RBI circular on \\[Topic\\]. Tone: Urgent but reassuring. Highlight the immediate compliance deadline and action items. Include a link to our detailed advisory.",
+      "example_input": "RBI mandate on tokenization of credit cards.",
+      "example_output_structure": "Subject Line (URGENT) \\| Circular Summary \\| Immediate Impact \\| Compliance Deadline \\| Action Items \\| Link to Advisory.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "1 hour",
+      "language_variants": {
+        "english": "Draft an urgent client alert email regarding a new RBI circular on \\[Topic\\]. Tone: Urgent but reassuring. Highlight the immediate compliance deadline and action items. Include a link to our detailed advisory.",
+        "hindi": "\\[विषय\\] पर एक नए RBI परिपत्र के संबंध में तत्काल क्लाइंट अलर्ट ईमेल ड्राफ्ट करें। अंदाज: तत्काल लेकिन आश्वासनजनक। अनुपालन समयसीमा और कार्रवाई आइटम शामिल करें...",
+        "tamil": "\\[தலைப்பு\\] தொடர்பான புதிய RBI விதிமுறை குறித்து அவசர வாடிக்கையாளர் எச்சரிக்கை மின்னஞ்சலை வரைவு செய்யுங்கள். அவசரமான ஆனால் நம்பிக்கையூட்டும் தொனி..."
+      }
+    },
+    {
+      "id": "lp-086",
+      "number": 86,
+      "title": "Niche Practice Area Pitch Email",
+      "category_name": "Legal Marketing",
+      "category_id": "legal-marketing",
+      "practice_area": "Business Development",
+      "target_personas": [
+        "senior-counsel",
+        "legal-ops"
+      ],
+      "use_case": "Pitching specialized services to an in-house team.",
+      "prompt_template": "Draft a cold email to a General Counsel pitching our firm's specialized \\[Practice Area\\] practice. Highlight recent regulatory changes in India and our recent landmark mandate in this space. Keep it under 150 words.",
+      "example_input": "ESG Compliance practice. Target: Manufacturing company GC.",
+      "example_output_structure": "Subject Line \\| Hook (Regulatory change) \\| Our Credentials (Recent mandate) \\| Value Proposition \\| Call to Action (Coffee chat).",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1 hour",
+      "language_variants": {
+        "english": "Draft a cold email to a General Counsel pitching our firm's specialized \\[Practice Area\\] practice. Highlight recent regulatory changes in India and our recent landmark mandate in this space. Keep it under 150 words.",
+        "hindi": "हमारी फर्म की विशेष \\[अभ्यास क्षेत्र\\] प्रैक्टिस को पिच करने के लिए महाप्रबंधक को एक ईमेल ड्राफ्ट करें। हालिया नियामक बदलावों और हमारे हाल के मैंडेट को उजागर करें...",
+        "tamil": "எங்கள் நிறுவனத்தின் சிறப்பு \\[பயிற்சிப் பகுதி\\] பயிற்சியை முன்மொழிய பொது ஆலோசகருக்கு மின்னஞ்சல் வரைவு செய்யுங்கள். சமீபத்திய ஒழுங்குமுறை மாற்றங்களை மற்றும் எங்கள் சாதனையை வெளிப்படுத்தவும்..."
+      }
+    },
+    {
+      "id": "lp-087",
+      "number": 87,
+      "title": "Law Firm Award/Directory Entry Writer",
+      "category_name": "Legal Marketing",
+      "category_id": "legal-marketing",
+      "practice_area": "Firm Management",
+      "target_personas": [
+        "senior-counsel",
+        "legal-ops"
+      ],
+      "use_case": "Drafting submissions for legal directories (IFLR, Chambers, Legal500).",
+      "prompt_template": "Draft a 300-word submission for 'Law Firm of the Year in \\[Sector\\]' highlighting our innovative use of AI in due diligence and a specific landmark case we won. Use strong, action-oriented verbs suitable for a legal directory.",
+      "example_input": "Sector: FinTech. Case: Defended major UPI app in data breach class action.",
+      "example_output_structure": "Firm Overview \\| Innovation (AI in DD) \\| Landmark Mandate \\| Impact & Result.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Draft a 300-word submission for 'Law Firm of the Year in \\[Sector\\]' highlighting our innovative use of AI in due diligence and a specific landmark case we won. Use strong, action-oriented verbs suitable for a legal directory.",
+        "hindi": "\\[क्षेत्र\\] में 'लॉ फर्म ऑफ द ईयर' के लिए 300-शब्दों का प्रविष्टि ड्राफ्ट करें। ड्यू डिलिजेंस में AI के अभिनव उपयोग और एक विशिष्ट ऐतिहासिक मामले को उजागर करें...",
+        "tamil": "\\[துறையில்\\] 'சிறந்த சட்ட நிறுவனம்' க்கான 300 வார்த்தைகள் சமர்ப்பிப்பை வரைவு செய்யுங்கள். ஆய்வில் AI-ன் புதுமையான பயன்பாடு மற்றும் ஒரு குறிப்பிட்ட மைல்கல் வழக்கை வெளிப்படுத்தவும்..."
+      }
+    },
+    {
+      "id": "lp-088",
+      "number": 88,
+      "title": "Outside Counsel Invoice Auditor",
+      "category_name": "Law Firm Operations",
+      "category_id": "law-firm-operations",
+      "practice_area": "Legal Ops",
+      "target_personas": [
+        "legal-ops",
+        "corporate"
+      ],
+      "use_case": "Reviewing outside counsel invoices for billing guideline violations.",
+      "prompt_template": "Act as a Legal Ops Manager. Review this law firm invoice. Flag any block billing, excessive hours for routine tasks (e.g., drafting an email \\> 0.2 hrs), or unauthorized travel time according to standard corporate billing guidelines.",
+      "example_input": "\\[Line items: \"Review documents \\- 8 hours\", \"Call with partner \\- 1.5 hours\", \"Draft email to OC \\- 0.5 hours\"\\]",
+      "example_output_structure": "Line Item \\| Flagged Issue \\| Guideline Violation \\| Suggested Reduction.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Act as a Legal Ops Manager. Review this law firm invoice. Flag any block billing, excessive hours for routine tasks (e.g., drafting an email \\> 0.2 hrs), or unauthorized travel time according to standard corporate billing guidelines.",
+        "hindi": "लीगल ऑप्स मैनेजर के रूप में, इस लॉ फर्म के इनवॉइस की समीक्षा करें। बिलिंग दिशानिर्देशों के उल्लंघन, अत्यधिक घंटों या अनधिकृत यात्रा समय को चिह्नित करें...",
+        "tamil": "லீகல் ஆப்ஸ் மேலாளராக, இந்த லா ஃபிர்ம் பில்லை மதிப்பாய்வு செய்யுங்கள். பில்லிங் வழிகாட்டுதல்களை மீறியதையும், அதிகப்படியான நேரங்களையும் குறிக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-089",
+      "number": 89,
+      "title": "Matter Budget Forecaster",
+      "category_name": "Law Firm Operations",
+      "category_id": "law-firm-operations",
+      "practice_area": "Legal Ops",
+      "target_personas": [
+        "legal-ops",
+        "corporate"
+      ],
+      "use_case": "Estimating total cost for a litigation matter.",
+      "prompt_template": "Based on the phase of litigation (currently at \\[Phase\\]), the jurisdiction (\\[Court\\]), and the estimated hours to date, forecast the total cost to trial/resolution. Assume standard Indian law firm billing rates.",
+      "example_input": "Bombay HC. Pleadings done. Discovery phase starting. 50 hours burned. Rate: ₹15k/hr.",
+      "example_output_structure": "Burn Rate to Date \\| Projected Discovery Cost \\| Projected Trial Cost \\| Total Forecasted Cost \\| Risk Buffer (%).",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Based on the phase of litigation (currently at \\[Phase\\]), the jurisdiction (\\[Court\\]), and the estimated hours to date, forecast the total cost to trial/resolution. Assume standard Indian law firm billing rates.",
+        "hindi": "मुकदमे के चरण, न्यायालय और अब तक के अनुमानित घंटों के आधार पर, निपटान तक की कुल लागत का अनुमान लगाएं...",
+        "tamil": "வழக்கு நிலை, நீதிமன்றம் மற்றும் இதுவரை மதிப்பிடப்பட்ட நேரத்தின் அடிப்படையில், தீர்வு/விசாரணைக்கான மொத்தச் செலவைக் கணிக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-090",
+      "number": 90,
+      "title": "Resource Allocation Matrix",
+      "category_name": "Law Firm Operations",
+      "category_id": "law-firm-operations",
+      "practice_area": "Firm Management",
+      "target_personas": [
+        "legal-ops",
+        "corporate"
+      ],
+      "use_case": "Assigning associates to matters efficiently.",
+      "prompt_template": "Create a weekly allocation matrix for 3 associates across 5 matters (M1 to M5). Ensure no one exceeds 50 billable hours a week. Prioritize M2 (M\\&A closing) and M4 (Court hearing prep).",
+      "example_input": "Assoc A: Free 40hrs. Assoc B: Free 50hrs. Assoc C: Free 30hrs. M2 needs 30hrs. M4 needs 20hrs.",
+      "example_output_structure": "Table: Associate Name \\| M1 \\| M2 \\| M3 \\| M4 \\| M5 \\| Total Hours.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "45 mins",
+      "language_variants": {
+        "english": "Create a weekly allocation matrix for 3 associates across 5 matters (M1 to M5). Ensure no one exceeds 50 billable hours a week. Prioritize M2 (M\\&A closing) and M4 (Court hearing prep).",
+        "hindi": "5 मामलों (M1 से M5) में 3 सहयोगियों के लिए साप्ताहिक आवंटन मैट्रिक्स बनाएं। सुनिश्चित करें कि कोई भी 50 बिलेबल घंटों से अधिक न करे। M2 और M4 को प्राथमिकता दें...",
+        "tamil": "5 வழக்குகளுக்கு (M1 முதல் M5 வரை) 3 இணை வழக்கறிஞர்களுக்கான வார ஒதுக்கீட்டு அணிவகையை உருவாக்குங்கள். யாரும் 50 மணிநேரத்தை தாண்டக் கூடாது..."
+      }
+    },
+    {
+      "id": "lp-091",
+      "number": 91,
+      "title": "KPI Dashboard Definition",
+      "category_name": "Law Firm Operations",
+      "category_id": "law-firm-operations",
+      "practice_area": "Legal Ops",
+      "target_personas": [
+        "legal-ops",
+        "corporate"
+      ],
+      "use_case": "Defining metrics for the firm's litigation practice.",
+      "prompt_template": "Define 5 key performance indicators (KPIs) for a corporate law firm's litigation practice. For each, provide the calculation formula, target benchmark, and why it matters to the Managing Partner.",
+      "example_input": "Focus on efficiency and profitability.",
+      "example_output_structure": "KPI Name \\| Formula \\| Target Benchmark \\| Business Justification.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "2 hours",
+      "language_variants": {
+        "english": "Define 5 key performance indicators (KPIs) for a corporate law firm's litigation practice. For each, provide the calculation formula, target benchmark, and why it matters to the Managing Partner.",
+        "hindi": "कॉर्पोरेट लॉ फर्म की मुकदमा प्रैक्टिस के लिए 5 प्रमुख प्रदर्शन संकेतक (KPI) परिभाषित करें। प्रत्येक के लिए, गणना सूत्र, लक्ष्य बेंचमार्क और व्यावसायिक औचित्य प्रदान करें...",
+        "tamil": "கார்ப்பரேட் லா ஃபிர்மின் வழக்குப் பயிற்சிக்கு 5 முக்கிய செயல்திறன் குறிகாட்டிகளை (KPIs) வரையறுக்கவும். ஒவ்வொன்றிற்கும், கணக்கீட்டு சூத்திரம் மற்றும் வணிக நியாயத்தை வழங்கவும்..."
+      }
+    },
+    {
+      "id": "lp-092",
+      "number": 92,
+      "title": "Knowledge Management Summarizer",
+      "category_name": "Law Firm Operations",
+      "category_id": "law-firm-operations",
+      "practice_area": "Knowledge Management",
+      "target_personas": [
+        "legal-ops",
+        "corporate"
+      ],
+      "use_case": "Creating searchable summaries of past deals/cases.",
+      "prompt_template": "Summarize this closed M\\&A deal/litigation into a 200-word Knowledge Management abstract. Focus on deal type, jurisdiction, key negotiation points, and structural innovation so it can be searched by keywords later.",
+      "example_input": "Acquisition of a SaaS startup. Key issue: IP indemnity from founders.",
+      "example_output_structure": "Deal Name \\| Sector \\| Value \\| Jurisdiction \\| Key Legal Issue \\| Innovative Solution \\| Keywords for Search.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "45 mins",
+      "language_variants": {
+        "english": "Summarize this closed M\\&A deal/litigation into a 200-word Knowledge Management abstract. Focus on deal type, jurisdiction, key negotiation points, and structural innovation so it can be searched by keywords later.",
+        "hindi": "इस बंद सौदे/मुकदमे को 200-शब्दों के ज्ञान प्रबंधन सारांश में बदलें। सौदे के प्रकार, न्यायालय, प्रमुख बातचीत बिंदु और संरचनात्मक नवाचार पर ध्यान केंद्रित करें...",
+        "tamil": "இந்த மூடப்பட்ட ஒப்பந்தம்/வழக்கை 200-சொற்கள் கொண்ட அறிவு மேலாண்மை சுருக்கமாக மாற்றவும். ஒப்பந்த வகை, நீதிமன்றம், முக்கிய பேச்சுவார்த்தை புள்ளிகள் மற்றும் கட்டமைப்பு புதுமையில் கவனம் செலுத்தவும்..."
+      }
+    },
+    {
+      "id": "lp-093",
+      "number": 93,
+      "title": "Associate Training Module Outline",
+      "category_name": "Law Firm Operations",
+      "category_id": "law-firm-operations",
+      "practice_area": "HR/Training",
+      "target_personas": [
+        "legal-ops",
+        "corporate"
+      ],
+      "use_case": "Training junior lawyers on new criminal laws.",
+      "prompt_template": "Create a 4-week training module outline for 1st-year associates on transitioning from IPC/CrPC to BNS/BNSS/BSA. Focus on practical drafting differences and courtroom procedures.",
+      "example_input": "Focus on bail applications and FIR drafting.",
+      "example_output_structure": "Week 1: FIR & Zero FIR under BNSS \\| Week 2: Bail Changes \\| Week 3: E-Evidence under BSA \\| Week 4: Mock Drafting Exercise.",
+      "best_ai_model": "GPT-4o",
+      "expected_time_savings": "3 hours",
+      "language_variants": {
+        "english": "Create a 4-week training module outline for 1st-year associates on transitioning from IPC/CrPC to BNS/BNSS/BSA. Focus on practical drafting differences and courtroom procedures.",
+        "hindi": "IPC/CrPC से BNS/BNSS/BSA में संक्रमण पर प्रथम वर्ष के सहयोगियों के लिए 4-सप्ताह के प्रशिक्षण मॉड्यूल की रूपरेखा बनाएं। व्यावहारिक ड्राफ्टिंग अंतर पर ध्यान दें...",
+        "tamil": "IPC/CrPC இலிருந்து BNS/BNSS/BSA-க்கு மாறுவது தொடர்பாக முதல் ஆண்டு இணை வழக்கறிஞர்களுக்கு 4-வார பயிற்சி தொகுதி அரங்கை உருவாக்குங்கள்..."
+      }
+    },
+    {
+      "id": "lp-094",
+      "number": 94,
+      "title": "Conflict of Interest Checker",
+      "category_name": "Law Firm Operations",
+      "category_id": "law-firm-operations",
+      "practice_area": "Compliance",
+      "target_personas": [
+        "legal-ops",
+        "corporate"
+      ],
+      "use_case": "Initial conflict check before taking a client.",
+      "prompt_template": "Act as a Conflicts Clerk. Based on the proposed new client details, identify potential conflicts of interest with our existing clients listed here. Check for adverse interest, directly related parties, and subject matter overlap.",
+      "example_input": "New: Company X suing Company Y for patent infringement. Existing: We represent Company Y in employment matters.",
+      "example_output_structure": "Potential Conflict Identified \\| Rule (Bar Council of India Rules) \\| Risk Level \\| Ethical Wall Recommendation.",
+      "best_ai_model": "Claude 3.5 Sonnet",
+      "expected_time_savings": "1.5 hours",
+      "language_variants": {
+        "english": "Act as a Conflicts Clerk. Based on the proposed new client details, identify potential conflicts of interest with our existing clients listed here. Check for adverse interest, directly related parties, and subject matter overlap.",
+        "hindi": "कॉन्फ्लिक्ट्स क्लर्क के रूप में, प्रस्तावित नए क्लाइंट के विवरण के आधार पर, यहां सूचीबद्ध हमारे मौजूदा क्लाइंट्स के साथ हितों के टकराव की संभावना की पहचान करें...",
+        "tamil": "முரண்பாடுகள் எழுத்தராக, புதிய வாடிக்கையாளர் விவரங்களின் அடிப்படையில், இங்கே பட்டியலிடப்பட்டுள்ள நமது தற்போதைய வாடிக்கையாளர்களுடன் நலன் முரண்பாடுகளை அடையாளம் காணவும்..."
+      }
+    },
+    {
+      "id": "lp-095",
+      "number": 95,
+      "title": "Daily Court List Monitor Agent",
+      "category_name": "AI Agents for Lawyers",
+      "category_id": "ai-agents",
+      "practice_area": "Litigation Ops",
+      "target_personas": [
+        "legal-ops",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Automated daily court cause list checking.",
+      "prompt_template": "Design an AI Agent workflow that scrapes the Delhi High Court cause list daily at 8 AM, matches it against our firm's matter list, and sends a Slack alert with item numbers and court details to the assigned associate.",
+      "example_input": "Trigger: 08:00 AM Daily. Source: Delhi HC Website.",
+      "example_output_structure": "Trigger Event \\| Data Extraction Logic \\| Matching Algorithm \\| Slack Integration Alert Format \\| Exception Handling.",
+      "best_ai_model": "GPT-4o (Agent builder)",
+      "expected_time_savings": "30 mins/day",
+      "language_variants": {
+        "english": "Design an AI Agent workflow that scrapes the Delhi High Court cause list daily at 8 AM, matches it against our firm's matter list, and sends a Slack alert with item numbers and court details to the assigned associate.",
+        "hindi": "एक AI एजेंट वर्कफ़्लो डिज़ाइन करें जो दैनिक रूप से दिल्ली उच्च न्यायालय के कॉज़ लिस्ट को स्क्रैप करे और फर्म के मामलों से मिलान करे और Slack अलर्ट भेजे...",
+        "tamil": "தினமும் காலை 8 மணிக்கு டெல்லி உயர் நீதிமன்ற காரண பட்டியலை ஸ்கிராப் செய்து, நமது நிறுவனத்தின் வழக்குகளுடன் பொருத்தி Slack அலர்ட் அனுப்பும் AI முகவர் பணிப்பாய்வை வடிவமைக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-096",
+      "number": 96,
+      "title": "Contract First-Pass Review Agent",
+      "category_name": "AI Agents for Lawyers",
+      "category_id": "ai-agents",
+      "practice_area": "In-House Ops",
+      "target_personas": [
+        "legal-ops",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Automatically reviewing incoming NDAs.",
+      "prompt_template": "Design an AI Agent that receives an NDA via email, extracts the governing law, limitation of liability, and non-compete clauses, scores it against our corporate playbook, and drafts a redline with comments for the Legal Counsel to review.",
+      "example_input": "Trigger: Email with PDF attachment. Rulebook: Company NDA Playbook.",
+      "example_output_structure": "Email Intake \\| Clause Extraction Logic \\| Playbook Scoring Logic \\| Redline Generation Step \\| Human-in-the-Loop Handoff.",
+      "best_ai_model": "Claude 3.5 Sonnet (Agent builder)",
+      "expected_time_savings": "4 hours/matter",
+      "language_variants": {
+        "english": "Design an AI Agent that receives an NDA via email, extracts the governing law, limitation of liability, and non-compete clauses, scores it against our corporate playbook, and drafts a redline with comments for the Legal Counsel to review.",
+        "hindi": "एक AI एजेंट डिज़ाइन करें जो ईमेल के माध्यम से NDA प्राप्त करे, प्रमुख खंडों को निकाले, इसे हमारी कॉर्पोरेट प्लेबुक के खिलाफ स्कोर करे, और कानूनी सलाहकार की समीक्षा के लिए रेडलाइन तैयार करे...",
+        "tamil": "மின்னஞ்சல் மூலம் NDA-ஐப் பெற்று, முக்கிய பிரிவுகளை எடுத்து, நமது கார்ப்பரேட் விதிமுறைப் புத்தகத்தின்படி மதிப்பிட்டு, சட்ட ஆலோசகர் மதிப்பாய்வுக்கு ரெட்லைன் வரைவு செய்யும் AI முகவரை வடிவமைக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-097",
+      "number": 97,
+      "title": "Regulatory Change Tracker Agent",
+      "category_name": "AI Agents for Lawyers",
+      "category_id": "ai-agents",
+      "practice_area": "Compliance",
+      "target_personas": [
+        "legal-ops",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Alerting on new SEBI/RBI rules.",
+      "prompt_template": "Design an AI Agent that monitors RBI/SEBI websites daily. If a new circular is published regarding \\[Topic\\], it summarizes the circular, identifies which of our internal policies are affected, and drafts an internal action memo.",
+      "example_input": "Trigger: Daily crawl of RBI. Keyword: 'Digital Lending'.",
+      "example_output_structure": "Web Crawler Setup \\| Keyword Matching \\| Summarization Logic \\| Internal Policy Cross-Check \\| Memo Generation.",
+      "best_ai_model": "GPT-4o (Agent builder)",
+      "expected_time_savings": "5 hours/week",
+      "language_variants": {
+        "english": "Design an AI Agent that monitors RBI/SEBI websites daily. If a new circular is published regarding \\[Topic\\], it summarizes the circular, identifies which of our internal policies are affected, and drafts an internal action memo.",
+        "hindi": "एक AI एजेंट डिज़ाइन करें जो दैनिक रूप से RBI/SEBI वेबसाइटों की निगरानी करे। यदि \\[विषय\\] पर नया परिपत्र प्रकाशित हो, तो वह उसका सारांश बनाए और आंतरिक कार्रवाई मेमो तैयार करे...",
+        "tamil": "தினமும் RBI/SEBI இணையதளங்களைக் கண்காணிக்கும் AI முகவரை வடிவமைக்கவும். \\[தலைப்பு\\] தொடர்பான புதிய விதிமுறை வெளியிடப்பட்டால், அதைச் சுருக்கமாகக் கூறி உள்ளகச் செயல் மெமோவை உருவாக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-098",
+      "number": 98,
+      "title": "DPDPA Subject Access Request (SAR) Bot",
+      "category_name": "AI Agents for Lawyers",
+      "category_id": "ai-agents",
+      "practice_area": "Data Protection",
+      "target_personas": [
+        "legal-ops",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Handling data principal requests.",
+      "prompt_template": "Design a conversational AI Agent for a website that verifies a Data Principal's identity, logs their Subject Access Request under DPDPA, and automatically routes it to the Data Protection Officer with a deadline tracker.",
+      "example_input": "User types: 'I want to know what data you have on me.'",
+      "example_output_structure": "User Prompt \\| Identity Verification Flow \\| Request Logging Logic \\| DPO Dashboard Integration \\| 30-Day Deadline Trigger.",
+      "best_ai_model": "GPT-4o (Agent builder)",
+      "expected_time_savings": "1 hour/request",
+      "language_variants": {
+        "english": "Design a conversational AI Agent for a website that verifies a Data Principal's identity, logs their Subject Access Request under DPDPA, and automatically routes it to the Data Protection Officer with a deadline tracker.",
+        "hindi": "एक वेबसाइट के लिए एक संवादात्मक AI एजेंट डिज़ाइन करें जो डेटा प्रिंसिपल की पहचान सत्यापित करे, उनके SAR अनुरोध को लॉग करे, और स्वचालित रूप से DPO को रूट करे...",
+        "tamil": "தரவு தனியுரிமை உரிமையாளரின் அடையாளத்தைச் சரிபார்த்து, அவர்களின் SAR கோரிக்கையைப் பதிவுசெய்து, DPO-க்குத் தானாக அனுப்பும் உரையாடல் AI முகவரை வடிவமைக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-099",
+      "number": 99,
+      "title": "Invoice & Billing Agent",
+      "category_name": "AI Agents for Lawyers",
+      "category_id": "ai-agents",
+      "practice_area": "Legal Ops",
+      "target_personas": [
+        "legal-ops",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "Automated bill generation and tracking.",
+      "prompt_template": "Design an AI Agent that runs at month-end, aggregates associate timesheets, applies hourly rates, generates a draft invoice in PDF, and emails it to the client for review. Include a logic to flag write-offs.",
+      "example_input": "Trigger: Last day of month. Data: Clio/MyCase API.",
+      "example_output_structure": "Timesheet Aggregation Logic \\| Rate Application \\| Write-off Flagging (e.g., entries \\> 10 hrs) \\| PDF Generation \\| Email Dispatch.",
+      "best_ai_model": "GPT-4o (Agent builder)",
+      "expected_time_savings": "3 hours/month",
+      "language_variants": {
+        "english": "Design an AI Agent that runs at month-end, aggregates associate timesheets, applies hourly rates, generates a draft invoice in PDF, and emails it to the client for review. Include a logic to flag write-offs.",
+        "hindi": "एक AI एजेंट डिज़ाइन करें जो महीने के अंत में चले, सहयोगियों के टाइमशीट को एकत्रित करे, दरें लागू करे, ड्राफ्ट इनवॉइस बनाए और क्लाइंट को ईमेल करे...",
+        "tamil": "மாத இறுதியில் இயங்கி, இணை வழக்கறிஞர்களின் நேர அட்டவணைகளைத் திரட்டி, விகிதங்களைப் பயன்படுத்தி, வரைவு பில்லை உருவாக்கி வாடிக்கையாளருக்கு மின்னஞ்சல் அனுப்பும் AI முகவரை வடிவமைக்கவும்..."
+      }
+    },
+    {
+      "id": "lp-100",
+      "number": 100,
+      "title": "Legal Research Memo Generator Agent",
+      "category_name": "AI Agents for Lawyers",
+      "category_id": "ai-agents",
+      "practice_area": "Research",
+      "target_personas": [
+        "legal-ops",
+        "in-house",
+        "advocate"
+      ],
+      "use_case": "End-to-end research automation.",
+      "prompt_template": "Design an AI Agent workflow that takes a research question from a partner, queries Indian Kanoon/Supreme Court APIs, extracts the top 5 relevant judgments, synthesizes them according to the firm's standard memo template, and outputs a Word document.",
+      "example_input": "Research: Enforceability of non-poach clauses under Indian Contract Act post-2019.",
+      "example_output_structure": "Partner Intake Form \\| Query Construction Logic \\| API Scraping Step \\| Synthesis & Categorization \\| Word Doc Formatting \\| Human Review Flag.",
+      "best_ai_model": "Claude 3.5 Sonnet (Agent builder)",
+      "expected_time_savings": "8 hours",
+      "language_variants": {
+        "english": "Design an AI Agent workflow that takes a research question from a partner, queries Indian Kanoon/Supreme Court APIs, extracts the top 5 relevant judgments, synthesizes them according to the firm's standard memo template, and outputs a Word document.",
+        "hindi": "एक AI एजेंट वर्कफ़्लो डिज़ाइन करें जो पार्टनर से एक शोध प्रश्न ले, भारतीय कानून/API को क्वेरी करे, शीर्ष 5 फैसलों को निकाले, उन्हें संश्लेषित करे और एक Word दस्तावेज़ आउटपुट करे...",
+        "tamil": "பங்குதாரரிடமிருந்து ஆராய்ச்சிக் கேள்வியை எடுத்துக்கொண்டு, இந்திய கானூன் API-ஐ வினவி, முதல் 5 தீர்ப்புகளை எடுத்து, அவற்றை ஒருங்கிணைத்து வேர்ட் ஆவணமாக வெளியிடும் AI முகவர் பணிப்பாய்வை வடிவமைக்கவும்...\"\n\n#"
+      }
+    }
+  ]
+}
