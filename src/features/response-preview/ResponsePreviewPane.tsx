@@ -25,11 +25,11 @@ export const ResponsePreviewPane: React.FC<ResponsePreviewPaneProps> = ({
   }
 
   return (
-    <div className="border border-slate-200 rounded-md overflow-hidden bg-white shadow-2xs">
+    <div className="bg-white border border-legal-border rounded-lg overflow-hidden shadow-2xs min-w-0">
       {/* Clean toolbar */}
-      <div className="flex items-center justify-between px-3 py-2 bg-slate-100/80 border-b border-slate-200">
-        <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
-          Sample Output (Illustrative)
+      <div className="flex items-center justify-between px-4 py-2.5 bg-slate-100/80 border-b border-legal-border">
+        <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+          Expected Sample Deliverable
         </span>
         <div className="flex items-center gap-2">
           <button

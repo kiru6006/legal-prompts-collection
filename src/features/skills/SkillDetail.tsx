@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { useCatalogueStore } from '../../stores/catalogueStore';
 import { useNavigationStore } from '../../stores/navigationStore';
 import { useMatterStore } from '../../stores/matterStore';
 import { useBookmarkStore } from '../../stores/bookmarkStore';
 import { DynamicVariableForm } from '../prompt-builder/DynamicVariableForm';
-import { PromptBlock } from '../prompt-builder/PromptBlock';
 import { ResponsePreviewPane } from '../response-preview/ResponsePreviewPane';
 import { SkillInfoModal } from './SkillInfoModal';
 import { CopyButton } from '../../components/common/CopyButton';
@@ -14,7 +15,10 @@ import {
   HelpCircle,
   Info,
   Terminal,
-  ExternalLink
+  ExternalLink,
+  Code,
+  Eye,
+  FileText
 } from 'lucide-react';
 import { SkillRecord } from '../../types/skills';
 
@@ -25,15 +29,16 @@ interface SkillDetailProps {
 export const SkillDetail: React.FC<SkillDetailProps> = ({ skillId }) => {
   const { getSkillById } = useCatalogueStore();
   const { navigate } = useNavigationStore();
-  const { matterValues, setVariableValue, resetSkillVariables, confidentialityAccepted } = useMatterStore();
+  const { matterValues, setVariableValue, resetSkillVariables } = useMatterStore();
   const { toggleBookmark, isBookmarked } = useBookmarkStore();
   const [infoModalOpen, setInfoModalOpen] = useState(false);
+  const [instructionViewMode, setInstructionViewMode] = useState<'formatted' | 'raw'>('formatted');
 
   const skill: SkillRecord | undefined = getSkillById(skillId);
 
   if (!skill) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-white">
+      <div className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-white min-w-0">
         <HelpCircle className="w-10 h-10 text-slate-300 mb-2" />
         <h2 className="text-sm font-bold text-slate-800">Skill Not Found</h2>
         <p className="text-xs text-slate-500 max-w-sm mt-1 mb-4">
@@ -41,7 +46,7 @@ export const SkillDetail: React.FC<SkillDetailProps> = ({ skillId }) => {
         </p>
         <button
           onClick={() => navigate('directory')}
-          className="px-3 py-1.5 text-xs font-semibold text-white bg-legal-primary rounded hover:bg-legal-primaryHover"
+          className="px-3.5 py-1.5 text-xs font-semibold text-white bg-legal-primary rounded hover:bg-legal-primaryHover transition-colors"
         >
           View Skill Directory
         </button>
@@ -51,8 +56,10 @@ export const SkillDetail: React.FC<SkillDetailProps> = ({ skillId }) => {
 
   const overlay = skill.educational_overlay;
   const currentValues = matterValues[skill.id] || {};
-  const isAccepted = !!confidentialityAccepted[skill.id];
   const bookmarked = isBookmarked(skill.id);
+  const hasSampleOutput = Boolean(overlay?.sample_output);
+  const hasPromptTemplate = Boolean(overlay?.prompt_template);
+  const instructions = skill.official_instructions || '';
 
   const handleResetDefaults = () => resetSkillVariables(skill.id);
   const handleLoadSample = () => {
@@ -67,75 +74,88 @@ export const SkillDetail: React.FC<SkillDetailProps> = ({ skillId }) => {
     ? `${skill.official_command} ${skill.argument_hint || ''}`.trim()
     : `/${skill.category_id}:${skill.official_name}`;
 
+  // Interpolate variables into prompt template if template exists
+  let interpolatedPrompt = overlay?.prompt_template || '';
+  if (overlay?.variables && overlay.prompt_template) {
+    for (const v of overlay.variables) {
+      const rawVal = currentValues[v.key] !== undefined ? currentValues[v.key] : v.default;
+      const replacement = typeof rawVal === 'boolean' ? (rawVal ? 'Yes' : 'No') : String(rawVal);
+      const regex = new RegExp(`\\{\\{${v.key}\\}\\}`, 'g');
+      interpolatedPrompt = interpolatedPrompt.replace(regex, replacement);
+    }
+  }
+
   return (
-    <div className="flex-1 flex flex-col h-[calc(100vh-3rem)] overflow-hidden bg-slate-50 text-legal-text">
-      {/* Skill Top Bar & Metadata */}
-      <div className="px-4 py-3 border-b border-legal-border bg-white shrink-0">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-          {/* Left Metadata & Title */}
-          <div className="min-w-0">
-            <div className="flex items-center gap-2 mb-0.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+    <div className="flex-1 flex flex-col min-h-0 overflow-hidden bg-slate-50 text-legal-text">
+      {/* 1. Header Bar: Responsive, no text wrapping defects */}
+      <div className="bg-white border-b border-legal-border px-4 py-3 sm:px-6 sm:py-4 shrink-0">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          {/* Left Metadata & Breadcrumb */}
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2 mb-1.5">
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-200 whitespace-nowrap">
                 {skill.category_name}
               </span>
-              <span className="text-slate-300">•</span>
-              <span className="text-[10px] font-mono text-legal-primary font-semibold truncate">
-                {commandString}
-              </span>
+
               {skill.educational_status === 'ready' && (
-                <span className="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-emerald-50 text-legal-success border border-emerald-200">
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
                   Ready
                 </span>
               )}
+
+              <code className="hidden sm:inline-flex px-2 py-0.5 rounded text-[11px] font-mono font-medium text-slate-600 bg-slate-50 border border-slate-200 truncate max-w-sm">
+                {commandString}
+              </code>
             </div>
 
-            <h1 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight truncate">
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
               {skill.display_name}
             </h1>
 
-            <p className="text-xs text-slate-600 line-clamp-1 mt-0.5">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1 max-w-4xl">
               {overlay?.purpose || skill.description}
             </p>
           </div>
 
           {/* Right Action Buttons */}
-          <div className="flex items-center gap-1.5 shrink-0 self-start sm:self-center">
+          <div className="flex items-center gap-2 shrink-0 self-start md:self-center">
             {/* Quick Copy Command */}
             <CopyButton
               textToCopy={commandString}
               label="Copy Command"
-              className="text-xs"
+              className="bg-legal-primary text-white border-legal-primary hover:bg-legal-primaryHover shadow-2xs"
             />
 
-            {/* Top Right Skill Info & Diligence Popup Button */}
+            {/* Skill Info & Diligence Popup Button */}
             <button
               onClick={() => setInfoModalOpen(true)}
-              className="flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs"
-              title="View when to use, Indian legal context, prerequisites, and verification steps"
+              className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs"
+              title="View prerequisites, Indian legal context, and verification steps"
             >
               <Info className="w-3.5 h-3.5 text-legal-primary" />
               <span>Skill Info & Checks</span>
             </button>
 
-            {/* Bookmark Button */}
+            {/* Save / Bookmark Button */}
             <button
               onClick={() => toggleBookmark(skill.id)}
-              className={`flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded border transition-colors ${
+              className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded border transition-colors shadow-2xs ${
                 bookmarked
                   ? 'bg-amber-50 text-amber-800 border-amber-300'
-                  : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-50'
+                  : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-50'
               }`}
               title={bookmarked ? 'Saved to bookmarks' : 'Save skill'}
             >
               {bookmarked ? (
                 <>
                   <BookmarkCheck className="w-3.5 h-3.5 text-amber-600" />
-                  <span className="hidden sm:inline">Saved</span>
+                  <span>Saved</span>
                 </>
               ) : (
                 <>
                   <Bookmark className="w-3.5 h-3.5 text-slate-400" />
-                  <span className="hidden sm:inline">Save</span>
+                  <span>Save</span>
                 </>
               )}
             </button>
@@ -143,86 +163,136 @@ export const SkillDetail: React.FC<SkillDetailProps> = ({ skillId }) => {
         </div>
       </div>
 
-      {/* Main Body: Clean Split View (Prompt on Left, Sample Output on Right) */}
-      <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-5">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-7xl mx-auto h-full items-start">
-          {/* Prompt Column */}
-          <div className="space-y-3 bg-white p-4 border border-legal-border rounded-lg shadow-2xs">
-            <div className="flex items-center justify-between pb-2 border-b border-legal-border">
-              <div className="flex items-center gap-1.5">
-                <Terminal className="w-4 h-4 text-legal-primary" />
-                <h2 className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                  Prompt & Execution
-                </h2>
+      {/* 2. Main Scrollable Body */}
+      <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6 lg:p-8 min-w-0">
+        <div className="max-w-7xl mx-auto space-y-6 min-w-0">
+          {/* Terminal Command Bar */}
+          <div className="bg-slate-900 text-slate-100 rounded-lg p-3.5 sm:p-4 border border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 min-w-0">
+            <div className="flex items-center gap-3 min-w-0 flex-1">
+              <div className="w-8 h-8 rounded bg-slate-800 flex items-center justify-center text-emerald-400 shrink-0">
+                <Terminal className="w-4 h-4" />
               </div>
-              <span className="text-[11px] text-slate-400">Copy & paste into Claude</span>
+              <div className="min-w-0 flex-1">
+                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  Official Command Shortcut
+                </div>
+                <code className="text-xs sm:text-sm font-mono text-emerald-300 font-semibold block truncate select-all">
+                  {commandString}
+                </code>
+              </div>
             </div>
 
-            {/* Variables Form if present */}
-            {overlay?.variables && overlay.variables.length > 0 && (
-              <div className="border border-slate-200 rounded-md p-3 bg-slate-50/50">
-                <DynamicVariableForm
-                  variables={overlay.variables}
-                  values={currentValues}
-                  onChange={(k, v) => setVariableValue(skill.id, k, v)}
-                  onResetDefaults={handleResetDefaults}
-                  onLoadSample={handleLoadSample}
+            <div className="flex items-center gap-2 shrink-0 self-start sm:self-auto">
+              <CopyButton
+                textToCopy={commandString}
+                label="Copy Command"
+                className="bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-700 hover:text-white"
+              />
+              <a
+                href="https://claude.ai"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-slate-300 bg-slate-800 border border-slate-700 rounded hover:bg-slate-700 hover:text-white transition-colors"
+                title="Launch Claude Chat"
+              >
+                <span>Open Claude</span>
+                <ExternalLink className="w-3 h-3 text-slate-400" />
+              </a>
+            </div>
+          </div>
+
+          {/* Adaptive Content Layout: 2 Columns if Sample Output exists, else Single Centered Column */}
+          <div className={hasSampleOutput ? 'grid grid-cols-1 xl:grid-cols-2 gap-6 min-w-0' : 'max-w-4xl min-w-0 space-y-6'}>
+            {/* Left / Primary Column: Prompt & Execution */}
+            <div className="space-y-4 min-w-0">
+              {/* Optional Dynamic Variables Customizer */}
+              {overlay?.variables && overlay.variables.length > 0 && (
+                <div className="bg-white border border-legal-border rounded-lg p-4 shadow-2xs min-w-0">
+                  <DynamicVariableForm
+                    variables={overlay.variables}
+                    values={currentValues}
+                    onChange={(k, v) => setVariableValue(skill.id, k, v)}
+                    onResetDefaults={handleResetDefaults}
+                    onLoadSample={handleLoadSample}
+                  />
+                </div>
+              )}
+
+              {/* Educational Standalone Prompt (if author has provided template) */}
+              {hasPromptTemplate ? (
+                <div className="bg-white border border-legal-border rounded-lg overflow-hidden shadow-2xs min-w-0">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-slate-100/80 border-b border-legal-border">
+                    <span className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                      <FileText className="w-3.5 h-3.5 text-legal-primary" />
+                      <span>Standalone Educational Prompt</span>
+                    </span>
+                    <CopyButton textToCopy={interpolatedPrompt} label="Copy Prompt" />
+                  </div>
+
+                  <pre className="p-4 text-xs font-mono text-slate-800 whitespace-pre-wrap break-words leading-relaxed max-h-[60vh] overflow-y-auto bg-slate-50/50">
+                    {interpolatedPrompt}
+                  </pre>
+                </div>
+              ) : instructions ? (
+                /* Official Upstream Instructions (for all skills without separate educational template) */
+                <div className="bg-white border border-legal-border rounded-lg overflow-hidden shadow-2xs min-w-0">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-slate-100/80 border-b border-legal-border">
+                    <span className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                      <FileText className="w-3.5 h-3.5 text-legal-primary" />
+                      <span>Skill Workflow & Execution Instructions</span>
+                    </span>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setInstructionViewMode(instructionViewMode === 'formatted' ? 'raw' : 'formatted')}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-slate-600 bg-white border border-slate-300 rounded hover:bg-slate-50 transition-colors shadow-2xs"
+                      >
+                        {instructionViewMode === 'formatted' ? (
+                          <>
+                            <Code className="w-3 h-3 text-slate-500" />
+                            <span>Raw Markdown</span>
+                          </>
+                        ) : (
+                          <>
+                            <Eye className="w-3 h-3 text-slate-500" />
+                            <span>Formatted</span>
+                          </>
+                        )}
+                      </button>
+                      <CopyButton textToCopy={instructions} label="Copy Instructions" />
+                    </div>
+                  </div>
+
+                  <div className="p-4 sm:p-5 text-xs text-slate-800 leading-relaxed max-h-[65vh] overflow-y-auto min-w-0">
+                    {instructionViewMode === 'formatted' ? (
+                      <div className="prose prose-sm max-w-none text-slate-800 prose-headings:font-bold prose-headings:text-slate-900 prose-code:font-mono prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-table:text-xs">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                          {instructions}
+                        </ReactMarkdown>
+                      </div>
+                    ) : (
+                      <pre className="font-mono text-slate-800 whitespace-pre-wrap break-words text-[11px] bg-slate-50 p-3 rounded border border-slate-200">
+                        {instructions}
+                      </pre>
+                    )}
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
+            {/* Right Column: Sample Deliverable Preview (ONLY when sample output exists) */}
+            {hasSampleOutput && (
+              <div className="space-y-4 min-w-0">
+                <ResponsePreviewPane
+                  sampleOutput={overlay?.sample_output}
                 />
               </div>
             )}
-
-            {/* Prompt Block */}
-            {overlay?.prompt_template ? (
-              <PromptBlock
-                template={overlay.prompt_template}
-                variables={overlay.variables || []}
-                values={currentValues}
-                officialCommand={skill.official_command}
-                argumentHint={skill.argument_hint}
-                confidentialityAccepted={isAccepted}
-              />
-            ) : (
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded text-xs text-slate-600 space-y-2">
-                <div className="font-bold text-slate-800">Official Invocation Command</div>
-                <pre className="text-xs font-mono text-legal-primary bg-white p-2.5 rounded border border-slate-200">
-                  {commandString}
-                </pre>
-                <div className="flex items-center gap-2 pt-1">
-                  <CopyButton textToCopy={commandString} label="Copy Command" />
-                  <a
-                    href="https://claude.ai"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
-                  >
-                    <span>Open Claude</span>
-                    <ExternalLink className="w-3 h-3 text-slate-400" />
-                  </a>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Sample Output Column */}
-          <div className="space-y-3 bg-white p-4 border border-legal-border rounded-lg shadow-2xs">
-            <div className="flex items-center justify-between pb-2 border-b border-legal-border">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                Sample Output Deliverable
-              </h2>
-              <span className="text-[11px] text-slate-400">Expected Claude format</span>
-            </div>
-
-            <ResponsePreviewPane
-              sampleOutput={overlay?.sample_output}
-              fictionalScenario={overlay?.fictional_scenario}
-              verificationChecklist={overlay?.verification_checklist}
-              guardrails={overlay?.guardrails}
-            />
           </div>
         </div>
       </div>
 
-      {/* Details & Diligence Popup Modal */}
+      {/* 3. Skill Details & Diligence Modal Popup */}
       <SkillInfoModal
         skill={skill}
         isOpen={infoModalOpen}
