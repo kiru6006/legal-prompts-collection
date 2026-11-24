@@ -29,13 +29,14 @@ export const PlaybookPromptCard: React.FC<PlaybookPromptCardProps> = ({ prompt, 
   return (
     <div
       onClick={() => onOpen(prompt)}
-      className="bg-white border border-slate-200 hover:border-[#1E3A8A] rounded-xl p-4.5 shadow-2xs hover:shadow-md active:scale-[0.99] active:bg-slate-50/50 transition-all duration-150 cursor-pointer flex flex-col justify-between group min-w-0 space-y-3"
+      className="h-full bg-white border border-slate-200 hover:border-[#1E3A8A] rounded-xl p-4 sm:p-5 shadow-2xs hover:shadow-md active:scale-[0.99] active:bg-slate-50/50 transition-all duration-150 cursor-pointer flex flex-col justify-between group min-w-0"
     >
-      {/* Top Metadata & Category */}
+      {/* Top Section */}
       <div className="space-y-2">
+        {/* Category & Time Savings Badges: exactly 24px */}
         <div className="flex items-center justify-between gap-1.5 h-6">
           <div className="flex items-center gap-1.5 min-w-0 flex-1 truncate">
-            <span className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200 truncate">
+            <span className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200 truncate shrink-0 max-w-[65%]">
               {prompt.category_name}
             </span>
             <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold text-slate-600 bg-slate-50 border border-slate-200 truncate hidden sm:inline">
@@ -43,35 +44,34 @@ export const PlaybookPromptCard: React.FC<PlaybookPromptCardProps> = ({ prompt, 
             </span>
           </div>
 
-          {/* Time Savings Badge: Ashoka Gold */}
           <div className="shrink-0 flex items-center gap-1 text-[10px] font-bold text-amber-950 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-md shadow-2xs">
             <Clock className="w-3 h-3 text-amber-700" />
             <span>{prompt.expected_time_savings}</span>
           </div>
         </div>
 
-        {/* Title */}
-        <h2 className="text-sm font-bold text-slate-900 group-hover:text-[#1E3A8A] transition-colors truncate tracking-tight h-5 flex items-center">
+        {/* Title: exactly 24px high */}
+        <h2 className="text-sm font-bold text-slate-900 group-hover:text-[#1E3A8A] transition-colors truncate tracking-tight h-6 flex items-center">
           {prompt.title}
         </h2>
 
-        {/* Use Case: Uniform 2-line height */}
+        {/* Use Case: exactly 40px high (2 lines) */}
         <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed h-10 overflow-hidden text-ellipsis">
           {prompt.use_case}
         </p>
       </div>
 
-      {/* Bottom Section: Full-width Prompt Snippet + Action Bar */}
-      <div className="space-y-2 pt-2 border-t border-slate-100">
-        {/* Full-width Prompt Snippet Box with Copy Button */}
-        <div className="bg-slate-50 group-hover:bg-slate-100/70 border border-slate-200 rounded-lg p-2 flex items-start justify-between gap-2 transition-colors">
-          <p className="text-[11px] font-mono text-slate-700 line-clamp-2 select-all flex-1 leading-snug" title={prompt.prompt_template}>
+      {/* Bottom Section: Pinned to bottom by flex-col justify-between */}
+      <div className="space-y-2.5 pt-3 border-t border-slate-100 mt-3">
+        {/* Full-width Prompt Snippet Box: uniform 48px height */}
+        <div className="h-12 bg-slate-50 group-hover:bg-slate-100/70 border border-slate-200 rounded-lg px-2.5 py-1.5 flex items-center justify-between gap-2 transition-colors">
+          <p className="text-[11px] font-mono text-slate-700 line-clamp-2 select-all flex-1 leading-snug overflow-hidden" title={prompt.prompt_template}>
             {prompt.prompt_template}
           </p>
 
           <button
             onClick={handleCopy}
-            className="p-1 text-slate-400 hover:text-[#1E3A8A] hover:bg-slate-200/70 active:scale-90 rounded transition-all shrink-0 mt-0.5"
+            className="p-1 text-slate-400 hover:text-[#1E3A8A] hover:bg-slate-200/70 active:scale-90 rounded transition-all shrink-0"
             title={copied ? 'Copied Prompt!' : 'Copy prompt to clipboard'}
             aria-label="Copy prompt"
           >
@@ -83,16 +83,14 @@ export const PlaybookPromptCard: React.FC<PlaybookPromptCardProps> = ({ prompt, 
           </button>
         </div>
 
-        {/* Model, Languages & Action Row */}
-        <div className="flex items-center justify-between text-xs pt-1">
-          {/* Left: Model & Languages */}
+        {/* Model, Languages & Action Row: exactly 32px height */}
+        <div className="h-8 flex items-center justify-between text-xs">
           <div className="flex items-center gap-2 min-w-0 flex-1 truncate">
             <span className="inline-flex items-center gap-1 text-[10px] font-bold text-blue-900 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-md truncate">
               <Cpu className="w-3 h-3 text-[#1E3A8A]" />
               <span className="truncate">{prompt.best_ai_model.split(' ')[0]} {prompt.best_ai_model.split(' ')[1] || ''}</span>
             </span>
 
-            {/* Languages available */}
             <div className="flex items-center gap-1 text-[9px] font-bold font-mono text-slate-500">
               <span className="bg-slate-100 px-1 py-0.2 rounded border border-slate-200">EN</span>
               {hasHindi && <span className="bg-amber-100 text-amber-900 px-1 py-0.2 rounded border border-amber-300">HI</span>}
@@ -100,7 +98,6 @@ export const PlaybookPromptCard: React.FC<PlaybookPromptCardProps> = ({ prompt, 
             </div>
           </div>
 
-          {/* Right: Open Workbench CTA */}
           <button
             onClick={(e) => {
               e.stopPropagation();

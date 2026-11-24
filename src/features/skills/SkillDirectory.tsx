@@ -244,7 +244,7 @@ export const SkillDirectory: React.FC = () => {
       {/* 3. Content Display: Cards vs List */}
       {viewMode === 'cards' ? (
         /* CARDS GRID STRUCTURE (Responsive 1-col mobile, 2-col tablet, 3-col web) */
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4.5 min-w-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 min-w-0 items-stretch">
           {filtered.map((skill) => {
             const commandStr = skill.official_command || `/${skill.category_id}:${skill.official_name}`;
             const isCopied = copiedId === skill.id;
@@ -253,7 +253,7 @@ export const SkillDirectory: React.FC = () => {
               <div
                 key={skill.id}
                 onClick={() => navigateToSkill(skill.id)}
-                className="bg-white border border-slate-200 hover:border-[#1E3A8A] rounded-xl p-4.5 shadow-2xs hover:shadow-md active:scale-[0.99] active:bg-slate-50/50 transition-all duration-150 cursor-pointer flex flex-col justify-between group min-w-0 space-y-3"
+                className="h-full bg-white border border-slate-200 hover:border-[#1E3A8A] rounded-xl p-4 sm:p-5 shadow-2xs hover:shadow-md active:scale-[0.99] active:bg-slate-50/50 transition-all duration-150 cursor-pointer flex flex-col justify-between group min-w-0"
               >
                 {/* Top Section: Badges & Info */}
                 <div className="space-y-2">
@@ -283,7 +283,7 @@ export const SkillDirectory: React.FC = () => {
                   </div>
 
                   {/* Title */}
-                  <h2 className="text-sm font-bold text-slate-900 group-hover:text-[#1E3A8A] transition-colors truncate tracking-tight h-5 flex items-center">
+                  <h2 className="text-sm font-bold text-slate-900 group-hover:text-[#1E3A8A] transition-colors truncate tracking-tight h-6 flex items-center">
                     {skill.display_name}
                   </h2>
 
@@ -294,9 +294,9 @@ export const SkillDirectory: React.FC = () => {
                 </div>
 
                 {/* Bottom Section: Command Bar + Action */}
-                <div className="space-y-2 pt-2 border-t border-slate-100">
+                <div className="space-y-2.5 pt-3 border-t border-slate-100 mt-3">
                   {/* Full-width Official Command Bar */}
-                  <div className="bg-slate-50 group-hover:bg-slate-100/70 border border-slate-200 rounded-lg px-2.5 py-1.5 flex items-center justify-between gap-2 transition-colors">
+                  <div className="h-10 bg-slate-50 group-hover:bg-slate-100/70 border border-slate-200 rounded-lg px-2.5 py-1.5 flex items-center justify-between gap-2 transition-colors">
                     <code className="text-[11px] font-mono text-slate-700 truncate block select-all flex-1" title={commandStr}>
                       {commandStr}
                     </code>
@@ -315,7 +315,7 @@ export const SkillDirectory: React.FC = () => {
                   </div>
 
                   {/* Action Bar */}
-                  <div className="flex items-center justify-between text-xs pt-1">
+                  <div className="h-8 flex items-center justify-between text-xs">
                     <span className="text-[10px] text-slate-400 font-medium flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
                       <span>Workbench Ready</span>

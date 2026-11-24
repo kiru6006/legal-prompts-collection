@@ -285,7 +285,7 @@ export const PlaybookDirectory: React.FC = () => {
 
       {/* 5. Content Views: Cards vs List */}
       {viewMode === 'cards' ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4.5 min-w-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 min-w-0 items-stretch">
           {filtered.map((prompt) => (
             <PlaybookPromptCard
               key={prompt.id}
