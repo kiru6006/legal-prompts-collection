@@ -7,6 +7,7 @@ import { useCatalogueStore } from '../../stores/catalogueStore';
 import { useNavigationStore } from '../../stores/navigationStore';
 import { SkillDirectory } from '../../features/skills/SkillDirectory';
 import { SkillDetail } from '../../features/skills/SkillDetail';
+import { PlaybookDirectory } from '../../features/playbook/PlaybookDirectory';
 import { GettingStartedPage } from '../../pages/GettingStartedPage';
 import { IndianPracticePage } from '../../pages/IndianPracticePage';
 import { AboutPage } from '../../pages/AboutPage';
@@ -59,6 +60,8 @@ export const AppShell: React.FC = () => {
     switch (currentRoute.path) {
       case 'directory':
         return <SkillDirectory />;
+      case 'playbook':
+        return <PlaybookDirectory />;
       case 'skill':
         return <SkillDetail skillId={currentRoute.skillId || 'commercial-legal:nda-review'} />;
       case 'quickstart':

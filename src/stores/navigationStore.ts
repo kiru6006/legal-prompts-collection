@@ -3,9 +3,10 @@ import { create } from 'zustand';
 export type SkillTab = 'overview' | 'prompt' | 'output' | 'verification' | 'source';
 
 export interface RouteState {
-  path: 'directory' | 'skill' | 'quickstart' | 'india' | 'bookmarks' | 'about';
+  path: 'directory' | 'skill' | 'quickstart' | 'india' | 'bookmarks' | 'about' | 'playbook';
   skillId?: string;
   category?: string;
+  promptId?: string;
 }
 
 const LAST_SKILL_KEY = 'claude_legal_last_skill_id';
@@ -40,6 +41,13 @@ function parseHash(hash: string): RouteState {
 
   if (first === 'category' && segments.length >= 2) {
     return { path: 'directory', category: segments[1] };
+  }
+
+  if (first === 'playbook' || first === 'lawyer-prompts') {
+    if (segments.length >= 2) {
+      return { path: 'playbook', promptId: segments[1] };
+    }
+    return { path: 'playbook' };
   }
 
   if (first === 'quickstart') return { path: 'quickstart' };

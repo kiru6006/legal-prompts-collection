@@ -135,3 +135,36 @@ class SkillsCatalogue(BaseModel):
     skills: List[SkillRecord] = Field(default_factory=list)
     workflows: List[WorkflowRecord] = Field(default_factory=list)
     case_studies: List[CaseStudyRecord] = Field(default_factory=list)
+
+class LanguageVariants(BaseModel):
+    english: str = ""
+    hindi: str = ""
+    tamil: str = ""
+
+class LawyerPromptRecord(BaseModel):
+    id: str
+    number: int
+    title: str
+    category_name: str
+    category_id: str
+    practice_area: str
+    target_personas: List[str] = Field(default_factory=list)
+    use_case: str
+    prompt_template: str
+    example_input: str
+    example_output_structure: str
+    best_ai_model: str
+    expected_time_savings: str
+    language_variants: LanguageVariants
+
+class PlaybookCategorySummary(BaseModel):
+    id: str
+    name: str
+    prompt_count: int
+    target_personas: List[str] = Field(default_factory=list)
+
+class LawyerPlaybookCatalogue(BaseModel):
+    metadata: Dict[str, Any] = Field(default_factory=dict)
+    categories: List[PlaybookCategorySummary] = Field(default_factory=list)
+    prompts: List[LawyerPromptRecord] = Field(default_factory=list)
+

@@ -11,7 +11,7 @@ export const CompactHeader: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-30 h-12 px-3 sm:px-4 bg-white border-b border-legal-border flex items-center justify-between gap-3 shrink-0 shadow-2xs">
-      {/* Brand & Drawer Toggle */}
+      {/* Brand, Drawer Toggle & Dual Mode Switcher */}
       <div className="flex items-center gap-2 sm:gap-3 shrink-0">
         <button
           onClick={() => setMobileDrawer(true)}
@@ -39,6 +39,41 @@ export const CompactHeader: React.FC = () => {
             </span>
           </div>
         </button>
+
+        {/* Dual Workbench Mode Switcher: Skills vs Lawyer Playbook */}
+        <div className="hidden lg:inline-flex items-center p-0.5 rounded-lg border border-slate-200 bg-slate-100 text-xs shrink-0 ml-1">
+          <button
+            onClick={() => navigate('directory')}
+            className={`px-3 py-1 rounded-md transition-all font-semibold flex items-center gap-1.5 active:scale-95 ${
+              currentRoute.path === 'directory' || currentRoute.path === 'skill'
+                ? 'bg-[#1E3A8A] text-white font-bold shadow-2xs'
+                : 'text-slate-700 hover:text-slate-900'
+            }`}
+          >
+            <span>Claude Skills</span>
+            <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded ${
+              currentRoute.path === 'directory' || currentRoute.path === 'skill'
+                ? 'bg-blue-950 text-amber-300'
+                : 'bg-slate-200 text-slate-700'
+            }`}>151</span>
+          </button>
+
+          <button
+            onClick={() => navigate('playbook')}
+            className={`px-3 py-1 rounded-md transition-all font-semibold flex items-center gap-1.5 active:scale-95 ${
+              currentRoute.path === 'playbook'
+                ? 'bg-[#1E3A8A] text-white font-bold shadow-2xs'
+                : 'text-slate-700 hover:text-slate-900'
+            }`}
+          >
+            <span>Lawyer Playbook</span>
+            <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded font-bold ${
+              currentRoute.path === 'playbook'
+                ? 'bg-amber-400 text-slate-950'
+                : 'bg-amber-100 text-amber-900 border border-amber-300'
+            }`}>100</span>
+          </button>
+        </div>
       </div>
 
       {/* Center Search Input Trigger */}
@@ -50,7 +85,7 @@ export const CompactHeader: React.FC = () => {
         >
           <div className="flex items-center gap-2 truncate">
             <Search className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-            <span className="truncate">Search 151 legal skills, commands, statutes...</span>
+            <span className="truncate">Search 151 skills & 100 lawyer prompts...</span>
           </div>
           <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.2 text-[10px] font-mono text-slate-500 bg-white border border-slate-200 rounded">
             ⌘K

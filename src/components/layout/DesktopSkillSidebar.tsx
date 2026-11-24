@@ -53,6 +53,32 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({ onItemClick }) =
     <div className="flex flex-col h-full bg-slate-50 text-xs select-none">
       {/* Category Tree Navigation */}
       <div className="flex-1 overflow-y-auto px-2.5 py-3 space-y-0.5">
+        {/* Lawyer Playbook Featured Banner */}
+        <div className="pb-2">
+          <button
+            type="button"
+            onClick={() => handleUtilitySelect('playbook')}
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left transition-all active:scale-[0.98] border shadow-2xs ${
+              currentRoute.path === 'playbook'
+                ? 'bg-[#1E3A8A] text-white font-bold border-[#1E3A8A] shadow-xs'
+                : 'bg-white hover:bg-amber-50/70 text-slate-900 border-amber-300'
+            }`}
+          >
+            <div className="flex items-center gap-2 truncate">
+              <Scale className={`w-4 h-4 shrink-0 ${currentRoute.path === 'playbook' ? 'text-amber-300' : 'text-amber-700'}`} />
+              <div className="truncate">
+                <div className="text-xs font-bold leading-tight">Lawyer Playbook</div>
+                <div className={`text-[10px] ${currentRoute.path === 'playbook' ? 'text-blue-200' : 'text-slate-500'}`}>15 Bharat Categories</div>
+              </div>
+            </div>
+            <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded shrink-0 ${
+              currentRoute.path === 'playbook' ? 'bg-blue-950 text-amber-300' : 'bg-amber-100 text-amber-950 border border-amber-300'
+            }`}>
+              100
+            </span>
+          </button>
+        </div>
+
         <div className="px-2 pt-1 pb-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
           <span>Court Skill Suites</span>
           <span className="text-[9px] font-mono font-semibold px-1.5 py-0.2 rounded bg-slate-200/70 text-slate-700">12</span>
