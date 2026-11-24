@@ -1,0 +1,18 @@
+{
+  "skill_id": "litigation-legal:chronology",
+  "india_context": {
+    "supported_jurisdictions": [
+      "India"
+    ],
+    "legislation_ids": [
+      "CPC-1908",
+      "BSA-2023",
+      "LA-1963"
+    ],
+    "procedural_notes": "Under Bharatiya Sakshya Adhiniyam 2023 (BSA) Section 63 (corresponding to Section 65B of Indian Evidence Act), electronic records require mandatory certificate by person in management/control of device.",
+    "transitional_notes": "Events occurring prior to 1 July 2024 continue to be governed by Indian Evidence Act 1872 under criminal/evidence transition rules.",
+    "verification_requirements": [
+      "Check that electronic email and WhatsApp timelines have corresponding Section 63 BSA certificates."
+    ]
+  }
+}

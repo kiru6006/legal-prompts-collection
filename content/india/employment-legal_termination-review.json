@@ -1,0 +1,18 @@
+{
+  "skill_id": "employment-legal:termination-review",
+  "india_context": {
+    "supported_jurisdictions": [
+      "India"
+    ],
+    "legislation_ids": [
+      "IDA-1947",
+      "PGA-1972",
+      "SHOPS-ACTS"
+    ],
+    "procedural_notes": "Under Industrial Disputes Act 1947, retrenchment of a workman requires 1 month notice in writing, 15 days average pay per completed year of service, and notice to government authorities.",
+    "transitional_notes": "Upcoming Labour Codes (Industrial Relations Code 2020) will alter retrenchment employee threshold from 100 to 300 workmen once notified.",
+    "verification_requirements": [
+      "Confirm payment of statutory gratuity under Payment of Gratuity Act 1972 (mandatory after 5 continuous years)."
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "saas-vendor-lockin",
+  "title": "Enterprise Cloud SaaS Agreement Review",
+  "practice_area": "Commercial Law",
+  "facts": "A healthcare startup is procuring an AI-powered electronic health record (EHR) platform. The vendor's standard terms include unilateral price escalation clauses, auto-renewals with 90-day cancellation windows, and ownership of aggregated derivative data.",
+  "parties": {
+    "Customer": "CureQuick Telehealth",
+    "Vendor": "CloudMed Global Systems Inc"
+  },
+  "legal_issues": [
+    "Customer data ownership under DPDP Act 2023",
+    "Unreasonable restraint on termination",
+    "SLA credit enforcement"
+  ],
+  "relevant_skill_ids": [
+    "commercial-legal:saas-msa-review",
+    "privacy-legal:dpa-review"
+  ],
+  "fictional_excerpt": "Clause 14.2: 'Vendor may use anonymized Customer Clinical Data to train, improve, and deploy proprietary artificial intelligence models without royalty or restriction.'",
+  "recommended_strategy": "Strike Clause 14.2 completely; require Indian data localization; reduce cancellation window from 90 to 30 days."
+}

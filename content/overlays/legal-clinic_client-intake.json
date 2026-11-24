@@ -1,0 +1,50 @@
+{
+  "skill_id": "legal-clinic:client-intake",
+  "display_name": "Legal Aid & Clinic Intake Specialist",
+  "educational_status": "ready",
+  "legal_review_status": "review-pending",
+  "educational_overlay": {
+    "purpose": "Guides university legal aid clinics and pro-bono advocates through empathetic, structured client interviewing and eligibility screening.",
+    "when_to_use": "During first-time clinic interviews with indigent litigants, consumers, or distressed individuals.",
+    "when_not_to_use": "To formally retain a client before checking conflict of interest and supervisory advocate authorization.",
+    "target_personas": [
+      "legal-clinic",
+      "law-student",
+      "independent-advocate"
+    ],
+    "difficulty": "beginner",
+    "estimated_minutes": 20,
+    "variables": [
+      {
+        "key": "DISPUTE_CATEGORY",
+        "label": "Intake Matter Category",
+        "type": "select",
+        "options": [
+          "Domestic / Maintenance",
+          "Tenancy / Eviction",
+          "Consumer Fraud",
+          "Unpaid Wages"
+        ],
+        "default": "Consumer Fraud"
+      },
+      {
+        "key": "INCOME_ELIGIBILITY",
+        "label": "Qualifies for Free Legal Aid (Income < Threshold)",
+        "type": "boolean",
+        "default": true
+      }
+    ],
+    "prompt_template": "Conduct legal clinic intake for client presenting dispute in {{DISPUTE_CATEGORY}} with legal aid eligibility: {{INCOME_ELIGIBILITY}}.\nFormulate plain-language interview questions capturing: (1) Sequence of events, (2) Documents held by client, (3) Desired outcome, (4) Immediate urgency/limitation risks.\nDraft conflict check notice and supervisor escalation summary.\nDo not promise outcome to client. Include [SUPERVISOR SIGN-OFF REQUIRED].",
+    "fictional_scenario": "A daily wage worker was defrauded of Rs. 35,000 by an unauthorized job recruitment agency promising an overseas visa.",
+    "sample_output": "### Clinic Intake Record\n- **Client**: Smt. Kamala Devi (Income: Rs. 12,000/mo - Eligible under Section 12 LSA Act).\n- **Urgency**: Bank UPI transaction occurred 48 hours ago; immediate cyber complaint required.\n- **Action Items**: Draft complaint to National Cyber Crime Portal; seek supervisor review.",
+    "output_type": "intake-record",
+    "guardrails": [
+      "Student clinicians must never provide definitive legal opinions without supervising advocate presence."
+    ],
+    "verification_checklist": [
+      "Verify eligibility criteria under Section 12 of Legal Services Authorities Act 1987.",
+      "Conduct conflict check against prior clinic consultations."
+    ],
+    "ai_risk_warning": "Statutory limitation clocks continue running while clinic evaluates representation eligibility."
+  }
+}

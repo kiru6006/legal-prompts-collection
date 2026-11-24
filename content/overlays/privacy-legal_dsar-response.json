@@ -1,0 +1,48 @@
+{
+  "skill_id": "privacy-legal:dsar-response",
+  "display_name": "Data Subject Access Request (DSAR) Drafter",
+  "educational_status": "ready",
+  "legal_review_status": "review-pending",
+  "educational_overlay": {
+    "purpose": "Formulates structured, compliant response communications to individuals exercising data access, correction, or erasure rights.",
+    "when_to_use": "When an individual user, employee, or customer requests access or deletion of their personal records.",
+    "when_not_to_use": "When the request is tied to active litigation discovery covered by separate procedural court rules.",
+    "target_personas": [
+      "privacy-professional",
+      "compliance-officer"
+    ],
+    "difficulty": "intermediate",
+    "estimated_minutes": 15,
+    "variables": [
+      {
+        "key": "REQUEST_TYPE",
+        "label": "Request Category",
+        "type": "select",
+        "options": [
+          "Access / Summary",
+          "Correction / Update",
+          "Erasure / Deletion"
+        ],
+        "default": "Erasure / Deletion"
+      },
+      {
+        "key": "STATUTORY_RETENTION_REASON",
+        "label": "Legal Basis for Retention (if any)",
+        "type": "text",
+        "default": "Tax and financial transaction record keeping (7 years)"
+      }
+    ],
+    "prompt_template": "Draft response to Data Principal submitting {{REQUEST_TYPE}}.\nAccount for statutory retention obligations under {{STATUTORY_RETENTION_REASON}}.\nClearly detail records deleted, records retained with legal justifications, and appellate grievance mechanisms.\nMark unverified facts with [VERIFY].",
+    "fictional_scenario": "A former customer of an e-commerce platform requests total erasure of all records, but completed orders must be retained for GST audits.",
+    "sample_output": "### DSAR Response Communication\nDear Customer,\nIn response to your erasure request dated 12 October 2026, marketing profiles and browsing logs have been permanently deleted. Account ledger records must be retained pursuant to Section 36 of CGST Act.",
+    "output_type": "formal-communication",
+    "guardrails": [
+      "Never disclose third-party personal data in a subject access summary."
+    ],
+    "verification_checklist": [
+      "Verify identity of requesting individual before releasing data.",
+      "Verify statutory limitation periods for record retention."
+    ],
+    "ai_risk_warning": "Ensure no confidential commercial communications are embedded in the access export."
+  }
+}

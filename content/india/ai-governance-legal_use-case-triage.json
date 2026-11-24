@@ -1,0 +1,18 @@
+{
+  "skill_id": "ai-governance-legal:use-case-triage",
+  "india_context": {
+    "supported_jurisdictions": [
+      "India"
+    ],
+    "legislation_ids": [
+      "IT-2000",
+      "DPDP-2023",
+      "MEITY-AI-ADVISORY-2024"
+    ],
+    "procedural_notes": "MeitY AI advisories mandate that intermediaries deploying generative AI models must ensure no bias, unlawful discrimination, or generation of synthetic deepfakes without watermarks.",
+    "transitional_notes": "Evaluate potential safe harbor defense under Section 79 of Information Technology Act 2000.",
+    "verification_requirements": [
+      "Verify AI terms do not disclaim all accountability for defamatory content generation."
+    ]
+  }
+}

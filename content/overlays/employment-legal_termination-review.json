@@ -1,0 +1,59 @@
+{
+  "skill_id": "employment-legal:termination-review",
+  "display_name": "Employment Termination & Severance Risk Reviewer",
+  "educational_status": "ready",
+  "legal_review_status": "review-pending",
+  "educational_overlay": {
+    "purpose": "Audits proposed involuntary employee terminations for legal risk, statutory severance compliance, notice periods, and discrimination claims.",
+    "when_to_use": "Prior to issuing termination notices, conducting performance-based exits, or implementing corporate restructuring.",
+    "when_not_to_use": "When an employee voluntarily resigns without dispute or grievance.",
+    "target_personas": [
+      "in-house-counsel",
+      "employment-lawyer",
+      "compliance-officer"
+    ],
+    "difficulty": "intermediate",
+    "estimated_minutes": 20,
+    "variables": [
+      {
+        "key": "WORKER_STATUS",
+        "label": "Employee Classification",
+        "type": "select",
+        "options": [
+          "Manager / Supervisory",
+          "Workman / Non-Supervisory"
+        ],
+        "default": "Workman / Non-Supervisory"
+      },
+      {
+        "key": "GROUND_FOR_EXIT",
+        "label": "Stated Grounds",
+        "type": "select",
+        "options": [
+          "Misconduct / Disciplinary",
+          "Underperformance (PIP)",
+          "Redundancy / Retrenchment"
+        ],
+        "default": "Underperformance (PIP)"
+      },
+      {
+        "key": "TENURE_YEARS",
+        "label": "Years of Continuous Service",
+        "type": "number",
+        "default": 4
+      }
+    ],
+    "prompt_template": "Review proposed termination of {{WORKER_STATUS}} with {{TENURE_YEARS}} years service on grounds of {{GROUND_FOR_EXIT}}.\nAssess procedural fairness, statutory retrenchment compensation requirements, notice period dues, and gratuity obligations.\nIdentify wrongful termination risks under applicable industrial and shops & establishment legislation.\nMark unverified factors with [VERIFY].",
+    "fictional_scenario": "A technology company seeks to terminate a senior software engineer after a 30-day Performance Improvement Plan without conducting a domestic inquiry.",
+    "sample_output": "### Termination Risk Assessment: MODERATE-HIGH\n- **Procedural Gap**: PIP documentation lacks clear objective benchmarks.\n- **Statutory Dues**: Gratuity mandatory after 5 years (not triggered at 4 years); 1 month notice or pay in lieu required.",
+    "output_type": "risk-memorandum",
+    "guardrails": [
+      "Never terminate an employee on medical leave or maternity leave."
+    ],
+    "verification_checklist": [
+      "Confirm compliance with Industrial Disputes Act retrenchment notice provisions if classified as workman.",
+      "Verify release agreement includes valid waiver of claims."
+    ],
+    "ai_risk_warning": "Local Shops and Commercial Establishments Acts vary significantly across Indian states."
+  }
+}

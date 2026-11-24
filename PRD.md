@@ -20,9 +20,9 @@ An Unofficial Visual Guide and Interactive Learning Platform for AI-Assisted Leg
 | Frontend                 | React, TypeScript, Vite, Tailwind CSS                                                                                     |
 | Content engineering      | Python, Pydantic, Markdown, JSON                                                                                          |
 | Hosting                  | GitHub Pages                                                                                                              |
-| Repository               | `kiru6006/claude-legal-skills`                                                                                            |
-| Proposed application URL | [https://kiru6006.github.io/claude-legal-skills/](https://kiru6006.github.io/claude-legal-skills/?utm_source=chatgpt.com) |
-| Upstream repository      | [https://github.com/anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal?utm_source=chatgpt.com)   |
+| Repository               | `kiru6006/legal-prompts-collection`                                                                                            |
+| Proposed application URL | [https://kiru6006.github.io/legal-prompts-collection/](https://kiru6006.github.io/legal-prompts-collection/) |
+| Upstream repository      | [https://github.com/anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal)   |
 | Commercial model         | Free educational platform for MVP                                                                                         |
 | Infrastructure model     | Static-first, serverless hosting                                                                                          |
 | Intended audience        | Product owners, developers, legal experts, architects, designers and QA engineers                                         |
@@ -624,7 +624,7 @@ Priority classification:
 
 Primary source:
 
-[https://github.com/anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal?utm_source=chatgpt.com)
+[https://github.com/anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal)
 
 The source repository is the authority for official plugin names, skill identifiers, execution instructions and documented capabilities.
 
@@ -993,15 +993,15 @@ Preferred official sources include:
 
 | Source                        | URL                                                                                   |
 | ----------------------------- | ------------------------------------------------------------------------------------- |
-| India Code                    | [https://www.indiacode.nic.in/](https://www.indiacode.nic.in/?utm_source=chatgpt.com) |
-| Supreme Court of India        | [https://www.sci.gov.in/](https://www.sci.gov.in/?utm_source=chatgpt.com)             |
-| eCourts                       | [https://ecourts.gov.in/](https://ecourts.gov.in/?utm_source=chatgpt.com)             |
-| Gazette of India              | [https://egazette.gov.in/](https://egazette.gov.in/?utm_source=chatgpt.com)           |
-| Ministry of Corporate Affairs | [https://www.mca.gov.in/](https://www.mca.gov.in/?utm_source=chatgpt.com)             |
-| Reserve Bank of India         | [https://www.rbi.org.in/](https://www.rbi.org.in/?utm_source=chatgpt.com)             |
-| SEBI                          | [https://www.sebi.gov.in/](https://www.sebi.gov.in/?utm_source=chatgpt.com)           |
-| MeitY                         | [https://www.meity.gov.in/](https://www.meity.gov.in/?utm_source=chatgpt.com)         |
-| Tamil Nadu Government         | [https://www.tn.gov.in/](https://www.tn.gov.in/?utm_source=chatgpt.com)               |
+| India Code                    | [https://www.indiacode.nic.in/](https://www.indiacode.nic.in/) |
+| Supreme Court of India        | [https://www.sci.gov.in/](https://www.sci.gov.in/)             |
+| eCourts                       | [https://ecourts.gov.in/](https://ecourts.gov.in/)             |
+| Gazette of India              | [https://egazette.gov.in/](https://egazette.gov.in/)           |
+| Ministry of Corporate Affairs | [https://www.mca.gov.in/](https://www.mca.gov.in/)             |
+| Reserve Bank of India         | [https://www.rbi.org.in/](https://www.rbi.org.in/)             |
+| SEBI                          | [https://www.sebi.gov.in/](https://www.sebi.gov.in/)           |
+| MeitY                         | [https://www.meity.gov.in/](https://www.meity.gov.in/)         |
+| Tamil Nadu Government         | [https://www.tn.gov.in/](https://www.tn.gov.in/)               |
 
 These are general source entry points. Specific legislation and judgment links must be checked during content development.
 

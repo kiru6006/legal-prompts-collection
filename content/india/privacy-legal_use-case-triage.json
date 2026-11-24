@@ -1,0 +1,17 @@
+{
+  "skill_id": "privacy-legal:use-case-triage",
+  "india_context": {
+    "supported_jurisdictions": [
+      "India"
+    ],
+    "legislation_ids": [
+      "DPDP-2023",
+      "IT-2000"
+    ],
+    "procedural_notes": "Processing children's data (individuals under 18 years) carries strict prohibitions against tracking, behavioral monitoring, or targeted advertising under Section 9 of DPDPA 2023.",
+    "transitional_notes": "Consent must be free, specific, informed, unconditional and unambiguous with clear notice in all 22 Eighth Schedule languages.",
+    "verification_requirements": [
+      "Verify verifiable parental consent mechanism for minors."
+    ]
+  }
+}

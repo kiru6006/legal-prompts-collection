@@ -1,0 +1,16 @@
+{
+  "skill_id": "law-student:socratic-drill",
+  "india_context": {
+    "supported_jurisdictions": [
+      "India"
+    ],
+    "legislation_ids": [
+      "CONSTITUTION-OF-INDIA"
+    ],
+    "procedural_notes": "Indian constitutional law balances parliamentary democracy with judicial review. Basic structure doctrine (Kesavananda Bharati, 1973) serves as foundational limitation on constituent power.",
+    "transitional_notes": "Contrast Indian model of transformative constitutionalism with US strict originalism.",
+    "verification_requirements": [
+      "Verify whether judgment has been reconsidered by larger constitutional benches."
+    ]
+  }
+}

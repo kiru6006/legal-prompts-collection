@@ -1,0 +1,18 @@
+{
+  "skill_id": "litigation-legal:claim-chart",
+  "india_context": {
+    "supported_jurisdictions": [
+      "India"
+    ],
+    "legislation_ids": [
+      "CPC-1908",
+      "BSA-2023",
+      "SRA-1963"
+    ],
+    "procedural_notes": "Under Order VI Rule 1 and Order VII Rule 1 CPC, pleadings must contain concise statements of material facts but not evidence by which they are to be proved.",
+    "transitional_notes": "Specific Performance claims under Specific Relief Act 1963 as amended in 2018 are mandatory remedies unless falling under statutory exceptions.",
+    "verification_requirements": [
+      "Verify readiness and willingness averment under Section 16(c) of Specific Relief Act 1963."
+    ]
+  }
+}

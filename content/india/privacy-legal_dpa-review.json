@@ -1,0 +1,17 @@
+{
+  "skill_id": "privacy-legal:dpa-review",
+  "india_context": {
+    "supported_jurisdictions": [
+      "India"
+    ],
+    "legislation_ids": [
+      "DPDP-2023",
+      "IT-2000"
+    ],
+    "procedural_notes": "Under the Digital Personal Data Protection Act 2023, the data controller is termed 'Data Fiduciary' and the processor 'Data Processor'. A Data Fiduciary remains primarily liable for breaches committed by its Processor.",
+    "transitional_notes": "Rules and penalty schedules under DPDPA to be notified; legacy Section 43A of IT Act 2000 applies until formal repeal takes effect.",
+    "verification_requirements": [
+      "Confirm processor contract mandates immediate breach notification to Fiduciary to meet Data Protection Board timelines."
+    ]
+  }
+}

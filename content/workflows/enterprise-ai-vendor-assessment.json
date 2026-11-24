@@ -1,0 +1,49 @@
+{
+  "id": "enterprise-ai-vendor-assessment",
+  "title": "Enterprise AI Vendor & Procurement Assessment",
+  "category": "AI Governance & Compliance",
+  "practice_area": "Cyber Law & AI Governance",
+  "description": "Multi-disciplinary evaluation workflow for procuring third-party AI models and SaaS integrations.",
+  "difficulty": "advanced",
+  "steps": [
+    {
+      "step_number": 1,
+      "title": "AI System Use-Case Classification",
+      "objective": "Classify model risk level, data inputs, and degree of human oversight.",
+      "linked_skill_id": "ai-governance-legal:use-case-triage",
+      "required_inputs": [
+        "Vendor architecture whitepaper",
+        "API specification"
+      ],
+      "prompt_guidance": "Classify enterprise AI risk level and identify prohibited capabilities.",
+      "expected_output": "AI risk classification report.",
+      "verification_gate": "Confirm whether system involves autonomous biometric scanning or employment triage."
+    },
+    {
+      "step_number": 2,
+      "title": "Data Privacy & Training Data Audit",
+      "objective": "Audit whether customer data will be ingested for foundational model retraining.",
+      "linked_skill_id": "privacy-legal:dpa-review",
+      "required_inputs": [
+        "Vendor Data Processing Addendum",
+        "Security certifications"
+      ],
+      "prompt_guidance": "Verify zero-data-retention policy and opt-out of model training.",
+      "expected_output": "Data privacy audit checklist.",
+      "verification_gate": "Mandate explicit contractual prohibition against training public models on customer inputs."
+    },
+    {
+      "step_number": 3,
+      "title": "Comprehensive AI Impact Assessment",
+      "objective": "Assess hallucination guardrails, prompt injection vulnerabilities, and fallback mechanisms.",
+      "linked_skill_id": "ai-governance-legal:aia-generation",
+      "required_inputs": [
+        "System prompt guidelines",
+        "RAG evaluation benchmarks"
+      ],
+      "prompt_guidance": "Draft full AI Impact Assessment establishing PEAS operational parameters.",
+      "expected_output": "AI Impact Assessment (AIA) document.",
+      "verification_gate": "Ensure deterministic fallback exists for mission-critical automated processes."
+    }
+  ]
+}

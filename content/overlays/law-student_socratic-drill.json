@@ -1,0 +1,41 @@
+{
+  "skill_id": "law-student:socratic-drill",
+  "display_name": "Socratic Legal Reasoning & Case Method Drill",
+  "educational_status": "ready",
+  "legal_review_status": "review-pending",
+  "educational_overlay": {
+    "purpose": "Interactive Socratic tutor challenging students to defend legal propositions, identify ratio decidendi, and test hypothetical boundaries.",
+    "when_to_use": "For classroom preparation, moot court oral argument training, and conceptual jurisprudential testing.",
+    "when_not_to_use": "When looking for quick copy-paste answers to exam questions.",
+    "target_personas": [
+      "law-student"
+    ],
+    "difficulty": "beginner",
+    "estimated_minutes": 20,
+    "variables": [
+      {
+        "key": "LEGAL_TOPIC",
+        "label": "Jurisprudential Topic",
+        "type": "text",
+        "default": "Fundamental Rights: Doctrine of Basic Structure"
+      },
+      {
+        "key": "STUDENT_STANCE",
+        "label": "Initial Student Hypothesis",
+        "type": "text",
+        "default": "Parliament has unlimited amending power under Article 368"
+      }
+    ],
+    "prompt_template": "Act as a rigorous Socratic law professor drilling the topic: '{{LEGAL_TOPIC}}'.\nChallenge student proposition: '{{STUDENT_STANCE}}'.\nDo not provide the final answer immediately. Ask probing questions forcing analysis of precedents (e.g. Kesavananda Bharati, Minerva Mills).\nPrompt the student to define limits: If Parliament can amend any provision, could it abolish judicial review entirely?",
+    "fictional_scenario": "A 2nd-year law student preparing for Constitutional Law exams argues that parliamentary sovereignty in India mirrors the British Westminster model.",
+    "sample_output": "### Socratic Drill Interaction\n**Professor**: You state that Article 368 contains no implied limitations. Let us test that premise.\nIf Parliament enacted a constitutional amendment declaring that all future laws are immune from judicial challenge, would the Supreme Court be bound to uphold it?\n*Consider the majority holding in Kesavananda Bharati regarding the identity of the Constitution.*",
+    "output_type": "dialogue-guide",
+    "guardrails": [
+      "Encourage multi-faceted reasoning rather than mechanical recitation."
+    ],
+    "verification_checklist": [
+      "Confirm case citations match official supreme court law reports (SCR / SCC)."
+    ],
+    "ai_risk_warning": "Socratic dialogues are conceptual exercises and do not represent formal legal advice."
+  }
+}

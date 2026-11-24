@@ -1,0 +1,18 @@
+{
+  "skill_id": "litigation-legal:subpoena-triage",
+  "india_context": {
+    "supported_jurisdictions": [
+      "India"
+    ],
+    "legislation_ids": [
+      "BNSS-2023",
+      "CRPC-1973",
+      "CONSTITUTION-ART-20"
+    ],
+    "procedural_notes": "Section 94 of Bharatiya Nagarik Suraksha Sanhita 2023 (BNSS) (formerly Section 91 CrPC) empowers courts and police officers to summon documents necessary for investigation or trial.",
+    "transitional_notes": "Article 20(3) of Constitution shields accused persons from being compelled to produce self-incriminatory private documents (State of Gujarat v. Shyamlal Mohanlal).",
+    "verification_requirements": [
+      "Verify whether recipient is named as accused or merely witness in FIR/complaint."
+    ]
+  }
+}

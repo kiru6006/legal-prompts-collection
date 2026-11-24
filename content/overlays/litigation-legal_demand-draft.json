@@ -1,0 +1,55 @@
+{
+  "skill_id": "litigation-legal:demand-draft",
+  "display_name": "Legal Notice of Demand Drafter",
+  "educational_status": "ready",
+  "legal_review_status": "review-pending",
+  "educational_overlay": {
+    "purpose": "Drafts structured, legally grounded pre-litigation demand notices detailing claims, breach chronologies, and statutory deadlines.",
+    "when_to_use": "When a client wishes to put a defaulting counterparty on notice prior to initiating litigation or arbitration.",
+    "when_not_to_use": "Where a pre-suit mediation clause mandates informal consultation prior to issuing formal legal notices.",
+    "target_personas": [
+      "independent-advocate",
+      "litigation-lawyer"
+    ],
+    "difficulty": "intermediate",
+    "estimated_minutes": 20,
+    "variables": [
+      {
+        "key": "CLAIMANT_NAME",
+        "label": "Claimant Client",
+        "type": "text",
+        "default": "Sunrise Logistics Pvt Ltd"
+      },
+      {
+        "key": "DEFAULTING_PARTY",
+        "label": "Defaulting Counterparty",
+        "type": "text",
+        "default": "Vanguard Manufacturing Ltd"
+      },
+      {
+        "key": "AMOUNT_DUE",
+        "label": "Quantified Claim Amount",
+        "type": "text",
+        "default": "Rs. 18,50,000/- plus 18% p.a. interest"
+      },
+      {
+        "key": "CURE_PERIOD_DAYS",
+        "label": "Cure Period (Days)",
+        "type": "number",
+        "default": 15
+      }
+    ],
+    "prompt_template": "Draft legal notice from {{CLAIMANT_NAME}} to {{DEFAULTING_PARTY}} demanding {{AMOUNT_DUE}} within {{CURE_PERIOD_DAYS}} days.\nState contractual foundation, invoice chronology, failed demands, and accrued statutory interest.\nState consequences of default: institution of commercial suit, attachment of assets, and legal costs.\nDo not fabricate advocate registration details. Include [ADVOCATE VERIFICATION REQUIRED].",
+    "fictional_scenario": "Sunrise Logistics transported 40 shipments of raw materials for Vanguard Manufacturing, but invoices from January to March 2026 remain unpaid despite multiple email reminders.",
+    "sample_output": "### LEGAL NOTICE (DEMAND)\nUnder Instructions from my Client, Sunrise Logistics Pvt Ltd...\n1. That my Client performed transport services under Agreement dated...\n2. Invoices totaling Rs. 18,50,000/- remain overdue...\n3. You are hereby called upon to pay within 15 days, failing which commercial legal proceedings will ensue.",
+    "output_type": "legal-notice",
+    "guardrails": [
+      "Ensure demand does not make reckless criminal allegations in pure commercial debt disputes."
+    ],
+    "verification_checklist": [
+      "Verify postal address and registered ROC office of counterparty.",
+      "Confirm interest rate is contractually backed or permitted under Interest Act 1978."
+    ],
+    "ai_risk_warning": "Sending a defamatory or unsubstantiated notice exposes the claimant to counter-claims."
+  }
+}

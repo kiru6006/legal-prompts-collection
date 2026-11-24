@@ -1,0 +1,22 @@
+{
+  "id": "commercial-invoice-default",
+  "title": "Unpaid Commercial Invoices of Rs. 25 Lakhs",
+  "practice_area": "Commercial Law",
+  "facts": "A vendor supplying precision industrial equipment to an automotive tier-1 supplier has 4 unpaid invoices totaling Rs. 25,00,000 dating between December 2025 and March 2026. The buyer claims minor defects without returning the goods.",
+  "parties": {
+    "Claimant": "Precision Tools Pvt Ltd",
+    "Respondent": "Delta Auto Components Ltd"
+  },
+  "legal_issues": [
+    "Limitation period under Article 14 of Limitation Act 1963",
+    "Acceptance of goods under Sale of Goods Act 1930",
+    "Mandatory pre-institution mediation under Section 12A Commercial Courts Act"
+  ],
+  "relevant_skill_ids": [
+    "commercial-legal:vendor-agreement-review",
+    "litigation-legal:demand-draft",
+    "litigation-legal:chronology"
+  ],
+  "fictional_excerpt": "Invoice No. PT/25/089 dated 14 Dec 2025 for Rs. 7,50,000/- marked 'Payment due within 30 days'. Delivery receipt signed by factory manager.",
+  "recommended_strategy": "Issue formal demand notice establishing debt acknowledgment; calculate statutory interest at 18% under Interest Act 1978; file DLSA mediation application."
+}

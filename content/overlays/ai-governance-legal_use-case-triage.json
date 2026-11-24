@@ -1,0 +1,49 @@
+{
+  "skill_id": "ai-governance-legal:use-case-triage",
+  "display_name": "Enterprise AI Use-Case Risk Classifier",
+  "educational_status": "ready",
+  "legal_review_status": "review-pending",
+  "educational_overlay": {
+    "purpose": "Classifies enterprise AI deployments into risk tiers (Prohibited, High Risk, Transparency, Minimal) and maps legal guardrails.",
+    "when_to_use": "Before procuring or deploying generative AI models, biometric scanners, or automated decision algorithms.",
+    "when_not_to_use": "For traditional rule-based software systems that contain no machine learning models.",
+    "target_personas": [
+      "ai-governance-professional",
+      "compliance-officer",
+      "in-house-counsel"
+    ],
+    "difficulty": "intermediate",
+    "estimated_minutes": 15,
+    "variables": [
+      {
+        "key": "AI_SYSTEM_PURPOSE",
+        "label": "System Purpose",
+        "type": "text",
+        "default": "Automated resume filtering for job applicants"
+      },
+      {
+        "key": "HUMAN_OVERSIGHT",
+        "label": "Human-in-the-Loop Safeguards",
+        "type": "select",
+        "options": [
+          "Full Human Decision",
+          "Human Review of Rejections",
+          "Autonomous"
+        ],
+        "default": "Human Review of Rejections"
+      }
+    ],
+    "prompt_template": "Classify AI use case: '{{AI_SYSTEM_PURPOSE}}' with oversight model '{{HUMAN_OVERSIGHT}}'.\nMap against global AI governance frameworks (EU AI Act, NIST AI RMF, NITI Aayog Responsible AI).\nIdentify bias risks, explainability requirements, and audit trail needs.\nMark unverified factors with [VERIFY].",
+    "fictional_scenario": "A logistics corporation wants to use an AI computer vision camera to monitor warehouse worker attentiveness and automatically deduct performance bonuses.",
+    "sample_output": "### AI Governance Classification: HIGH RISK\n- **Risk Driver**: Workplace surveillance impacting employee compensation without meaningful contestability.\n- **Recommendation**: Discontinue automated penalty deductions. Require human supervisor evaluation.",
+    "output_type": "governance-report",
+    "guardrails": [
+      "Do not deploy fully autonomous biometric categorization in employment contexts."
+    ],
+    "verification_checklist": [
+      "Verify training data diversity and bias testing records.",
+      "Confirm notice to affected individuals."
+    ],
+    "ai_risk_warning": "Models can exhibit algorithmic bias not apparent from documentation alone."
+  }
+}

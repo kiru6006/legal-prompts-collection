@@ -1,0 +1,24 @@
+{
+  "id": "shareholder-oppression-management",
+  "title": "Minority Shareholder Oppression & Siphoning in Private Co",
+  "practice_area": "Corporate Law",
+  "facts": "A 22% minority shareholder in a family-owned engineering firm discovers that promoter directors have transferred profitable export contracts to a newly formed entity owned by their relatives.",
+  "parties": {
+    "Petitioner": "Karthik Subramanian (22%)",
+    "Respondents": [
+      "Promoter Directors",
+      "Precision Castings Pvt Ltd"
+    ]
+  },
+  "legal_issues": [
+    "Petition for Oppression and Mismanagement under Section 241-242 Companies Act 2013",
+    "Fiduciary duties of directors under Section 166",
+    "Interim injunction against asset dissipation"
+  ],
+  "relevant_skill_ids": [
+    "corporate-legal:tabular-review",
+    "litigation-legal:claim-chart"
+  ],
+  "fictional_excerpt": "Board Resolution dated 12 Aug: 'Resolved that exclusive export distribution rights be transferred to M/s K.S. Global at cost price.'",
+  "recommended_strategy": "Inspect statutory registers and MCA filings; issue requisition for extraordinary general meeting (EGM); file Company Petition before National Company Law Tribunal (NCLT)."
+}

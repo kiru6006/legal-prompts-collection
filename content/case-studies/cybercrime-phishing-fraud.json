@@ -1,0 +1,22 @@
+{
+  "id": "cybercrime-phishing-fraud",
+  "title": "SIM Swap & Netbanking Unauthorized Fund Transfer",
+  "practice_area": "Cyber Law",
+  "facts": "A retired school teacher experienced sudden cellular SIM deactivation. Within 2 hours, unauthorized NEFT/RTGS debits totaling Rs. 4,50,000 occurred from his pension account to three unfamiliar accounts.",
+  "parties": {
+    "Victim": "G. Sankaran",
+    "Bank": "State Bank of India",
+    "Telecom Provider": "Telco Mobile Ltd"
+  },
+  "legal_issues": [
+    "RBI Zero Liability Framework for Unauthorized Electronic Banking Transactions (2017)",
+    "Duty of care of telecom operator during duplicate SIM issuance",
+    "Information Technology Act 2000 Section 43/66"
+  ],
+  "relevant_skill_ids": [
+    "litigation-legal:subpoena-triage",
+    "legal-clinic:client-intake"
+  ],
+  "fictional_excerpt": "Passbook entry: '14-Sep-2026 NEFT/IMPS Transfer to PayGate Mumbai - Rs. 2,00,000/- Ref 990182.'",
+  "recommended_strategy": "Report incident to National Cyber Crime Reporting Portal (cybercrime.gov.in) within 24 hours; submit written zero-liability claim to bank under RBI guidelines; petition Banking Ombudsman."
+}

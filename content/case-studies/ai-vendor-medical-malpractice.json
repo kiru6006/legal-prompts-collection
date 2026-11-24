@@ -1,0 +1,24 @@
+{
+  "id": "ai-vendor-medical-malpractice",
+  "title": "Healthcare Diagnostic AI Tool Misclassification Liability",
+  "practice_area": "Cyber Law & AI Governance",
+  "facts": "A hospital deployed a third-party AI radiology assistant that misclassified an early-stage malignant tumor as benign tissue, delaying critical surgery by six months. The patient sues the hospital and software vendor.",
+  "parties": {
+    "Plaintiff": "Patient & Family",
+    "Defendants": [
+      "City Multispecialty Hospital",
+      "RadAI Diagnostics Inc"
+    ]
+  },
+  "legal_issues": [
+    "Medical negligence standards (Bolam / Jacob Mathew test)",
+    "Product liability vs professional service liability for AI clinical decision support",
+    "Contractual indemnification between hospital and AI vendor"
+  ],
+  "relevant_skill_ids": [
+    "ai-governance-legal:aia-generation",
+    "commercial-legal:vendor-agreement-review"
+  ],
+  "fictional_excerpt": "Diagnostic AI Output: 'Lesion confidence 98.4% Benign. No immediate biopsy indicated.' Signed off by radiologist without independent verification.",
+  "recommended_strategy": "Review AI procurement agreement for indemnity and warranty carve-outs; examine whether radiologist conducted independent clinical review; prepare joint defence strategy."
+}

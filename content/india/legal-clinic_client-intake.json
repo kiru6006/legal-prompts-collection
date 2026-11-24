@@ -1,0 +1,17 @@
+{
+  "skill_id": "legal-clinic:client-intake",
+  "india_context": {
+    "supported_jurisdictions": [
+      "India"
+    ],
+    "legislation_ids": [
+      "LSA-1987",
+      "CPA-2019"
+    ],
+    "procedural_notes": "Section 12 of Legal Services Authorities Act 1987 grants free legal aid to women, children, members of SC/ST, industrial workmen, and persons whose annual income is below statutory threshold.",
+    "transitional_notes": "Consumer disputes below Rs. 50 Lakhs are heard by District Consumer Disputes Redressal Commission under Consumer Protection Act 2019.",
+    "verification_requirements": [
+      "Check whether dispute is suitable for pre-litigation settlement through National Lok Adalat."
+    ]
+  }
+}

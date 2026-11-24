@@ -1,0 +1,24 @@
+{
+  "id": "personal-data-breach-fintech",
+  "title": "FinTech Customer Database Leak on Public Cloud",
+  "practice_area": "Data Protection and Privacy",
+  "facts": "A misconfigured AWS S3 cloud storage bucket exposed 450,000 KYC records (Aadhaar cards, PAN numbers, bank statements) of a lending app to the open internet for 14 days before remediation.",
+  "parties": {
+    "Entity": "FastLoan FinTech Ltd",
+    "Regulators": [
+      "Data Protection Board of India",
+      "CERT-In"
+    ]
+  },
+  "legal_issues": [
+    "Mandatory 6-hour cybersecurity incident reporting to CERT-In",
+    "Reasonable security safeguards under Section 8 DPDP Act 2023",
+    "Civil penalties up to Rs. 250 Crores for failure to prevent personal data breaches"
+  ],
+  "relevant_skill_ids": [
+    "privacy-legal:dpa-review",
+    "privacy-legal:dsar-response"
+  ],
+  "fictional_excerpt": "Incident Log: 'Bucket public read policy identified on 10 Oct. Over 450,000 object keys accessed by unknown external IP ranges.'",
+  "recommended_strategy": "Formulate immediate incident response notification to CERT-In and Data Protection Board; notify impacted data principals; engage independent forensic auditor."
+}

@@ -1,0 +1,64 @@
+{
+  "id": "civil-recovery",
+  "title": "Commercial Debt & Civil Money Recovery Workflow",
+  "category": "Litigation & Commercial",
+  "practice_area": "Civil Litigation",
+  "description": "End-to-end guided workflow for recovering unpaid commercial debts, from initial invoice assessment and chronology extraction to statutory demand notice preparation and pre-institution mediation.",
+  "difficulty": "intermediate",
+  "steps": [
+    {
+      "step_number": 1,
+      "title": "Client Intake & Debt Assessment",
+      "objective": "Screen invoices, identify contractual counterparty, and evaluate quantum of claim.",
+      "linked_skill_id": "litigation-legal:demand-intake",
+      "required_inputs": [
+        "Invoices",
+        "Purchase Orders",
+        "Delivery Receipts"
+      ],
+      "prompt_guidance": "Evaluate invoices and verify total outstanding debt and interest terms.",
+      "expected_output": "Quantified debt triage memo with limitation assessment.",
+      "verification_gate": "Confirm debt is within 3-year limitation period under Limitation Act 1963."
+    },
+    {
+      "step_number": 2,
+      "title": "Factual Timeline & Document Chronology",
+      "objective": "Construct objective chronology of purchase orders, deliveries, and payment demands.",
+      "linked_skill_id": "litigation-legal:chronology",
+      "required_inputs": [
+        "Email trails",
+        "WhatsApp correspondence",
+        "Delivery challans"
+      ],
+      "prompt_guidance": "Extract dated chronology identifying admitted acknowledgments of debt.",
+      "expected_output": "Chronological evidence matrix with exhibit mappings.",
+      "verification_gate": "Ensure all electronic communications have Section 63 BSA certificate trails."
+    },
+    {
+      "step_number": 3,
+      "title": "Pre-Litigation Legal Notice Drafting",
+      "objective": "Formulate formal demand notice giving statutory cure period prior to suit.",
+      "linked_skill_id": "litigation-legal:demand-draft",
+      "required_inputs": [
+        "Chronology matrix",
+        "Calculated interest schedule"
+      ],
+      "prompt_guidance": "Draft notice demanding payment within 15 days under threat of commercial suit.",
+      "expected_output": "Structured legal demand notice.",
+      "verification_gate": "Supervising advocate review and signature before issuance via Registered Post."
+    },
+    {
+      "step_number": 4,
+      "title": "Pre-Institution Mediation & Commercial Court Filing",
+      "objective": "Initiate mandatory pre-institution mediation under Section 12A Commercial Courts Act.",
+      "linked_skill_id": "litigation-legal:claim-chart",
+      "required_inputs": [
+        "Proof of service of legal notice",
+        "Statement of Truth"
+      ],
+      "prompt_guidance": "Draft application for pre-institution mediation at District Legal Services Authority.",
+      "expected_output": "DLSA mediation application and draft commercial plaint.",
+      "verification_gate": "Confirm verification clause compliance under Order VI Rule 15A CPC."
+    }
+  ]
+}

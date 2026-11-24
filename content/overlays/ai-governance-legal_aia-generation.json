@@ -1,0 +1,43 @@
+{
+  "skill_id": "ai-governance-legal:aia-generation",
+  "display_name": "AI Impact Assessment (AIA) Drafter",
+  "educational_status": "ready",
+  "legal_review_status": "review-pending",
+  "educational_overlay": {
+    "purpose": "Drafts structured AI Impact Assessments evaluating societal, fundamental rights, and security implications of LLM systems.",
+    "when_to_use": "When launching customer-facing AI agents, automated chatbots, or predictive scoring models.",
+    "when_not_to_use": "For standard spell-checkers or static business intelligence dashboards.",
+    "target_personas": [
+      "ai-governance-professional",
+      "in-house-counsel"
+    ],
+    "difficulty": "advanced",
+    "estimated_minutes": 30,
+    "variables": [
+      {
+        "key": "MODEL_TYPE",
+        "label": "AI Architecture",
+        "type": "text",
+        "default": "Frontier LLM with RAG pipeline"
+      },
+      {
+        "key": "DATA_INPUT_TYPE",
+        "label": "Input Data Category",
+        "type": "text",
+        "default": "Customer support transcripts and order IDs"
+      }
+    ],
+    "prompt_template": "Generate an AI Impact Assessment for '{{MODEL_TYPE}}' processing '{{DATA_INPUT_TYPE}}'.\nAnalyze prompt injection vulnerabilities, hallucination probabilities, data leakage risks, and fallback mechanisms.\nPropose PEAS framework specifications and incident reporting thresholds.",
+    "fictional_scenario": "An insurance company builds an LLM agent that reads claim receipts and estimates reimbursement eligibility for medical procedures.",
+    "sample_output": "### AI Impact Assessment (Executive Summary)\n- **Hallucination Risk**: Model may misinterpret medical billing codes resulting in erroneous claim rejections.\n- **Mitigation**: Require deterministic claim adjudication engine for financial calculations; LLM restricted to text extraction.",
+    "output_type": "comprehensive-aia",
+    "guardrails": [
+      "Financial and medical determinations must never rely solely on probabilistic model text."
+    ],
+    "verification_checklist": [
+      "Conduct red-teaming for prompt injection attacks.",
+      "Implement automated PII scrubbing prior to LLM inference."
+    ],
+    "ai_risk_warning": "RAG retrieval accuracy degrades with poorly formatted scanned PDF documents."
+  }
+}

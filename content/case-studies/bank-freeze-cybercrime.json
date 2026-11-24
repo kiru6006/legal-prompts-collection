@@ -1,0 +1,22 @@
+{
+  "id": "bank-freeze-cybercrime",
+  "title": "Bank Account Freeze on Disputed UPI Transaction",
+  "practice_area": "Banking and Financial Law",
+  "facts": "A boutique software consultancy received Rs. 85,000 via UPI for web development services. Two weeks later, their entire current account containing Rs. 14,00,000 was placed under debit freeze by HDFC Bank pursuant to a notice from Telangana Cyber Crime Police.",
+  "parties": {
+    "Account Holder": "PixelCraft Studios LLP",
+    "Bank": "HDFC Bank Ltd",
+    "Agency": "Cyber Crime Police Station, Hyderabad"
+  },
+  "legal_issues": [
+    "Scope of freeze under Section 91/102 CrPC (Section 94/107 BNSS)",
+    "Proportionality: freezing total account balance vs lien on disputed amount of Rs. 85,000",
+    "Bona-fide payee protection"
+  ],
+  "relevant_skill_ids": [
+    "litigation-legal:subpoena-triage",
+    "litigation-legal:demand-draft"
+  ],
+  "fictional_excerpt": "Bank SMS: 'Your account XXXXXX1234 has been put on debit freeze as per instructions of Cyber Crime PS Ack No 2026/CY/9821.'",
+  "recommended_strategy": "Submit formal representation with invoice, tax filings, and client communication proving legitimate transaction; request restriction of freeze to Rs. 85,000; approach Magistrate under Section 457 CrPC if police do not de-freeze within 7 days."
+}

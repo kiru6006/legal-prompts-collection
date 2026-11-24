@@ -1,0 +1,21 @@
+{
+  "id": "dishonoured-cheque-138",
+  "title": "Dishonoured Business Cheque of Rs. 12 Lakhs",
+  "practice_area": "Banking and Financial Law",
+  "facts": "A distributor issued a cheque of Rs. 12,00,000 against delivery of consumer goods. The cheque was returned dishonoured with memo 'Funds Insufficient'. Notice was dispatched via speed post.",
+  "parties": {
+    "Complainant": "Apex FMCG Distributors",
+    "Accused": "Metro Mart Supermarket"
+  },
+  "legal_issues": [
+    "Strict 15-day statutory cure window under Section 138 Negotiable Instruments Act",
+    "Statutory presumption of consideration under Section 139 NI Act",
+    "Vicarious liability of company directors under Section 141 NI Act"
+  ],
+  "relevant_skill_ids": [
+    "litigation-legal:demand-draft",
+    "litigation-legal:chronology"
+  ],
+  "fictional_excerpt": "Bank Return Memo dated 18 Oct 2026: 'Reason: 01 - Funds Insufficient'. Cheque No. 490211.",
+  "recommended_strategy": "Dispatch statutory notice within 30 days of memo; file complaint before Judicial Magistrate within 30 days of expiry of 15-day cure window."
+}

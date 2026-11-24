@@ -1,0 +1,42 @@
+{
+  "skill_id": "commercial-legal:saas-msa-review",
+  "display_name": "SaaS Subscription Agreement Reviewer",
+  "educational_status": "ready",
+  "legal_review_status": "review-pending",
+  "educational_overlay": {
+    "purpose": "Examines multi-tenant cloud software subscription terms, uptime commitments, and data ownership.",
+    "when_to_use": "When purchasing cloud software, B2B SaaS platforms, or API access.",
+    "when_not_to_use": "When purchasing custom software development where source code copyright must be transferred.",
+    "target_personas": [
+      "in-house-counsel",
+      "legal-operations"
+    ],
+    "difficulty": "intermediate",
+    "estimated_minutes": 15,
+    "variables": [
+      {
+        "key": "UPTIME_SLA",
+        "label": "Target Uptime SLA",
+        "type": "text",
+        "default": "99.9%"
+      },
+      {
+        "key": "DATA_LOCATION",
+        "label": "Data Residency Requirement",
+        "type": "text",
+        "default": "Within India"
+      }
+    ],
+    "prompt_template": "Review SaaS agreement requiring {{UPTIME_SLA}} uptime commitment and data hosting located {{DATA_LOCATION}}.\nAnalyze customer data ownership, IP rights in customer derivative works, and auto-renewal cancellation notice windows.\nOutput structured risk table with redline recommendations.",
+    "fictional_scenario": "Bharat Retail adopts a cloud CRM platform storing 1,000,000 Indian consumer customer profiles.",
+    "sample_output": "### SaaS Review Findings\n- **Data Ownership**: Agreement grants vendor license to use customer data for model training. [ACTION: Strike model training grant].\n- **Auto-Renewal**: 60-day advance notice required. [ACTION: Reduce to 30 days].",
+    "output_type": "redline-guide",
+    "guardrails": [
+      "Ensure customer retains 100% unconditional ownership of raw and processed customer data."
+    ],
+    "verification_checklist": [
+      "Check data export format and transition assistance on termination."
+    ],
+    "ai_risk_warning": "Verify vendor cloud sub-processors against internal security guidelines."
+  }
+}

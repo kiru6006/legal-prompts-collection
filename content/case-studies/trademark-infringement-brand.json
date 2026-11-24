@@ -1,0 +1,21 @@
+{
+  "id": "trademark-infringement-brand",
+  "title": "Phonetic Trademark Infringement in FMCG Cosmetics",
+  "practice_area": "Intellectual Property",
+  "facts": "A skincare brand 'GLOWVEDA' registered in Class 3 discovers a rival company selling identical ayurvedic creams under the mark 'GLOVEDA' with deceptively similar packaging and color scheme.",
+  "parties": {
+    "Plaintiff": "Glowveda Naturals Pvt Ltd",
+    "Defendant": "Gloveda Beauty Care"
+  },
+  "legal_issues": [
+    "Infringement under Section 29 Trademarks Act 1999",
+    "Passing off and deceptive similarity test",
+    "Grant of ex-parte ad-interim injunction"
+  ],
+  "relevant_skill_ids": [
+    "commercial-legal:nda-review",
+    "litigation-legal:demand-draft"
+  ],
+  "fictional_excerpt": "Cease & Desist Notice: 'Your adoption of GLOVEDA is visually, phonetically, and conceptually deceptively similar, calculated to deceive ordinary consumers.'",
+  "recommended_strategy": "Issue Cease & Desist letter demanding immediate stock recall; file commercial suit seeking permanent injunction and rendition of accounts."
+}

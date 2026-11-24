@@ -1,0 +1,51 @@
+{
+  "id": "criminal-case-preparation",
+  "title": "Criminal Case Intake, FIR & Defence Strategy",
+  "category": "Criminal Law",
+  "practice_area": "Criminal Litigation",
+  "description": "Structured workflow for assessing criminal FIRs, mapping applicable statutes under new criminal laws (BNS/BNSS/BSA), and formulating defence strategy.",
+  "difficulty": "advanced",
+  "steps": [
+    {
+      "step_number": 1,
+      "title": "FIR & Allegation Deconstruction",
+      "objective": "Analyze First Information Report (FIR) elements, informant statement, and penal sections.",
+      "linked_skill_id": "litigation-legal:demand-intake",
+      "required_inputs": [
+        "Certified copy of FIR",
+        "Arrest memo (if applicable)"
+      ],
+      "prompt_guidance": "Deconstruct FIR into specific penal ingredients and verify whether cognizable/bailable.",
+      "expected_output": "FIR legal analysis matrix.",
+      "verification_gate": "Determine whether incident occurred before or after 1 July 2024 to apply IPC vs BNS."
+    },
+    {
+      "step_number": 2,
+      "title": "Factual Timeline & Alibi Verification",
+      "objective": "Establish exact chronology of events, call detail records (CDR), and electronic alibi.",
+      "linked_skill_id": "litigation-legal:chronology",
+      "required_inputs": [
+        "Toll plaza receipts",
+        "CCTV records",
+        "CDR / Google timeline"
+      ],
+      "prompt_guidance": "Map accused timeline against alleged time and place of crime.",
+      "expected_output": "Defense chronology matrix.",
+      "verification_gate": "Preserve electronic records immediately under Section 63 BSA certificate."
+    },
+    {
+      "step_number": 3,
+      "title": "Bail Petition & Procedural Safeguards",
+      "objective": "Draft anticipatory or regular bail application focusing on Section 479/482 BNSS safeguards.",
+      "linked_skill_id": "litigation-legal:claim-chart",
+      "required_inputs": [
+        "Accused antecedents",
+        "Medical records",
+        "Local surety details"
+      ],
+      "prompt_guidance": "Formulate bail grounds emphasizing absence of flight risk, cooperation with investigation.",
+      "expected_output": "Comprehensive bail application with supporting affidavit.",
+      "verification_gate": "Verify compliance with Arnesh Kumar / Satender Kumar Antil arrest guidelines."
+    }
+  ]
+}
