@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-legal-skills-pipeline"
+version = "1.0.0"
+description = "Build and validation pipeline for Claude Legal Skills Workbench"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "click>=8.1.7",
+    "pydantic>=2.10.0",
+    "pyyaml>=6.0.2",
+    "python-frontmatter>=1.1.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["scripts/tests"]
+python_files = ["test_*.py"]
