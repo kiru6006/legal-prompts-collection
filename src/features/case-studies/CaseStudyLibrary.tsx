@@ -74,7 +74,7 @@ export const CaseStudyLibrary: React.FC = () => {
                 }`}
               >
                 <div className="text-xs font-bold leading-snug">{cs.title}</div>
-                <div className={`text-[10px] mt-1 font-medium ${isSelected ? 'text-teal-100' : 'text-slate-500'}`}>
+                <div className={`text-[10px] mt-1 font-medium ${isSelected ? 'text-blue-200' : 'text-slate-500'}`}>
                   {cs.practice_area}
                 </div>
               </button>
@@ -146,9 +146,9 @@ export const CaseStudyLibrary: React.FC = () => {
 
             {/* Recommended Legal Strategy */}
             {activeCase.recommended_strategy && (
-              <div className="p-4 bg-teal-50/70 border border-teal-200 rounded-md text-xs space-y-1.5">
-                <div className="font-bold text-teal-900">Recommended Advocate Action Strategy</div>
-                <p className="text-[11px] text-teal-950 leading-relaxed">
+              <div className="p-4 bg-amber-50/70 border border-amber-300 rounded-lg text-xs space-y-1.5 shadow-2xs">
+                <div className="font-bold text-amber-950">Recommended Advocate Action Strategy</div>
+                <p className="text-[11px] text-amber-950 leading-relaxed">
                   {activeCase.recommended_strategy}
                 </p>
               </div>

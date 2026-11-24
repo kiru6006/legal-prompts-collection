@@ -61,7 +61,7 @@ export const GettingStartedPage: React.FC = () => {
               <div className="text-[11px] text-slate-500 font-medium">Core Categories</div>
             </div>
             <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-lg">
-              <div className="text-lg font-bold text-teal-700">18</div>
+              <div className="text-lg font-bold text-amber-700">18</div>
               <div className="text-[11px] text-slate-500 font-medium">Indian Legal Overlays</div>
             </div>
             <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-lg">
@@ -100,7 +100,7 @@ export const GettingStartedPage: React.FC = () => {
 
               <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg space-y-1">
                 <div className="font-bold text-slate-900 flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5 text-teal-700" />
+                  <Layers className="w-3.5 h-3.5 text-[#1E3A8A]" />
                   <span>Practice Profiles</span>
                 </div>
                 <p className="text-[11px] text-slate-600">
@@ -124,7 +124,7 @@ export const GettingStartedPage: React.FC = () => {
         {/* 3. Why Use Them? (The Strategic Value) */}
         <section className="space-y-3">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-xs">
+            <div className="w-7 h-7 rounded bg-amber-100 text-amber-900 flex items-center justify-center font-bold text-xs">
               ★
             </div>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">

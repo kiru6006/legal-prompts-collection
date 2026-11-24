@@ -89,13 +89,13 @@ export const SkillInfoModal: React.FC<SkillInfoModalProps> = ({ skill, isOpen, o
 
           {/* Indian Legal Adaptation if present */}
           {skill.india_context && (
-            <div className="p-3.5 bg-teal-50/70 border border-teal-200 rounded-md space-y-2">
+            <div className="p-3.5 bg-amber-50/80 border border-amber-300 rounded-xl space-y-2 shadow-2xs">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5 font-bold text-teal-950">
-                  <Scale className="w-4 h-4 text-teal-700" />
+                <div className="flex items-center gap-1.5 font-bold text-amber-950">
+                  <Scale className="w-4 h-4 text-amber-700" />
                   <span>Indian Legal Framework & Statutes</span>
                 </div>
-                <span className="text-[10px] font-semibold text-teal-800 bg-teal-100 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-bold text-amber-950 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded">
                   {skill.india_context.supported_jurisdictions.join(', ')}
                 </span>
               </div>
@@ -104,7 +104,7 @@ export const SkillInfoModal: React.FC<SkillInfoModalProps> = ({ skill, isOpen, o
                 {skill.india_context.legislation_ids.map((leg) => (
                   <span
                     key={leg}
-                    className="px-2 py-0.5 font-mono text-[10px] font-bold bg-white text-teal-900 border border-teal-300 rounded"
+                    className="px-2 py-0.5 font-mono text-[10px] font-bold bg-white text-slate-800 border border-amber-300 rounded shadow-2xs"
                   >
                     {leg}
                   </span>
@@ -112,14 +112,14 @@ export const SkillInfoModal: React.FC<SkillInfoModalProps> = ({ skill, isOpen, o
               </div>
 
               {skill.india_context.procedural_notes && (
-                <p className="text-teal-950/90 text-[11px] leading-relaxed">
+                <p className="text-slate-800 text-[11px] leading-relaxed">
                   <strong>Procedural Notes: </strong>
                   {skill.india_context.procedural_notes}
                 </p>
               )}
 
               {skill.india_context.transitional_notes && (
-                <p className="text-amber-900 text-[11px] leading-relaxed pt-1 border-t border-teal-200">
+                <p className="text-amber-900 text-[11px] leading-relaxed pt-1 border-t border-amber-200">
                   <strong>Transitional Law: </strong>
                   {skill.india_context.transitional_notes}
                 </p>

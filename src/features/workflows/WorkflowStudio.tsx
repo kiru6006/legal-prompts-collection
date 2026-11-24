@@ -56,7 +56,7 @@ export const WorkflowStudio: React.FC = () => {
                 }`}
               >
                 <div className="text-xs font-bold leading-snug">{wf.title}</div>
-                <div className={`text-[10px] mt-1 ${isSelected ? 'text-teal-100' : 'text-slate-500'}`}>
+                <div className={`text-[10px] mt-1 ${isSelected ? 'text-blue-200' : 'text-slate-500'}`}>
                   {wf.practice_area} • {wf.steps.length} Steps
                 </div>
               </button>

@@ -12,14 +12,27 @@ export default {
           sidebar: "#F8FAFC",
           text: "#0F172A",
           muted: "#475569",
-          primary: "#1D4ED8",
-          primaryHover: "#1E40AF",
-          selected: "#DBEAFE",
-          selectedText: "#1E40AF",
+          primary: "#1E3A8A", // Judicial Supreme Court Navy Blue
+          primaryHover: "#172554", // Deep Midnight Navy
+          accent: "#1E3A8A",
+          selected: "#EFF6FF", // Crisp Judicial Blue Tint
+          selectedText: "#1E3A8A",
           border: "#E2E8F0",
           borderDark: "#CBD5E1",
+          
+          // Indian Court Heritage Palette
+          courtBlack: "#0F172A",    // Advocate Robe Black
+          courtWhite: "#FFFFFF",    // Clean White Parchment
+          courtNavy: "#1E3A8A",     // Ashok Chakra / Supreme Court Blue
+          courtBlue: "#2563EB",     // Vibrant Judicial Blue
+          courtRed: "#B91C1C",      // Red Tape / Court Velvet Crimson
+          courtRedBg: "#FEF2F2",    // Soft Crimson Tint
+          courtGold: "#D97706",     // Ashoka Emblem Gold / Ochre Yellow
+          courtGoldBg: "#FEF3C7",   // Warm Gold Tint
+          courtYellow: "#CA8A04",   // Deep Court Yellow
+          
           danger: "#B91C1C",
-          warning: "#B45309",
+          warning: "#D97706",
           success: "#047857",
         }
       },

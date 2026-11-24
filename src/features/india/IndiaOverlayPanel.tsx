@@ -18,14 +18,14 @@ export const IndiaOverlayPanel: React.FC<IndiaOverlayPanelProps> = ({ context })
   return (
     <div className="space-y-4">
       {/* Header Badge */}
-      <div className="p-3 bg-teal-50 border border-teal-200 rounded-md flex items-center justify-between">
+      <div className="p-3 bg-amber-50 border border-amber-300 rounded-lg flex items-center justify-between shadow-2xs">
         <div className="flex items-center gap-2">
-          <Scale className="w-4 h-4 text-teal-700" />
-          <span className="text-xs font-bold text-teal-900">
+          <Scale className="w-4 h-4 text-amber-700" />
+          <span className="text-xs font-bold text-amber-950">
             Indian Legal Practice Adaptation
           </span>
         </div>
-        <span className="text-[11px] font-semibold text-teal-800 bg-teal-100 px-2 py-0.5 rounded">
+        <span className="text-[11px] font-bold text-amber-950 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded">
           {context.supported_jurisdictions.join(', ')}
         </span>
       </div>
