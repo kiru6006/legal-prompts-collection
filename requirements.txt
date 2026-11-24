@@ -1,9 +1,0 @@
-# Python dependencies for content pipeline and validation
-click>=8.1.7
-pydantic>=2.10.0
-pyyaml>=6.0.2
-python-frontmatter>=1.1.0
-pytest>=8.3.4
-mypy>=1.14.0
-ruff>=0.9.0
-types-PyYAML>=6.0.12.20241230
